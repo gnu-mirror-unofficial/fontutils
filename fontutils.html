@@ -1,58 +1,102 @@
-<HTML>
-<!-- $Id: fontutils.html,v 1.3 2003/02/11 12:54:59 karl Exp $ -->
-<HEAD>
-<TITLE>Fontutils - GNU Project - Free Software Foundation (FSF)</TITLE>
-<LINK REV="made" HREF="mailto:webmasters@www.gnu.org">
-<META NAME="keywords" CONTENT="fontutils">
-</HEAD>
+<html>
+<!-- $Id: fontutils.html,v 1.4 2003/02/16 20:58:40 karl Exp $ -->
+<head>
+<title>Fontutils - GNU Project - Free Software Foundation (FSF)</title>
+<link rev="made" href="mailto:webmasters@www.gnu.org">
+<meta name="keywords" content="GNU fontutils, font utilities, bitmap
+        fonts, outline fonts">
+</head>
+
 <BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#1F00FF" ALINK="#FF0000" VLINK="#9900DD">
-<H3>Fontutils</H3>
-<A HREF="/graphics/agnuhead.html"><IMG SRC="/graphics/gnu-head-sm.jpg"
+
+<a HREF="/graphics/gnu-head-sm.jpg"><img SRC="/graphics/gnu-head-sm.jpg"
 ALT=" [image of the Head of a GNU] "
-WIDTH="129" HEIGHT="122"></A>
+WIDTH="129" HEIGHT="122"></a>
+<a HREF="/graphics/gnu-head.jpg">(jpeg 21k)</a>
+<a HREF="/philosophy/gif.html">no gifs due to patent problems</a>
 
-<P>
-The fontutils package includes the programs
-bpltobzr, bzrto, charspace, fontconvert, gsrenderfont, imageto,
-imgrotate, limn, and xbfe.
-These create fonts for use with
-<A HREF="/software/ghostscript/ghostscript.html">Ghostscript</A>
-or TeX
-(starting with a scanned type image and converting the bitmaps to outlines),
-convert between font formats, etc.
+<h2>GNU Fontutils</h2>
 
-<P>
-The package also includes the libraries
-libbzr.a, libgf.a, libpbm.a, libpk.a, libtfm.a, and libwidgets.a.
+<P>The GNU font utilities 
+to allow conversion of a scanned type specimen image into an outline
+(PostScript Type&nbsp;1 or Metafont) font.  These fonts can be used with
+<a href="/software/ghostscript/ghostscript.html">Ghostscript</a> or
+<a href="http://tug.org">TeX</a>.
+The <a href="http://www.delorie.com/gnu/docs/fontutils/fontu_toc.html">manual
+is available</a>.
+
+<p>Since the fontutils were originally written in the early 1990's,
+other programs have been developed which do a better job of some parts
+of this task.  Here is a list of the fontutils programs with indications
+of their current status:
+
+<ul>
+<li>xbfe: bitmap font editor for shapes and metrics; possibly still
+useful.  There are many other bitmap editors, but I'm not sure if there
+are any that edit TeX fonts directly.
+
+<li>imgrotate: rotates images 90 degrees, an inefficiently-implemented
+subset of pnmrotate (from <a href="http://netpbm.sourceforge.net">netpbm</a>).
+
+<li>imageto: extracts individual characters from a large image; still useful.
+
+<li>fontconvert: some features may still be useful, such as creating a
+tfm file from a bitmap.
+
+<li>charspace: makes initial cut at character spacing; never worked all
+that well, but I'm not aware of any alternative program.
+
+<li>gsrenderfont: a shell script that converts outline fonts to bitmaps
+at a given size.  This is called from TeX programs under certain
+circumstances.  The version here has long been replaced by the scripts
+in the TeX distributions.
+
+<li>limn: does the actual conversion from bitmaps to splines. These
+days, you're much better off using
+<a href="http://autotrace.sourceforge.net">autotrace</a>.
+
+<li>bzrto: conversion from the generic homegrown `bzr' (Bezier) format
+output by limn to PostScript Type&nbsp;1, PostScript Type&nbsp;3, or
+Metafont.  Obsolete.
+
+<li>bpltobzr: translate the binary bzr format into an equivalent text
+format `bpl' (bezier property list), for editing.  Fortunately, a real
+outline font editor <a href="http://pfaedit.sourceforge.net">pfaedit</a> 
+has been written (it also supports TrueType and font conversions, among
+other things).
+
+</ul>
+
+<p>If you have questions or suggestions for the fontutils, please email
+<a href="mailto:bug-gnu-utils@gnu.org"><em>bug-gnu-utils@gnu.org</em></a>
+and/or <a href="mailto:karl@gnu.org">me personally</a>.
+
 
 <HR>
-
 Return to <A HREF="/home.html">GNU's home page</A>.
 
-<P>
-Please send FSF &amp; GNU inquiries &amp; questions to
-
+<P>Please send FSF &amp; GNU inquiries &amp; questions to
 <A HREF="mailto:gnu@gnu.org"><EM>gnu@gnu.org</EM></A>.
-There are also <A HREF="/home.html#ContactInfo">other ways to contact</A> the FSF.
+There are also <A HREF="/home.html#ContactInfo">other ways to
+contact</A> the FSF.
 
-<P>
-Please send comments on these web pages to
-<A HREF="mailto:webmasters@www.gnu.org"><EM>webmasters@www.gnu.org</EM></A>,
-send other questions to
-<A HREF="mailto:gnu@gnu.org"><EM>gnu@gnu.org</EM></A>.
+<p>Please send comments on these web pages in general to
+<a href="mailto:webmasters@www.gnu.org"><EM>webmasters@www.gnu.org</EM></a>
+(and <a href="mailto:bug-gnu-utils@gnu.org"><em>bug-gnu-utils@gnu.org</em></a>
+for this page in particular),
+and send other questions to
+<a href="mailto:gnu@gnu.org"><em>gnu@gnu.org</em></a>.
 
-<P>
-Copyright (C) 1998, 2003 Free Software Foundation, Inc.,
+<P>Copyright (C) 2003 Free Software Foundation, Inc.,
 59 Temple Place - Suite 330, Boston, MA  02111,  USA
 
-<P>
-Verbatim copying and distribution of this entire article is
+<P>Verbatim copying and distribution of this entire article is
 permitted in any medium, provided this notice is preserved.
-<P>
-Updated:
-<!-- hhmts start -->
-11 Dec 1999 jonas
-<!-- hhmts end -->
-<HR>
-</BODY>
-</HTML>
+
+<p>Updated:
+<!-- timestamp start -->
+$Date: 2003/02/16 20:58:40 $ $Author: karl $
+<!-- timestamp end -->
+<hr>
+</body>
+</html>
