@@ -1,10 +1,10 @@
 <html>
-<!-- $Id: fontutils.html,v 1.6 2003/02/26 22:49:31 karl Exp $ -->
+<!-- $Id: fontutils.html,v 1.7 2003/03/09 12:44:53 karl Exp $ -->
 <head>
 <title>Fontutils - GNU Project - Free Software Foundation (FSF)</title>
 <link rev="made" href="mailto:webmasters@www.gnu.org">
 <meta name="keywords" content="GNU fontutils, font utilities, bitmap
-        fonts, outline fonts">
+        fonts, outline fonts, splines, side bearings">
 </head>
 
 <BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#1F00FF" ALINK="#FF0000" VLINK="#9900DD">
@@ -39,8 +39,10 @@ subset of pnmrotate (from <a href="http://netpbm.sourceforge.net">netpbm</a>).
 <li>fontconvert: some features may still be useful, such as creating a
 tfm file from a bitmap.
 
-<li>charspace: makes initial cut at character spacing; never worked all
-that well, but I'm not aware of any alternative program.
+<li>charspace: allows non-interactive side bearing specification.  
+<a href="http://pfaedit.sourceforge.net">pfaedit</a> allows
+interactive specification, and has a very nice preview window for
+testing side bearings.
 
 <li>gsrenderfont: a shell script that converts outline fonts to bitmaps
 at a given size.  This is called from TeX programs under certain
@@ -57,7 +59,7 @@ Metafont.  Obsolete.
 
 <li>bpltobzr: translate the binary bzr format into an equivalent text
 format `bpl' (bezier property list), for editing.  Fortunately, a real
-outline font editor <a href="http://pfaedit.sourceforge.net">pfaedit</a> 
+outline font editor, <a href="http://pfaedit.sourceforge.net">pfaedit</a>,
 has been written; it also supports TrueType and bitmap font editing,
 including metrics.
 
@@ -94,7 +96,7 @@ permitted in any medium, provided this notice is preserved.
 
 <p>Updated:
 <!-- timestamp start -->
-$Date: 2003/02/26 22:49:31 $ $Author: karl $
+$Date: 2003/03/09 12:44:53 $ $Author: karl $
 <!-- timestamp end -->
 <hr>
 </body>
