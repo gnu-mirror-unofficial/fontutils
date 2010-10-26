@@ -1,5 +1,5 @@
 <html>
-<!-- $Id: fontutils.html,v 1.11 2006/11/22 09:12:14 ramprasadb Exp $ -->
+<!-- $Id: fontutils.html,v 1.12 2010/10/26 15:33:09 karl Exp $ -->
 <head>
 <title>Fontutils - GNU Project - Free Software Foundation (FSF)</title>
 <link rev="made" href="mailto:webmasters@www.gnu.org">
@@ -27,6 +27,12 @@ to allow conversion of a scanned type specimen image into an outline
 
 <p>The fontutils are <b>looking for a maintainer</b>.  Please 
 <a href="mailto:bug-fontutils@gnu.org">email</a> if you're interested.
+
+<p>The basic approach should probably be to get the code to compile
+again with current gcc, and then update the infrastructure to current
+autoconf and prepare a new release that way.  And then work on using
+gnulib, and perhaps even actual functionality.  A copyright assignment
+will need to be executed, since these programs are copyrighted by the FSF.
 
 <ul>
 <li><a href="http://ftp.gnu.org/gnu/fontutils/">Download sources</a>.
@@ -72,13 +78,16 @@ Metafont.  Obsolete.
 format `bpl' (bezier property list), for editing.  Fortunately, a
 full-featured free outline font editor, <a
 href="http://fontforge.sourceforge.net">fontforge</a>, has been written
-(by George Williams).
+(by George Williams).  Obsolete.
 
 <li>xbfe: bitmap font editor for shapes and metrics; astonishingly, it
 seems there are still no bitmap editors for any format except BDF, so
-still useful.
+still useful.  Or can fontforge handle other bitmaps?
 
 </ul>
+
+<p>The obsolete programs should probably be removed from the
+distribution, but left in the source tree.
 
 <p>If you have questions or suggestions for the fontutils, please email
 <a href="mailto:bug-fontutils@gnu.org"><em>bug-fontutils@gnu.org</em></a>.
@@ -110,7 +119,7 @@ permitted in any medium, provided this notice is preserved.
 
 <p>Updated:
 <!-- timestamp start -->
-$Date: 2006/11/22 09:12:14 $ $Author: ramprasadb $
+$Date: 2010/10/26 15:33:09 $ $Author: karl $
 <!-- timestamp end -->
 
 <p>
