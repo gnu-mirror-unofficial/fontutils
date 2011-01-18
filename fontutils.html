@@ -1,133 +1,170 @@
-<html>
-<!-- $Id: fontutils.html,v 1.13 2011/01/18 01:23:39 styluseater Exp $ -->
-<head>
-<title>Fontutils - GNU Project - Free Software Foundation (FSF)</title>
-<link rev="made" href="mailto:webmasters@www.gnu.org">
-<meta name="keywords" content="GNU fontutils, font utilities, bitmap
-        fonts, outline fonts, splines, side bearings">
-</head>
+<!-- #include virtual="/server/header.html" -->
+<title>Fontutils - GNU Project - Free Software Foundation</title>
+<!--#include virtual="/server/banner.html" -->
+<h2>GNU Fontutils</h2>
 
-<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#1F00FF" ALINK="#FF0000" VLINK="#9900DD">
+<h3 id="download">Downloading 
+  Fontutils</h3>
 
-<h1>GNU Fontutils</h1>
+<p>Fontutils
+can be found on the main GNU ftp server:
+<a href="http://ftp.gnu.org/pub/gnu/fontutils/">http://ftp.gnu.org/pub/gnu/fontutils/</a>
+(via HTTP) and
+<a href="ftp://ftp.gnu.org/pub/gnu/fontutils/">ftp://ftp.gnu.org/pub/gnu/fontutils/</a>
+(via FTP).  It can also be found
+on the <a href="/prep/ftp.html">GNU mirrors</a>;
+please
+<a href="http://ftpmirror.gnu.org/fontutils/">use
+a mirror</a> if possible.</p>
 
-<a HREF="/graphics/gnu-head-sm.jpg"><img SRC="/graphics/gnu-head-sm.jpg"
-ALT=" [image of the Head of a GNU] "
-WIDTH="129" HEIGHT="122"></a>
-<a HREF="/graphics/gnu-head.jpg">(jpeg 21k)</a>
+<h3 id="doc">Documentation</h3>
 
-<P>
-<HR>
+<p><strong>NOTE:</strong>The current
+<a href="http://www.delorie.com/gnu/docs/fontutils/fontu_toc.html">
+online manual</a>
+is not on a GNU host.</p>
 
-<P>The GNU font utilities 
-to allow conversion of a scanned type specimen image into an outline
-(PostScript or Metafont) font.  These fonts can be used with
-<a href="/software/ghostscript/ghostscript.html">Ghostscript</a> or
-<a href="http://tug.org">TeX</a>.
+<p><a href="#doc">Documentation for 
+Fontutils</a>
+is available online, as
+is <a href="#doc">documentation for most GNU software</a>. You may
+also find more information about
+Fontutils
+by running
+<em>info&nbsp;fontutils</em>
+or
+<em>man&nbsp;fontutils</em>,
+or by looking nat
+<em>/usr/doc/fontutils</em>,
+or similar directories on your system.  A brief summary is available by
+running <tt>fontutils&nbsp;--help</tt>.</p>
 
-<p>The fontutils has a new maintainer.  Please be patient as the new maintainer
-acclimates to the project.</p>  
+<h3 id="mail">Mailing lists</h3>
 
-<p>The current tasks for the new maintainer are:</p>
-<ol>
-<li>Get the code to compile against GCC 4.5.2. - DONE</li>
-<li>Update the infrastructure to current autoconf. - PENDING</li>
-<li>Generate a new release using new autoconf. - PENDING</li>
-<li>Work on using gnulib. - PENDING</li>
-<li>Add user/developer driven functionality. - PENDING</li>
-<li>Remove legacy/deprecated components. - PENDING</li>
-</ol>
+<p>Fontutils
+has one mailing list:
+<a href="mailto:fontutils-bugs@gnu.org">&lt;fontutils-bugs@gnu.org&gt;</a>.</p>
 
-<ul>
-<li><a href="http://ftp.gnu.org/gnu/fontutils/">Download sources</a>.
-<li><a href="http://www.delorie.com/gnu/docs/fontutils/fontu_toc.html">View
-    manual</a>.
-</ul>
+<p>The single mailing list might be split into two lists but for now please use
+the bugs mailing list for bug reports, enhancements and general 
+discussions.</p>
 
-<p>Since the fontutils were originally written in the early 1990's,
-other programs have been developed which do a better job of some parts
-of this task.  Here is a list of the fontutils programs with indications
-of their current status:
+<p>To subscribe to these or any GNU mailing lists, please send an empty
+mail with a Subject: header of just <tt>subscribe</tt> to the relevant
+-request list.  For example to subscribe yourself to the GNU announcement
+list, you would send mail to <a href="mailto:info-gnu-request@gnu.org?Subject=subscribe"
+>&lt;info-gnu-request@gnu.org&gt;</a>.
+Or you can use the <a href="http://lists.gnu.org/mailman/listinfo/info-gnu">mailing list web
+interface</a>.</p>
 
-<ul>
-<li>imgrotate: rotates images 90 degrees, an inefficiently-implemented
-subset of pnmrotate (from <a href="http://netpbm.sourceforge.net">netpbm</a>).
+<h3 id="contribute">Getting involved</h3>
 
-<li>imageto: extracts individual characters from a large image; still useful.
+<p>Development of
+Fontutils,
+and GNU in general, is a volunteer effort, and you can contribute.  For
+information, please read <a href="/help/">How to help GNU</a>.  If you'd
+like to get involved, it's a good idea to join the bugs mailing list
+(see above).</p>
 
-<li>fontconvert: some features may still be useful, such as creating a
-tfm file from a bitmap.
 
-<li>charspace: allows non-interactive side bearing specification, so
-possibly still useful.  On the other hand, <a
-href="http://fontforge.sourceforge.net">fontforge</a> allows interactive
-specification, and has a very nice preview window for testing side
-bearings.
+<dl>
+<dt id="test">Test releases (COMING SOON)</dt>
 
-<li>gsrenderfont: a shell script that converts outline fonts to bitmaps
-at a given size.  This is called from TeX programs under certain
-circumstances.  The version here has long been replaced by the scripts
-in the TeX distributions.
+<dd>Trying the latest release (when available) is always
+appreciated.  Test releases of
+Fontutils
+can be found at 
+<a href="#test">http://alpha.gnu.org/gnu/fontutils/</a>
+(via HTTP) and
+<a href="#test">ftp://alpha.gnu.org/gnu/fontutils/</a>
+(via FTP).</dd>
 
-<li>limn: does the actual conversion from bitmaps to splines. These
-days, you're much better off using
-<a href="http://autotrace.sourceforge.net">autotrace</a> or
-<a href="http://potrace.sourceforge.net">potrace</a>.
 
-<li>bzrto: conversion from the generic homegrown `bzr' (Bezier) format
-output by limn to PostScript Type&nbsp;1, PostScript Type&nbsp;3, or
-Metafont.  Obsolete.
+<dt>Development</dt>
+<dd>For development sources, bug and patch trackers, and other
+information, please see the
+<a href="http://savannah.gnu.org/projects/fontutils/">Fontutils
+project page</a>
+at <a href="http://savannah.gnu.org">savannah.gnu.org</a>.
+Please feel free to look at the <a href="oldtasks.txt">old task list</a>.</dd>
 
-<li>bpltobzr: translate the binary bzr format into an equivalent text
-format `bpl' (bezier property list), for editing.  Fortunately, a
-full-featured free outline font editor, <a
-href="http://fontforge.sourceforge.net">fontforge</a>, has been written
-(by George Williams).  Obsolete.
 
-<li>xbfe: bitmap font editor for shapes and metrics; astonishingly, it
-seems there are still no bitmap editors for any format except BDF, so
-still useful.  Or can fontforge handle other bitmaps?
+<dt id="trans">Translating
+  Fontutils (COMING SOON)</dt>
 
-</ul>
+<dd>To translate
+<!-- http://translationproject.org/domain/fontutils.html -->
+Fontutil's
+messages into other languages, please see the <a
+href="#trans">Translation Project
+page for
+Fontutils</a>.
+If you have a new translation of the message strings,
+or updates to the existing strings, please have the changes made in this
+repository.  Only translations from this site will be incorporated into
+Fontutils.
+For more information, see the <a
+href="http://translationproject.org/html/welcome.html">Translation
+Project</a>.</dd>
 
-<p>The obsolete programs should probably be removed from the
-distribution, but left in the source tree.
 
-<p>If you have questions or suggestions for the fontutils, please email
-<a href="mailto:bug-fontutils@gnu.org"><em>bug-fontutils@gnu.org</em></a>.
+<dt>Maintainer</dt>
 
-<P>
-<HR>
+<dd>Fontutils
+is currently being maintained by
+Adam M. Dutko.
+Plese use the mailing lists for contact.</dd>
 
-<P>
-Return to <A HREF="/home.html">GNU's home page</A>.
+</dl>
 
-<P>
-<P>Please send FSF &amp; GNU inquiries &amp; questions to
-<A HREF="mailto:gnu@gnu.org"><EM>gnu@gnu.org</EM></A>.
-There are also <A HREF="http://www.fsf.org/about/contact.html">other ways to
-contact</A> the FSF.
 
-<p>Please send comments on these web pages in general to
-<a href="mailto:webmasters@www.gnu.org"><EM>webmasters@www.gnu.org</EM></a>
-(and <a href="mailto:bug-gnu-utils@gnu.org"><em>bug-gnu-utils@gnu.org</em></a>
-for this page in particular),
-and <br>send other questions to
-<a href="mailto:gnu@gnu.org"><em>gnu@gnu.org</em></a>.
+<h3 id="license">Licensing</h3>
 
-<P>Copyright &copy; 2001, 2003, 2004, 2006 Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,  USA
+<p>Fontutils
+is free software; you can redistribute it and/or modify it under the
+terms of the <a href="http://www.gnu.org/licenses/gpl.html"
+rel="license">GNU General Public License</a> as published by the Free
+Software Foundation; either version&nbsp;3 of the License, or (at your
+option) any later version.</p>
 
-<P>Verbatim copying and distribution of this entire article is
-permitted in any medium, provided this notice is preserved.
+
+</div>
+<!--#include virtual="/server/footer.html" -->
+<div id="footer">
+
+<p>Please send general FSF &amp; GNU inquiries to
+<a href="mailto:gnu@gnu.org">&lt;gnu@gnu.org&gt;</a>.
+There are also <a href="/contact/">other ways to contact</a>
+the FSF.<br />
+Please send broken links and other corrections or suggestions to
+<a href="mailto:bug-baz@gnu.org">&lt;bug-baz@gnu.org&gt;</a>.</p>
+
+<p>Please see the <a
+href="/server/standards/README.translations.html">Translations
+README</a> for information on coordinating and submitting translations
+of this article.</p>
+
+<p>Copyright &copy; 2010 Free Software Foundation, Inc.</p>
+
+<p>Verbatim copying and distribution of this entire article are
+permitted worldwide, without royalty, in any medium, provided this
+notice, and the copyright notice, are preserved.</p>
 
 <p>Updated:
 <!-- timestamp start -->
-$Date: 2011/01/18 01:23:39 $ $Author: styluseater $
+$Date: 2011/01/18 03:24:14 $
 <!-- timestamp end -->
+</p>
+</div>
 
-<p>
-<hr />
+<div id="translations">
+<h4>Translations of this page</h4>
 
+<ul class="translations-list">
+<!-- English -->
+<li><a href="#">English</a>&nbsp;[en]</li>
+</ul>
+</div>
+</div>
 </body>
 </html>
