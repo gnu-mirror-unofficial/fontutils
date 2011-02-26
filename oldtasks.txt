@@ -15,7 +15,7 @@ acclimates to the project.</p>
 <li>Work on using gnulib. - PENDING</li>
 <li>Add user/developer driven functionality. - PENDING</li>
 <li>Remove legacy/deprecated components. - PENDING</li>
-<li>Convert to single changelog.</li>
+<li>Convert to single changelog. - DONE</li>
 </ol>
 
 <p>Since the fontutils were originally written in the early 1990's,
