@@ -1,0 +1,58 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_73.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_73.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_74.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 10.1.5.1 Initializing <EM>t</EM> </H4>
+<!--docid::SEC73::-->
+<P>
+
+<A NAME="IDX694"></A>
+<A NAME="IDX695"></A>
+<A NAME="IDX696"></A>
+</P><P>
+
+Limn must have some way to relate the discrete curve made from the
+original bitmap to the continuous spline being fitted to that curve.
+This is done by associating another number, traditionally called
+<EM>t</EM>, with each point on the curve.
+</P><P>
+
+<A NAME="IDX697"></A>
+Imagine moving along the spline through the points on the curve.  Then
+<EM>t</EM> for a point <EM>p</EM> corresponds to how far along the spline
+you have traveled to get to <EM>p</EM>.  In practice, of course, the
+spline does not perfectly fit all the points, and so Limn adjusts the
+<EM>t</EM> values to improve the fit (see section <A HREF="fontu_76.html">10.1.5.4 Reparameterization</A>).  (It
+also adjusts the spline itself, as mentioned above.)
+</P><P>
+
+<A NAME="IDX698"></A>
+Limn initializes the <EM>t</EM> value for each point on the curve using a
+method called <EM>chord-length parameterization</EM>.  The details of how
+this works do not affect how you use the program, so we will omit them
+here.  (See the Plass &#38; Stone article cited in <TT>`limn/README'</TT> if
+you're curious about them.)
+</P><P>
+
+<A NAME="Finding tangents"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

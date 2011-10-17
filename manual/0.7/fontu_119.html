@@ -1,0 +1,141 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_119.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_119.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_118.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_120.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_115.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_116.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_121.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 14.1.3 Editing BPL files </H3>
+<!--docid::SEC119::-->
+<P>
+
+<A NAME="IDX1129"></A>
+<A NAME="IDX1130"></A>
+<A NAME="IDX1131"></A>
+</P><P>
+
+To edit a BPL file in <CODE>bpl-mode</CODE>, the usual Emacs editing commands
+work: cursor motion, deletion, and insertion all work just as with
+normal text files.
+</P><P>
+
+Here is an example of a piece of a BPL file.  See section <A HREF="fontu_101.html">12.1 BPL files</A>, for a
+full description of BPL files.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(char 0 (comment hex 0x0)
+  (width "6.263")
+  (bb "0.241" "5.782"  "-0.241" "6.745")
+  (outline "0.482" "6.745"
+    (line "1.445" "6.504")
+    (line "1.445" "0.241")
+    (line "0.482" "0.241")
+    (line "3.613" "0.000")
+    (spline "1.682" "1.264"  "2.409" "4.436"  "2.409" "6.504")
+    <small>...</small>
+  )
+)
+</pre></td></tr></table></P><P>
+
+The most usual editing session is changing the numbers in the
+<CODE>line</CODE> and <CODE>spline</CODE> commands, which are the coordinates that
+determine the character outline.  But you can do anything you want:
+change a <CODE>line</CODE> to <CODE>spline</CODE> (and add the requisite other
+coordinates) or vice versa, change the set width, etc.
+</P><P>
+
+You must retain the quotation marks around the floating-point numbers,
+however.  (They are necessary because Emacs 18 does not recognize
+floating-point constants.)  If you inadvertently delete one, then when
+you go to display the edited character (see below), you will get an
+error from Emacs.
+</P><P>
+
+When <CODE>bpl-mode</CODE> is first invoked, it starts up Ghostscript in a
+subprocess.  The section below describes the details of this.  It is
+Ghostscript which does the actual displaying.
+</P><P>
+
+<CODE>bpl-mode</CODE> provides three additional commands (we show the default
+bindings in parentheses):
+</P><P>
+
+<OL>
+
+<LI>
+<A NAME="IDX1132"></A>
+<A NAME="IDX1133"></A>
+<A NAME="IDX1134"></A>
+<A NAME="IDX1135"></A>
+<A NAME="IDX1136"></A>
+<CODE>bpl-quit</CODE> (<KBD>C-c q</KBD> and <KBD>C-c C-q</KBD>), which kills the
+Ghostscript subprocess and then removes the BPL buffer from the screen.
+<CODE>bpl-quit</CODE> does not convert the BPL file (back) to BZR form; that's
+left for you to do by hand.
+<P>
+
+<LI>
+<A NAME="IDX1137"></A>
+<A NAME="IDX1138"></A>
+<A NAME="IDX1139"></A>
+<A NAME="IDX1140"></A>
+<CODE>bpl-erasepage</CODE> (<KBD>C-c e</KBD> and <KBD>C-c C-e</KBD>), which sends an
+<CODE>erasepage</CODE> command to Ghostscript, thus erasing whatever is
+currently displayed.
+<P>
+
+<LI>
+<A NAME="IDX1141"></A>
+<A NAME="IDX1142"></A>
+<A NAME="IDX1143"></A>
+<A NAME="IDX1144"></A>
+<A NAME="IDX1145"></A>
+<CODE>bpl-show-char</CODE> (<KBD>C-c c</KBD> and <KBD>C-c C-c</KBD>), which sends to
+Ghostscript a PostScript translation of the character that point is in.
+<P>
+
+</OL>
+<P>
+
+<A NAME="IDX1146"></A>
+<A NAME="IDX1147"></A>
+<CODE>bpl-mode</CODE> calls <CODE>bpl-mode-hook</CODE> as its last action.  You can
+define this to take additional actions if you like.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_120.html">14.1.3.1 BZRedit and Ghostscript</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Customizing the use of Ghostscript.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="BZRedit and Ghostscript"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_118.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_120.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_115.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_116.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_121.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

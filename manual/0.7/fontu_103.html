@@ -1,0 +1,99 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_103.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_103.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_102.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_104.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_101.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_105.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 12.1.2 BPL characters </H3>
+<!--docid::SEC103::-->
+<P>
+
+<A NAME="IDX989"></A>
+<A NAME="IDX990"></A>
+</P><P>
+
+A BPL file must have one or more <EM>character definitions</EM>.  These
+have the following form:
+</P><P>
+
+<A NAME="IDX991"></A>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(char <VAR>unsigned</VAR>
+  <VAR>width</VAR>
+  <VAR>bounding-box</VAR>
+  <VAR>outline1</VAR>
+  <VAR>outline2</VAR>
+  <small>...</small>
+)
+</pre></td></tr></table></P><P>
+
+The <VAR>unsigned</VAR> number directly after the <CODE>char</CODE> command
+specifies the character code.  If it is larger than 255 (the maximum
+character code in BZR files, and all other font formats the font
+utilities deal with) then BPLtoBZR issues a warning and uses its value
+modulo 256.
+</P><P>
+
+The other pieces are specified as properties:
+</P><P>
+
+<UL>
+
+<A NAME="IDX992"></A>
+<A NAME="IDX993"></A>
+<LI>
+<CODE>(width <VAR>realstr</VAR>)</CODE>.  The set width of the character in
+printer's points.
+<P>
+
+<A NAME="IDX994"></A>
+<A NAME="IDX995"></A>
+<A NAME="IDX996"></A>
+<A NAME="IDX997"></A>
+<A NAME="IDX998"></A>
+<A NAME="IDX999"></A>
+<LI>
+<CODE>(bb <VAR>llx</VAR> <VAR>lly</VAR> <VAR>urx</VAR> <VAR>ury</VAR>)</CODE>.  The bounding box
+of the character in printer's points, defined by the lower-left <EM>x</EM>
+coordinate and the upper-right <EM>y</EM> coordinate.  Each value is a
+realstr.  The left side bearing is defined by <VAR>llx</VAR>, and the right
+side bearing is defined by the difference between the set width and
+<VAR>urx</VAR>.
+<P>
+
+</UL>
+<P>
+
+Each <VAR>outline</VAR> specifies a geometrical outline, i.e., a closed
+curve.  For example, an <SAMP>`o'</SAMP> would have two <VAR>outline</VAR>s.  If the
+character is entirely blank, the BPL file has no <VAR>outline</VAR>s at all.
+</P><P>
+
+The outline property is somewhat more complex than the rest, so we
+describe it below.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_104.html">12.1.2.1 BPL outlines</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Representation of character outlines.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="BPL outlines"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,118 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_58.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_58.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_57.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_59.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 9.2.3 <CODE>char-width</CODE> command </H3>
+<!--docid::SEC58::-->
+<P>
+
+<A NAME="IDX532"></A>
+<A NAME="IDX533"></A>
+</P><P>
+
+The <CODE>char-width</CODE> command specifies the set width and left side
+bearing as a percentage of the total remaining space for a single
+character.  It has the form:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>char-width <VAR>charname</VAR> <VAR>width-expr</VAR> , <VAR>lsb-%-expr</VAR>
+</pre></td></tr></table></P><P>
+
+where:
+</P><P>
+
+<DL COMPACT>
+
+<DT><VAR>charname</VAR>
+<DD>is a character name from the font encoding.  See section <A HREF="fontu_65.html">9.3 Invoking Charspace</A>,
+for how to specify the encoding file.
+<P>
+
+<A NAME="IDX534"></A>
+<A NAME="IDX535"></A>
+<A NAME="IDX536"></A>
+<DT><VAR>width-expr</VAR>
+<DD>specifies the set width of the character in pixels.  The <EM>set width</EM>
+is the sum of the bitmap width, left side bearing, and right side
+bearing.
+<P>
+
+<A NAME="IDX537"></A>
+<DT><VAR>lsb-%-expr</VAR>
+<DD>specifies the left side bearing as a percentage of <VAR>width-expr</VAR>
+minus the bitmap width of the character.  Expressing the lsb as a
+percentage means that you need not think about the width of the
+character image: if you want to center a character, for example,
+<SAMP>`.5'</SAMP> for <VAR>lsb-%-expr</VAR> will always work.
+<P>
+
+</DL>
+<P>
+
+The <CODE>char-width</CODE> command is useful when you want a character to
+have a particular set width, since it's much simpler to specify that
+width and the left side bearing (and let the program compute the right
+side bearing) than to somehow estimate the bitmap width and then choose
+the side bearings to add up to the desired set width.
+</P><P>
+
+<A NAME="IDX538"></A>
+<A NAME="IDX539"></A>
+<A NAME="IDX540"></A>
+<A NAME="IDX541"></A>
+For example, in most fonts, the numerals all have the same width, to
+ease typesetting of columns of them in tables.  Thus, <TT>`common.cmi'</TT>
+defines <CODE>eight</CODE> (the name for the numeral <SAMP>`8'</SAMP>) as follows:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>char-width eight numeral-width , eight-lsb-percent
+</pre></td></tr></table></P><P>
+
+Since the numeral width is traditionally one-half the em width of
+the font, <TT>`common.cmi'</TT> defines <CODE>numeral-width</CODE> as
+<CODE>enspace</CODE>, which in turn is defined to be half the <CODE>quad</CODE>
+fontdimen.
+</P><P>
+
+<CODE>eight-lsb-percent</CODE> is defined to be <SAMP>`.5'</SAMP>, thus centering the
+<SAMP>`8'</SAMP>.
+</P><P>
+
+The other numerals are also defined to have width <CODE>numeral-width</CODE>,
+but the <CODE>lsb-percent</CODE>s vary according to the character shapes.
+</P><P>
+
+<A NAME="define command"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_57.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_59.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

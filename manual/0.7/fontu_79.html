@@ -1,0 +1,67 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_79.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_79.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_80.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 10.1.7 Changing lines to splines </H3>
+<!--docid::SEC79::-->
+<P>
+
+<A NAME="IDX734"></A>
+<A NAME="IDX735"></A>
+<A NAME="IDX736"></A>
+</P><P>
+
+Once an entire curve (i.e., the bitmap outline between two corners; see
+<A HREF="fontu_69.html">10.1.2 Finding corners</A>) has been fit, Limn checks for straight lines that
+are adjacent to splines.  Unless such lines fit the bitmap
+<EM>extremely</EM> well, they must be changed to splines.
+</P><P>
+
+<A NAME="IDX737"></A>
+The reason is that the point at which the line and spline meet will be a
+visible "bump" in the typeset character unless the two blend smoothly.
+Where two splines meet, the continuity is guaranteed from the way we
+constructed the splines (see section <A HREF="fontu_74.html">10.1.5.2 Finding tangents</A>).  But where a line
+and spline meet, nothing makes the join smooth.
+</P><P>
+
+For example, if the outline of a <SAMP>`o'</SAMP> has been subdivided many times
+(as typically happens), a spline may end up fitting just a few
+pixels--so few that a line would fit just as well.  The actions
+described in the previous section will therefore change the spline to a
+line.  But since the adjacent parts of the <SAMP>`o'</SAMP> are being fit with
+curves, that line will result in a noticeable flat spot in the final
+output.  So we must change it back to a spline.
+</P><P>
+
+<A NAME="IDX738"></A>
+We want this reversion to be more likely for short curves than long
+curves, since short curves are more likely to be the result of a small
+piece of a curved shape.  So Limn divides the total distance between the
+fitted line and the bitmap curve by the square of the curve length, and
+compares the result to a threshold, .01 by default.  You can change this
+with the <SAMP>`-line-reversion-threshold'</SAMP> option.
+</P><P>
+
+<A NAME="Aligning endpoints"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

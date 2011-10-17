@@ -1,0 +1,81 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_8.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_8.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_9.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_20.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 3.1 Picture </H2>
+<!--docid::SEC8::-->
+<P>
+
+<A NAME="IDX119"></A>
+<A NAME="IDX120"></A>
+</P><P>
+
+Following is a pictorial representation of the typical order in which
+these programs are used, as well as their input and output.
+</P><P>
+
+GSrenderfont is not in the picture since it is intended for an entirely
+separate purpose (namely, making bitmaps from PostScript outlines).
+Fontconvert also has many functions which are not needed for the basic
+task of font creation from scanned images.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>                                         ---------------
+                                         | fontconvert |
+                                       / ---------------
+                             /--------/         ^
+scanned                     /                   |
+image                      /                    v
+and IFI   -----------    GF   -------------  TFM, GF   --------  BZR
+========&#62; | imageto | ======&#62; | charspace | =========&#62; | limn | ======...
+  ^       -----------         -------------     ^      --------
+  |                         /                   |               (continued)
+  v                       CMI                   v
+-------------                               --------
+| imgrotate |                               | xbfe |
+-------------                               --------
+
+
+
+                                  Metafont source    ------  GF, TFM
+                             |=====================&#62; | mf | =========
+ (continued)                 |                       ------
+                             |
+      BZR   ---------  TFM,  |   PostScript Type 1 (gsf)
+... ======&#62; | bzrto |========|=======================
+            ---------        |
+          /                  |
+        CCC                  |   PostScript Type 3 (pf3)
+                             |======================
+                             |
+                             |
+                             |    BPL    ------------  BZR
+                             |=========&#62; | bpltobzr | =====
+                                         ------------
+</FONT></pre></td></tr></table></P><P>
+
+See section <A HREF="fontu_26.html">5. File formats</A>, for more information on these file formats.
+</P><P>
+
+<A NAME="Creating fonts"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

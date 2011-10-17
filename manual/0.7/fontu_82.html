@@ -1,0 +1,253 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_82.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_82.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_81.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 10.2 Invoking Limn </H2>
+<!--docid::SEC82::-->
+<P>
+
+<A NAME="IDX761"></A>
+<A NAME="IDX762"></A>
+<A NAME="IDX763"></A>
+</P><P>
+
+This section lists the options that Limn accepts in alphabetic
+order.  The previous section described many of these options in the
+context of the fitting algorithm.
+</P><P>
+
+See section <A HREF="fontu_11.html">3.3 Command-line options</A>, for general option syntax.
+</P><P>
+
+The root of the main input fontname is called <VAR>font-name</VAR> below.
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX764"></A>
+<DT><SAMP>`-align-threshold <VAR>real</VAR>'</SAMP>
+<DD>If either coordinate of the endpoints on a spline is closer than this,
+make them the same; default is .5.  See section <A HREF="fontu_80.html">10.1.8 Aligning endpoints</A>.
+<P>
+
+<A NAME="IDX765"></A>
+<DT><SAMP>`-corner-always-threshold <VAR>angle-in-degrees</VAR>'</SAMP>
+<DD>If the angle at a pixel is less than this, it is considered a corner,
+even if it is within <SAMP>`corner-surround'</SAMP> pixels of another corner;
+default is 60.  See section <A HREF="fontu_69.html">10.1.2 Finding corners</A>.
+<P>
+
+<A NAME="IDX766"></A>
+<DT><SAMP>`-corner-surround <VAR>unsigned</VAR>'</SAMP>
+<DD>Number of pixels on either side of a point to consider when determining
+if that point is a corner; default is 4.  See section <A HREF="fontu_69.html">10.1.2 Finding corners</A>.
+<P>
+
+<A NAME="IDX767"></A>
+<DT><SAMP>`-corner-threshold <VAR>angle-in-degrees</VAR>'</SAMP>
+<DD>If a pixel, its predecessor(s), and its successor(s) meet at an angle
+smaller than this, it's a corner; default is 100.  See section <A HREF="fontu_69.html">10.1.2 Finding corners</A>.
+<P>
+
+<A NAME="IDX768"></A>
+<DT><SAMP>`-display-continue'</SAMP>
+<DD>If you specified <SAMP>`-do-display'</SAMP>, do not wait for you to hit return
+after displaying each character online.  See section <A HREF="fontu_81.html">10.1.9 Displaying fitting online</A>.
+<P>
+
+<A NAME="IDX769"></A>
+<DT><SAMP>`-display-grid-size <VAR>unsigned</VAR>'</SAMP>
+<DD>Number of expanded pixels between the grid lines; default is 10.
+See section <A HREF="fontu_81.html">10.1.9 Displaying fitting online</A>.
+<P>
+
+<A NAME="IDX770"></A>
+<DT><SAMP>`-display-pixel-size <VAR>unsigned</VAR>'</SAMP>
+<DD>Length of one side of the square that each pixel expands into; default
+is 9.  See section <A HREF="fontu_81.html">10.1.9 Displaying fitting online</A>.
+<P>
+
+<A NAME="IDX771"></A>
+<DT><SAMP>`-display-rectangle-size <VAR>unsigned</VAR>'</SAMP>
+<DD>Length of one side of the square drawn to represent input pixels;
+default is 6.  Must be less than <SAMP>`display-pixel-size'</SAMP>.
+See section <A HREF="fontu_81.html">10.1.9 Displaying fitting online</A>.
+<P>
+
+<A NAME="IDX772"></A>
+<DT><SAMP>`-do-display'</SAMP>
+<DD>Show the results of the fitting in an X window, if the X server
+specified in the <CODE>DISPLAY</CODE> environment variable can be opened.
+See section <A HREF="fontu_81.html">10.1.9 Displaying fitting online</A>.
+<P>
+
+<A NAME="IDX773"></A>
+<DT><SAMP>`-dpi <VAR>unsigned</VAR>'</SAMP>
+<DD>The resolution, in pixels per inch.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<A NAME="IDX774"></A>
+<DT><SAMP>`-error-threshold <VAR>real</VAR>'</SAMP>
+<DD>Subdivide fitted curves that are off by more pixels than this; default
+is 2.0.  See section <A HREF="fontu_76.html">10.1.5.4 Reparameterization</A>.
+<P>
+
+<A NAME="IDX775"></A>
+<DT><SAMP>`-filter-alternative-surround <VAR>unsigned</VAR>'</SAMP>
+<DD>Another choice for filter-surround; default is 1.  See section <A HREF="fontu_71.html">10.1.4 Filtering curves</A>.
+<P>
+
+<A NAME="IDX776"></A>
+<DT><SAMP>`-filter-epsilon <VAR>real</VAR>'</SAMP>
+<DD>If the angles using <SAMP>`filter-surround'</SAMP> and
+<SAMP>`filter-alternative-surround'</SAMP> points differ by more than this, use
+the latter; default is 10.0.  See section <A HREF="fontu_71.html">10.1.4 Filtering curves</A>.
+<P>
+
+<A NAME="IDX777"></A>
+<DT><SAMP>`-filter-iterations <VAR>unsigned</VAR>'</SAMP>
+<DD>Smooth the curve this many times before fitting; default is 4.
+See section <A HREF="fontu_71.html">10.1.4 Filtering curves</A>.
+<P>
+
+<A NAME="IDX778"></A>
+<DT><SAMP>`-filter-percent <VAR>percent</VAR>'</SAMP>
+<DD>When filtering, use the old point plus distance of neighbors multiplied
+by this (as a percentage) to determine the new point; default is 33.
+See section <A HREF="fontu_71.html">10.1.4 Filtering curves</A>.
+<P>
+
+<A NAME="IDX779"></A>
+<DT><SAMP>`-filter-surround <VAR>unsigned</VAR>'</SAMP>
+<DD>Number of pixels on either side of a point to consider when filtering
+that point; default is 2.  See section <A HREF="fontu_71.html">10.1.4 Filtering curves</A>.
+<P>
+
+<A NAME="IDX780"></A>
+<DT><SAMP>`-help'</SAMP>
+<DD>Print a usage message.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<A NAME="IDX781"></A>
+<DT><SAMP>`-keep-knees'</SAMP>
+<DD>Do not remove "knees"---points on the inside of the outline that are
+between two others.  See section <A HREF="fontu_70.html">10.1.3 Removing knees</A>.
+<P>
+
+<A NAME="IDX782"></A>
+<DT><SAMP>`-line-reversion-threshold <VAR>real</VAR>'</SAMP>
+<DD>If a spline is closer to a straight line than this, keep it a straight
+line even if it is a list with curves; default is .01 pixels.
+See section <A HREF="fontu_79.html">10.1.7 Changing lines to splines</A>.
+<P>
+
+<A NAME="IDX783"></A>
+<DT><SAMP>`-line-threshold <VAR>real</VAR>'</SAMP>
+<DD>If a spline is not more than this far away from the straight line
+defined by its endpoints, then output a straight line; default is 1.
+See section <A HREF="fontu_78.html">10.1.6 Changing splines to lines</A>.
+<P>
+
+<A NAME="IDX784"></A>
+<DT><SAMP>`-log'</SAMP>
+<DD>Write detailed progress reports to <TT>`<VAR>font_name</VAR>.log'</TT>.
+<P>
+
+<A NAME="IDX785"></A>
+<A NAME="IDX786"></A>
+<DT><SAMP>`-output-file <VAR>filename</VAR>'</SAMP>
+<DD>Write to <VAR>filename</VAR> if it has a suffix and to
+<TT>`<VAR>filename</VAR>.bzr'</TT> if it doesn't.  Default is
+<TT>`<VAR>font-name</VAR>.bzr'</TT>.
+<P>
+
+<A NAME="IDX787"></A>
+<DT><SAMP>`-range <VAR>char1</VAR>-<VAR>char2</VAR>'</SAMP>
+<DD>Only output characters with codes between <VAR>char1</VAR> and <VAR>char2</VAR>,
+inclusive.  (See section <A HREF="fontu_13.html">3.3.2 Common options</A>, and <A HREF="fontu_14.html">3.3.3 Specifying character codes</A>.)
+<P>
+
+<A NAME="IDX788"></A>
+<DT><SAMP>`-reparameterize-improve <VAR>percent</VAR>'</SAMP>
+<DD>If reparameterization doesn't improve the fit by this much, as a
+percentage, then stop reparameterizing; default is 10.
+See section <A HREF="fontu_76.html">10.1.5.4 Reparameterization</A>.
+<P>
+
+<A NAME="IDX789"></A>
+<DT><SAMP>`-reparameterize-threshold <VAR>real</VAR>'</SAMP>
+<DD>If an initial fit is off by more pixels than this, don't bother to
+reparameterize; default is 30.  See section <A HREF="fontu_76.html">10.1.5.4 Reparameterization</A>.
+<P>
+
+<A NAME="IDX790"></A>
+<DT><SAMP>`-subdivide-search <VAR>percent</VAR>'</SAMP>
+<DD>Percentage of the curve from the initial guess for a subdivision point
+to look for a better one; default is 10.  See section <A HREF="fontu_77.html">10.1.5.5 Subdivision</A>.
+<P>
+
+<A NAME="IDX791"></A>
+<DT><SAMP>`-subdivide-surround <VAR>unsigned</VAR>'</SAMP>
+<DD>Number of points on either side of a point to consider when looking for
+a subdivision point; default is 4.  See section <A HREF="fontu_77.html">10.1.5.5 Subdivision</A>.
+<P>
+
+<A NAME="IDX792"></A>
+<DT><SAMP>`-subdivide-threshold <VAR>real</VAR>'</SAMP>
+<DD>If a point is this close or closer to a straight line, subdivide there;
+default is .03 pixels.  See section <A HREF="fontu_77.html">10.1.5.5 Subdivision</A>.
+<P>
+
+<A NAME="IDX793"></A>
+<DT><SAMP>`-tangent-surround <VAR>unsigned</VAR>'</SAMP>
+<DD>Number of points on either side of a point to consider when computing
+the tangent at that point; default is 3.  See section <A HREF="fontu_74.html">10.1.5.2 Finding tangents</A>.
+<P>
+
+<A NAME="IDX794"></A>
+<DT><SAMP>`-verbose'</SAMP>
+<DD>Output progress reports.
+<P>
+
+<A NAME="IDX795"></A>
+<DT><SAMP>`-version'</SAMP>
+<DD>Print the version number.
+<P>
+
+</DL>
+<P>
+
+<A NAME="BZRto"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_81.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

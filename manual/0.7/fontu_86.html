@@ -1,0 +1,142 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_86.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_86.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_85.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_87.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_84.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_87.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 11.1.2 Proofing with Metafont </H3>
+<!--docid::SEC86::-->
+<P>
+
+<A NAME="IDX815"></A>
+<A NAME="IDX816"></A>
+<A NAME="IDX817"></A>
+<A NAME="IDX818"></A>
+</P><P>
+
+<A NAME="IDX819"></A>
+While creating fonts, it is useful to enlarge the character shapes
+enough to be able to make out small details.  This blowing-up process is
+called <EM>proofing</EM>.  Metafont works together with GFtoDVI, another
+program created as part of the TeX project, to do this.
+</P><P>
+
+<A NAME="IDX820"></A>
+<A NAME="IDX821"></A>
+You can make two kinds of proofs with Metafont: <EM>gray proofs</EM> and
+<EM>smoke proofs</EM>.  Metafont calls the former <CODE>proof</CODE> mode, and
+the latter <CODE>smoke</CODE> mode.  <CODE>proof</CODE> mode is the default, so if
+you do not assign to <CODE>mode</CODE> at all, you get gray proofs.  To get
+smoke proofs for a font <VAR>foo</VAR>, you run Metafont as follows:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>mf '\mode:=smoke; input <VAR>foo</VAR>'
+</pre></td></tr></table></P><P>
+
+<A NAME="IDX822"></A>
+(See the preceding sections for general information on running
+Metafont.)  In <CODE>proof</CODE> or <CODE>smoke</CODE> mode, by default Metafont
+will display the characters online as it runs (if you are on a terminal
+capable of this, e.g., running under X).  If you aren't interested in
+seeing this online output, you can say <SAMP>`nodisplays;'</SAMP> on the command
+line.
+</P><P>
+
+<A NAME="IDX823"></A>
+<A NAME="IDX824"></A>
+In both kinds of proofs, the font is produced at a very high resolution,
+typically thousands of pixels per inch, to minimize (or eliminate)
+distortion due to rasterization difficulties.  To be more precise, the
+resolution is chosen so that the <CODE>designsize</CODE> of the font fills
+<CODE>proof_size</CODE> inches; by default, <CODE>proof_size</CODE> is 7, which
+works well enough for both letter-size and A4 paper.
+</P><P>
+
+<A NAME="IDX825"></A>
+In order to calculate this, Metafont must also know the resolution of
+the final output device.  This is called <CODE>proof_resolution</CODE>, and is
+300 by default.
+</P><P>
+
+<A NAME="IDX826"></A>
+You can change the values of <CODE>proof_size</CODE> and
+<CODE>proof_resolution</CODE> on the command line; the actual calculation is
+done in <TT>`bzrsetup.mf'</TT>.
+</P><P>
+
+After running Metafont, you will have a GF file, e.g.,
+<TT>`<VAR>foo</VAR>.2602gf'</TT>.  You can then make a DVI file you can preview
+or print with:
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>gftodvi <VAR>foo</VAR>.2602gf
+</pre></td></tr></table>This creates <TT>`<VAR>foo</VAR>.dvi'</TT>.  In the DVI output from
+GFtoDVI, each character in the font has its own page.  Some additional
+information is also present, as follows:
+</P><P>
+
+<A NAME="IDX827"></A>
+<A NAME="IDX828"></A>
+<A NAME="IDX829"></A>
+In <CODE>proof</CODE> mode, the character shapes are printed in a "gray"
+font, and the starting and ending points of each spline (or line) in the
+character outline are shown.  (Thus, you can see if Limn did a good job
+choosing those points.)  If you set <EM><CODE>proofing</CODE> &#62; 2</EM>, the
+control points for each spline will also be shown.  If a point would
+otherwise overlap with others on the output, an equation is put off to
+the right defining where it appears.
+</P><P>
+
+<A NAME="IDX830"></A>
+In <CODE>smoke</CODE> mode, the character shapes are printed in black; if you
+put the output on the wall and stand back, you can get an idea of how
+the font is coming along.  The character is also shown at its true size
+off to the right (assuming you have made the font at the true-size
+resolution, of course).
+</P><P>
+
+<A NAME="IDX831"></A>
+<A NAME="IDX832"></A>
+<A NAME="IDX833"></A>
+<A NAME="IDX834"></A>
+You may find that the extra information to the right of the character
+("overflow equations" in <CODE>proof</CODE> mode; the true-size character in
+<CODE>smoke</CODE> mode) is being lost off the edge of the page.  You can
+change where GFtoDVI puts this with the <SAMP>`-overflow-label-offset'</SAMP>
+option to GFtoDVI.
+</P><P>
+
+See the <CITE>Metafontbook</CITE> and the GFtoDVI documentation for more
+details.
+</P><P>
+
+<A NAME="Type 1 and BZRto"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_85.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_87.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_84.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_87.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

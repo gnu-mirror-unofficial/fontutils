@@ -1,0 +1,384 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_toc.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="SEC_Contents"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H1>Table of Contents</H1>
+<UL>
+<A NAME="TOC1" HREF="fontu_1.html">1. Introduction</A>
+<BR>
+<A NAME="TOC2" HREF="fontu_2.html">2. Installation</A>
+<BR>
+<UL>
+<A NAME="TOC3" HREF="fontu_3.html">2.1 The <CODE>configure</CODE> script</A>
+<BR>
+<A NAME="TOC4" HREF="fontu_4.html">2.2 Prerequisites</A>
+<BR>
+<UL>
+<A NAME="TOC5" HREF="fontu_5.html">2.2.1 Archives</A>
+<BR>
+</UL>
+<A NAME="TOC6" HREF="fontu_6.html">2.3 Problems</A>
+<BR>
+</UL>
+<A NAME="TOC7" HREF="fontu_7.html">3. Overview</A>
+<BR>
+<UL>
+<A NAME="TOC8" HREF="fontu_8.html">3.1 Picture</A>
+<BR>
+<A NAME="TOC9" HREF="fontu_9.html">3.2 Creating fonts</A>
+<BR>
+<UL>
+<A NAME="TOC10" HREF="fontu_10.html">3.2.1 Font creation example</A>
+<BR>
+</UL>
+<A NAME="TOC11" HREF="fontu_11.html">3.3 Command-line options</A>
+<BR>
+<UL>
+<A NAME="TOC12" HREF="fontu_12.html">3.3.1 The main input file</A>
+<BR>
+<A NAME="TOC13" HREF="fontu_13.html">3.3.2 Common options</A>
+<BR>
+<A NAME="TOC14" HREF="fontu_14.html">3.3.3 Specifying character codes</A>
+<BR>
+<UL>
+<A NAME="TOC15" HREF="fontu_15.html">3.3.3.1 Named character codes</A>
+<BR>
+<A NAME="TOC16" HREF="fontu_16.html">3.3.3.2 Numeric character codes</A>
+<BR>
+</UL>
+<A NAME="TOC17" HREF="fontu_17.html">3.3.4 Common option values</A>
+<BR>
+</UL>
+<A NAME="TOC18" HREF="fontu_18.html">3.4 Font searching</A>
+<BR>
+<A NAME="TOC19" HREF="fontu_19.html">3.5 Font naming</A>
+<BR>
+</UL>
+<A NAME="TOC20" HREF="fontu_20.html">4. Bugs</A>
+<BR>
+<UL>
+<A NAME="TOC21" HREF="fontu_21.html">4.1 Bug criteria</A>
+<BR>
+<A NAME="TOC22" HREF="fontu_22.html">4.2 Bug reporting</A>
+<BR>
+<UL>
+<A NAME="TOC23" HREF="fontu_23.html">4.2.1 Necessary information</A>
+<BR>
+<A NAME="TOC24" HREF="fontu_24.html">4.2.2 Unnecessary information</A>
+<BR>
+<A NAME="TOC25" HREF="fontu_25.html">4.2.3 Documentation bugs</A>
+<BR>
+</UL>
+</UL>
+<A NAME="TOC26" HREF="fontu_26.html">5. File formats</A>
+<BR>
+<UL>
+<A NAME="TOC27" HREF="fontu_27.html">5.1 File format abbreviations</A>
+<BR>
+<A NAME="TOC28" HREF="fontu_28.html">5.2 Common file syntax</A>
+<BR>
+<A NAME="TOC29" HREF="fontu_29.html">5.3 Encoding files</A>
+<BR>
+<UL>
+<A NAME="TOC30" HREF="fontu_30.html">5.3.1 Character names</A>
+<BR>
+<A NAME="TOC31" HREF="fontu_31.html">5.3.2 Ligature definitions</A>
+<BR>
+<A NAME="TOC32" HREF="fontu_32.html">5.3.3 GNU encodings</A>
+<BR>
+</UL>
+<A NAME="TOC33" HREF="fontu_33.html">5.4 Coding scheme map file</A>
+<BR>
+</UL>
+<A NAME="TOC34" HREF="fontu_34.html">6. Imageto</A>
+<BR>
+<UL>
+<A NAME="TOC35" HREF="fontu_35.html">6.1 Imageto usage</A>
+<BR>
+<UL>
+<A NAME="TOC36" HREF="fontu_36.html">6.1.1 Viewing an image</A>
+<BR>
+<A NAME="TOC37" HREF="fontu_37.html">6.1.2 Image to font conversion</A>
+<BR>
+<A NAME="TOC38" HREF="fontu_38.html">6.1.3 Dirty images</A>
+<BR>
+</UL>
+<A NAME="TOC39" HREF="fontu_39.html">6.2 IFI files</A>
+<BR>
+<A NAME="TOC40" HREF="fontu_40.html">6.3 Invoking Imageto</A>
+<BR>
+</UL>
+<A NAME="TOC41" HREF="fontu_41.html">7. IMGrotate</A>
+<BR>
+<UL>
+<A NAME="TOC42" HREF="fontu_42.html">7.1 IMGrotate usage</A>
+<BR>
+<UL>
+<A NAME="TOC43" HREF="fontu_43.html">7.1.1 Clockwise rotation</A>
+<BR>
+<A NAME="TOC44" HREF="fontu_44.html">7.1.2 Flip rotation</A>
+<BR>
+</UL>
+<A NAME="TOC45" HREF="fontu_45.html">7.2 Invoking IMGrotate</A>
+<BR>
+</UL>
+<A NAME="TOC46" HREF="fontu_46.html">8. Fontconvert</A>
+<BR>
+<UL>
+<A NAME="TOC47" HREF="fontu_47.html">8.1 Invoking Fontconvert</A>
+<BR>
+<UL>
+<A NAME="TOC48" HREF="fontu_48.html">8.1.1 Fontconvert output options</A>
+<BR>
+<A NAME="TOC49" HREF="fontu_49.html">8.1.2 Character selection options</A>
+<BR>
+<A NAME="TOC50" HREF="fontu_50.html">8.1.3 Character manipulation options</A>
+<BR>
+<A NAME="TOC51" HREF="fontu_51.html">8.1.4 Fontwide information options</A>
+<BR>
+<A NAME="TOC52" HREF="fontu_52.html">8.1.5 Miscellaneous options</A>
+<BR>
+</UL>
+</UL>
+<A NAME="TOC53" HREF="fontu_53.html">9. Charspace</A>
+<BR>
+<UL>
+<A NAME="TOC54" HREF="fontu_54.html">9.1 Charspace usage</A>
+<BR>
+<A NAME="TOC55" HREF="fontu_55.html">9.2 CMI files</A>
+<BR>
+<UL>
+<A NAME="TOC56" HREF="fontu_56.html">9.2.1 CMI tokens</A>
+<BR>
+<A NAME="TOC57" HREF="fontu_57.html">9.2.2 <CODE>char</CODE> command</A>
+<BR>
+<A NAME="TOC58" HREF="fontu_58.html">9.2.3 <CODE>char-width</CODE> command</A>
+<BR>
+<A NAME="TOC59" HREF="fontu_59.html">9.2.4 <CODE>define</CODE> command</A>
+<BR>
+<A NAME="TOC60" HREF="fontu_60.html">9.2.5 <CODE>kern</CODE> command</A>
+<BR>
+<A NAME="TOC61" HREF="fontu_61.html">9.2.6 <CODE>codingscheme</CODE> command</A>
+<BR>
+<A NAME="TOC62" HREF="fontu_62.html">9.2.7 <CODE>fontdimen</CODE> command</A>
+<BR>
+<UL>
+<A NAME="TOC63" HREF="fontu_63.html">9.2.7.1 TFM fontdimens</A>
+<BR>
+</UL>
+<A NAME="TOC64" HREF="fontu_64.html">9.2.8 CMI processing</A>
+<BR>
+</UL>
+<A NAME="TOC65" HREF="fontu_65.html">9.3 Invoking Charspace</A>
+<BR>
+</UL>
+<A NAME="TOC66" HREF="fontu_66.html">10. Limn</A>
+<BR>
+<UL>
+<A NAME="TOC67" HREF="fontu_67.html">10.1 Limn algorithm</A>
+<BR>
+<UL>
+<A NAME="TOC68" HREF="fontu_68.html">10.1.1 Finding pixel outlines</A>
+<BR>
+<A NAME="TOC69" HREF="fontu_69.html">10.1.2 Finding corners</A>
+<BR>
+<A NAME="TOC70" HREF="fontu_70.html">10.1.3 Removing knees</A>
+<BR>
+<A NAME="TOC71" HREF="fontu_71.html">10.1.4 Filtering curves</A>
+<BR>
+<A NAME="TOC72" HREF="fontu_72.html">10.1.5 Fitting the bitmap curve</A>
+<BR>
+<UL>
+<A NAME="TOC73" HREF="fontu_73.html">10.1.5.1 Initializing <EM>t</EM></A>
+<BR>
+<A NAME="TOC74" HREF="fontu_74.html">10.1.5.2 Finding tangents</A>
+<BR>
+<A NAME="TOC75" HREF="fontu_75.html">10.1.5.3 Finding the spline</A>
+<BR>
+<A NAME="TOC76" HREF="fontu_76.html">10.1.5.4 Reparameterization</A>
+<BR>
+<A NAME="TOC77" HREF="fontu_77.html">10.1.5.5 Subdivision</A>
+<BR>
+</UL>
+<A NAME="TOC78" HREF="fontu_78.html">10.1.6 Changing splines to lines</A>
+<BR>
+<A NAME="TOC79" HREF="fontu_79.html">10.1.7 Changing lines to splines</A>
+<BR>
+<A NAME="TOC80" HREF="fontu_80.html">10.1.8 Aligning endpoints</A>
+<BR>
+<A NAME="TOC81" HREF="fontu_81.html">10.1.9 Displaying fitting online</A>
+<BR>
+</UL>
+<A NAME="TOC82" HREF="fontu_82.html">10.2 Invoking Limn</A>
+<BR>
+</UL>
+<A NAME="TOC83" HREF="fontu_83.html">11. BZRto</A>
+<BR>
+<UL>
+<A NAME="TOC84" HREF="fontu_84.html">11.1 Metafont and BZRto</A>
+<BR>
+<UL>
+<A NAME="TOC85" HREF="fontu_85.html">11.1.1 Metafont output at any size</A>
+<BR>
+<A NAME="TOC86" HREF="fontu_86.html">11.1.2 Proofing with Metafont</A>
+<BR>
+</UL>
+<A NAME="TOC87" HREF="fontu_87.html">11.2 Type 1 PostScript fonts and BZRto</A>
+<BR>
+<A NAME="TOC88" HREF="fontu_88.html">11.3 Type 3 PostScript fonts and BZRto</A>
+<BR>
+<A NAME="TOC89" HREF="fontu_89.html">11.4 CCC files</A>
+<BR>
+<UL>
+<A NAME="TOC90" HREF="fontu_90.html">11.4.1 CCC <CODE>setchar</CODE> statements</A>
+<BR>
+<A NAME="TOC91" HREF="fontu_91.html">11.4.2 CCC <CODE>move</CODE> statements</A>
+<BR>
+</UL>
+<A NAME="TOC92" HREF="fontu_92.html">11.5 Invoking BZRto</A>
+<BR>
+<A NAME="TOC93" HREF="fontu_93.html">11.6 BZR files</A>
+<BR>
+<UL>
+<A NAME="TOC94" HREF="fontu_94.html">11.6.1 BZR format introduction</A>
+<BR>
+<A NAME="TOC95" HREF="fontu_95.html">11.6.2 BZR preamble</A>
+<BR>
+<A NAME="TOC96" HREF="fontu_96.html">11.6.3 BZR characters</A>
+<BR>
+<UL>
+<A NAME="TOC97" HREF="fontu_97.html">11.6.3.1 BZR character beginnings</A>
+<BR>
+<A NAME="TOC98" HREF="fontu_98.html">11.6.3.2 BZR character shapes</A>
+<BR>
+</UL>
+<A NAME="TOC99" HREF="fontu_99.html">11.6.4 BZR postamble</A>
+<BR>
+</UL>
+</UL>
+<A NAME="TOC100" HREF="fontu_100.html">12. BPLtoBZR</A>
+<BR>
+<UL>
+<A NAME="TOC101" HREF="fontu_101.html">12.1 BPL files</A>
+<BR>
+<UL>
+<A NAME="TOC102" HREF="fontu_102.html">12.1.1 BPL preamble</A>
+<BR>
+<A NAME="TOC103" HREF="fontu_103.html">12.1.2 BPL characters</A>
+<BR>
+<UL>
+<A NAME="TOC104" HREF="fontu_104.html">12.1.2.1 BPL outlines</A>
+<BR>
+</UL>
+<A NAME="TOC105" HREF="fontu_105.html">12.1.3 BPL postamble</A>
+<BR>
+</UL>
+<A NAME="TOC106" HREF="fontu_106.html">12.2 Invoking BPLtoBZR</A>
+<BR>
+</UL>
+<A NAME="TOC107" HREF="fontu_107.html">13. XBfe</A>
+<BR>
+<UL>
+<A NAME="TOC108" HREF="fontu_108.html">13.1 XBfe usage</A>
+<BR>
+<UL>
+<A NAME="TOC109" HREF="fontu_109.html">13.1.1 Controlling XBfe</A>
+<BR>
+<A NAME="TOC110" HREF="fontu_110.html">13.1.2 XBfe shape editing</A>
+<BR>
+<UL>
+<A NAME="TOC111" HREF="fontu_111.html">13.1.2.1 Selections</A>
+<BR>
+<A NAME="TOC112" HREF="fontu_112.html">13.1.2.2 Enlarging the bitmap</A>
+<BR>
+</UL>
+<A NAME="TOC113" HREF="fontu_113.html">13.1.3 XBfe metrics editing</A>
+<BR>
+</UL>
+<A NAME="TOC114" HREF="fontu_114.html">13.2 Invoking XBfe</A>
+<BR>
+</UL>
+<A NAME="TOC115" HREF="fontu_115.html">14. BZRedit</A>
+<BR>
+<UL>
+<A NAME="TOC116" HREF="fontu_116.html">14.1 BZRedit usage</A>
+<BR>
+<UL>
+<A NAME="TOC117" HREF="fontu_117.html">14.1.1 BZRedit installation</A>
+<BR>
+<A NAME="TOC118" HREF="fontu_118.html">14.1.2 Editing BZR files</A>
+<BR>
+<A NAME="TOC119" HREF="fontu_119.html">14.1.3 Editing BPL files</A>
+<BR>
+<UL>
+<A NAME="TOC120" HREF="fontu_120.html">14.1.3.1 BZRedit and Ghostscript</A>
+<BR>
+</UL>
+</UL>
+</UL>
+<A NAME="TOC121" HREF="fontu_121.html">15. GSrenderfont</A>
+<BR>
+<UL>
+<A NAME="TOC122" HREF="fontu_122.html">15.1 GSrenderfont usage</A>
+<BR>
+<UL>
+<A NAME="TOC123" HREF="fontu_123.html">15.1.1 GSrenderfont font names</A>
+<BR>
+<A NAME="TOC124" HREF="fontu_124.html">15.1.2 GSrenderfont output size</A>
+<BR>
+<A NAME="TOC125" HREF="fontu_125.html">15.1.3 GSrenderfont encoding</A>
+<BR>
+</UL>
+<A NAME="TOC126" HREF="fontu_126.html">15.2 Invoking GSrenderfont</A>
+<BR>
+</UL>
+<A NAME="TOC127" HREF="fontu_127.html">16. Enhancements</A>
+<BR>
+<UL>
+<A NAME="TOC128" HREF="fontu_128.html">16.1 Additional fonts</A>
+<BR>
+<UL>
+<A NAME="TOC129" HREF="fontu_129.html">16.1.1 Legal issues</A>
+<BR>
+</UL>
+<A NAME="TOC130" HREF="fontu_130.html">16.2 Program features</A>
+<BR>
+<A NAME="TOC131" HREF="fontu_131.html">16.3 Portability</A>
+<BR>
+<A NAME="TOC132" HREF="fontu_132.html">16.4 Implementation</A>
+<BR>
+</UL>
+<A NAME="TOC133" HREF="fontu_133.html">A. GNU GENERAL PUBLIC LICENSE</A>
+<BR>
+<UL>
+<A NAME="TOC134" HREF="fontu_134.html">Preamble</A>
+<BR>
+<A NAME="TOC135" HREF="fontu_135.html">Appendix: How to Apply These Terms to Your New Programs</A>
+<BR>
+</UL>
+<A NAME="TOC136" HREF="fontu_136.html">B. Regain your programming freedom</A>
+<BR>
+<UL>
+<A NAME="TOC137" HREF="fontu_137.html">B.1 Software patents</A>
+<BR>
+<A NAME="TOC138" HREF="fontu_138.html">B.2 User interface copyright</A>
+<BR>
+<A NAME="TOC139" HREF="fontu_139.html">B.3 What to do?</A>
+<BR>
+</UL>
+<A NAME="TOC140" HREF="fontu_140.html">Index</A>
+<BR>
+</UL>
+
+</body></html>
+

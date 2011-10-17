@@ -1,0 +1,209 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_27.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_27.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_28.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 5.1 File format abbreviations </H2>
+<!--docid::SEC27::-->
+<P>
+
+<A NAME="IDX231"></A>
+<A NAME="IDX232"></A>
+<A NAME="IDX233"></A>
+</P><P>
+
+For the sake of brevity, we do not spell out every abbreviation
+(typically of file format names) in the manual every time we use it.
+This section collects and defines all the common abbreviations we use.
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX234"></A>
+<DT>BPL
+<DD>The `Bezier property list' format output by BZRto and read by BPLtoBZR.
+This is a transliteration of the binary BZR format into human-readable
+(and -editable) text.  See section <A HREF="fontu_101.html">12.1 BPL files</A>.
+<P>
+
+<A NAME="IDX235"></A>
+<DT>BZR
+<DD>The `Bezier' outline format output by Limn and read by BZRto.  We
+invented this format ourselves.  See section <A HREF="fontu_93.html">11.6 BZR files</A>.
+<P>
+
+<A NAME="IDX236"></A>
+<DT>CCC
+<DD>The `cookie-cutter character' (er, `composite character construction')
+files read by BZRto to add pre-accented and other such characters to a
+font.  See section <A HREF="fontu_89.html">11.4 CCC files</A>.
+<P>
+
+<A NAME="IDX237"></A>
+<DT>CMI
+<DD>The `character metric information' files read by Charspace to add side
+bearings to a font.  See section <A HREF="fontu_55.html">9.2 CMI files</A>.
+<P>
+
+<A NAME="IDX238"></A>
+<DT>GF
+<DD>The `generic font' bitmap format output by Metafont (and by most of
+these programs).  See the sources for Metafont or one of the other
+TeX font utility programs (GFtoPK, etc.) for the definition.
+<P>
+
+<A NAME="IDX239"></A>
+<DT>DVI
+<DD>The `device independent' format output by TeX, GFtoDVI, etc.  Many
+"DVI driver" programs have been written to translate DVI format to
+something that can actually be printed or previewed.  See sources for
+TeX or DVItype for the definition.
+<P>
+
+<A NAME="IDX240"></A>
+<A NAME="IDX241"></A>
+<DT>EPS
+<DD>The `Encapsulated PostScript' format output by many programs, including
+Imageto (see section <A HREF="fontu_36.html">6.1.1 Viewing an image</A>) and Fontconvert (see section <A HREF="fontu_48.html">8.1.1 Fontconvert output options</A>).  An EPS file differs from a plain PostScript file in
+that it contains information about the PostScript image it produces: its
+bounding box, for example.  (This information is contained in comments,
+since PostScript has no good way to express such information directly.)
+<P>
+
+<A NAME="IDX242"></A>
+<DT>IFI
+<DD>The `image font information' files read by Imageto when making a font
+from an image.  See section <A HREF="fontu_39.html">6.2 IFI files</A>.
+<P>
+
+<A NAME="IDX243"></A>
+<A NAME="IDX244"></A>
+<A NAME="IDX245"></A>
+<DT>GSF
+<DD>The `Ghostscript font' format output by BZRto and the <TT>`bdftops'</TT>
+program in the Ghostscript distribution.  This is nothing more than the
+Adobe Type 1 font format, unencrypted.  The Adobe Type 1 format is
+defined in a book published by Adobe.  (Many PostScript interpreters
+cannot read unencrypted Type 1 fonts, despite the fact that the
+definition says encryption is not required.  Ghostscript can read both
+encrypted and unencrypted Type 1 fonts.)
+<P>
+
+<A NAME="IDX246"></A>
+<A NAME="IDX247"></A>
+<A NAME="IDX248"></A>
+<DT>IMG
+<DD>The `image' format used by some GEM (a window system sometimes used
+under DOS) programs; specifically, by the program which drives our
+scanner.
+<P>
+
+<A NAME="IDX249"></A>
+<A NAME="IDX250"></A>
+<DT>MF
+<DD>The `Meta-Font' programming language for designing typefaces invented by
+Donald Knuth.  His <CITE>Metafontbook</CITE> is the only manual written to
+date (that we know of).
+<P>
+
+<A NAME="IDX251"></A>
+<A NAME="IDX252"></A>
+<DT>PBM
+<DD>The `portable bitmap' format used by the PBMplus programs,
+Ghostscript, Imageto, etc.  It was invented by Jef Poskanzer (we
+believe), the author of PBMplus.
+<P>
+
+<A NAME="IDX253"></A>
+<DT>PFA
+<DD>The `printer font ASCII' format in which Type 1 PostScript fonts are
+sometimes distributed.  This format uses the ASCII hexadecimal
+characters <SAMP>`0'</SAMP> to <SAMP>`9'</SAMP> and <SAMP>`a'</SAMP> to <SAMP>`f'</SAMP> (and/or
+<SAMP>`A'</SAMP> to <SAMP>`F'</SAMP>) to represent an <CODE>eexec</CODE>-encrypted Type 1
+font.
+<P>
+
+<A NAME="IDX254"></A>
+<DT>PFB
+<DD>The `printer font binary' format in which Type 1 PostScript fonts are
+sometimes distributed.  This format is most commonly used on DOS
+systems.  (Personally, we find the existence of this format truly
+despicable, as one of the major advantages of PostScript is its being
+defined entirely in terms of plain text files (in Level 1 PostScript,
+anyway).  Having an unportable binary font format completely defeats
+this.)
+<P>
+
+<A NAME="IDX255"></A>
+<A NAME="IDX256"></A>
+<A NAME="IDX257"></A>
+<DT>PK
+<DD>The `packed font' bitmap format output by GFtoPK.  PK format has (for
+all practical purposes) the same information as GF format, and does a
+better job of packing: typically a font in PK format will be one-half to
+two-thirds of the size of the same font in GF format.  It was invented
+by Tom Rokicki as part of the TeX project.  See the GFtoPK source for
+the definition.
+<P>
+
+<A NAME="IDX258"></A>
+<A NAME="IDX259"></A>
+<A NAME="IDX260"></A>
+<A NAME="IDX261"></A>
+<DT>PL
+<DD>The `property list' format output by TFtoPL.  This is a transliteration
+of the binary TFM format into human-readable (and -editable) text.  Some
+of these programs output a PL file and call PLtoTF to make a TFM from
+it.  (For technical reasons it is easier to do this than to output a TFM
+file directly.)  See the PLtoTF source for the details.
+<P>
+
+<A NAME="IDX262"></A>
+<A NAME="IDX263"></A>
+<A NAME="IDX264"></A>
+<A NAME="IDX265"></A>
+<DT>TFM
+<DD>The `TeX font metric' format output by Metafont, PLtoTF, and other
+programs, and read by TeX.  TFM files include only character
+dimension information (widths, heights, depths, and italic corrections),
+kerns, ligatures, and font parameters; in particular, there is no
+information about the character shapes.  See the TeX or Metafont
+source for the definition.
+<P>
+
+</DL>
+<P>
+
+<A NAME="Common file syntax"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_28.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

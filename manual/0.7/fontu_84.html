@@ -1,0 +1,85 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_84.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_84.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_85.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_87.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 11.1 Metafont and BZRto </H2>
+<!--docid::SEC84::-->
+<P>
+
+<A NAME="IDX798"></A>
+<A NAME="IDX799"></A>
+<A NAME="IDX800"></A>
+</P><P>
+
+<A NAME="IDX801"></A>
+Metafont is a language for specifying graphic shapes, particularly
+characters in a font of a type, as well as the name of the program which
+interprets the language.  It is commonly used to generate fonts for
+TeX and related software (TeX and Metafont were developed
+more-or-less simultaneously by Donald Knuth during the years
+1977--1985).  See section <A HREF="fontu_5.html">2.2.1 Archives</A>, for how to obtain the Metafont program.
+</P><P>
+
+<A NAME="IDX802"></A>
+BZRto generates a Metafont font <TT>`<VAR>foo</VAR>.mf'</TT> from the input file
+<TT>`<VAR>foo</VAR>10.bzr'</TT> (the <SAMP>`10'</SAMP> being the design size of the
+input) if you specify the <SAMP>`-metafont'</SAMP> option, as in:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>bzrto -metafont <VAR>foo</VAR>
+</pre></td></tr></table></P><P>
+
+Presuming Metafont has been installed properly at your site, you can
+then make both a TFM and a GF file for <VAR>foo</VAR> at a size of 10pt
+and rasterized for your most common output device with the command:
+</P><P>
+
+<A NAME="IDX803"></A>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>mf '\mode:=localfont; input <VAR>foo</VAR>'
+</pre></td></tr></table></P><P>
+
+(The single quotes are not seen by Metafont; they just protect
+the backslash and semicolon from interpretation by your shell.)
+</P><P>
+
+<A NAME="IDX804"></A>
+<A NAME="IDX805"></A>
+<A NAME="IDX806"></A>
+The assignment to <CODE>mode</CODE> tells Metafont the name of your output
+device.  <CODE>localfont</CODE> should be a synonym for some real output
+device, defined when Metafont was installed.  The GF file will be named
+<TT>`<VAR>foo</VAR>.<VAR>dpi</VAR>gf'</TT>, where <VAR>dpi</VAR> is the resolution of the
+<CODE>localfont</CODE> device.
+</P><P>
+
+Given the TFM and GF file, you can now use the font in TeX.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_85.html">11.1.1 Metafont output at any size</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Making larger or smaller fonts.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_86.html">11.1.2 Proofing with Metafont</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Metafont can help with debugging fonts.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Metafont output at any size"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

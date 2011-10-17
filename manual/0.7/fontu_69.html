@@ -1,0 +1,119 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_69.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_69.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_68.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_70.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 10.1.2 Finding corners </H3>
+<!--docid::SEC69::-->
+<P>
+
+<A NAME="IDX662"></A>
+</P><P>
+
+Recall that our final goal is to fit splines, i.e., continuous curves,
+to the discrete bitmap image.  To that end, Limn looks for <EM>corners</EM>
+in each pixel outline (see the previous section)---points where the
+outline makes such a sharp turn that a single curve cannot
+possibly fit well.  Two corners mark the endpoints of a <EM>curve</EM>.
+</P><P>
+
+<A NAME="IDX663"></A>
+We call the result a <EM>curve list</EM>, i.e., a list of curves on the
+pixel outline: the first curve begins at that first corner and continues
+through the second corner; and so on, until the last, which begins with
+the last corner found and continues through the first corner.  (Each
+pixel outline is cyclic by definition; again, see the previous section.)
+</P><P>
+
+<A NAME="IDX664"></A>
+The corner-finding algorithm described below works fairly well in
+practice, but you will probably need to adjust the parameters it uses.
+Finding good corners is perhaps the most important part of the entire
+fitting algorithm: missing a corner usually leads to a sharp point in
+the original image being rounded off to almost nothing; finding an
+extraneous corner usually leads to an extremely ugly blob.
+</P><P>
+
+Here is Limn's basic strategy for guessing if a given point <EM>p</EM> is
+a corner: compute the total displacement (in both <EM>x</EM> and <EM>y</EM>)
+for some number <EM>n</EM> of points before <EM>p</EM>; do the same for
+<EM>n</EM> points after <EM>p</EM>; find the angle <EM>a</EM> between those
+two vectors; if that angle is less than some threshold, <EM>p</EM> is a
+corner.
+</P><P>
+
+<UL>
+
+<A NAME="IDX665"></A>
+<A NAME="IDX666"></A>
+The number <EM>n</EM> of points to consider is 4 by default; you can
+specify a different number with the <SAMP>`-corner-surround'</SAMP> option.  If
+the resolution of the input font is not 300dpi,
+<SAMP>`-corner-surround'</SAMP> should almost certainly be changed
+proportionately.
+
+<A NAME="IDX667"></A>
+The threshold is 100 degrees by default; you can change this with the
+<SAMP>`-corner-threshold'</SAMP> option.  You can see the angles at the chosen
+corners via <SAMP>`-log'</SAMP>.
+
+</UL>
+<P>
+
+However, when Limn finds a point <VAR>p</VAR> whose angle is below
+<SAMP>`corner-threshold'</SAMP>, it won't necessarily take <VAR>p</VAR> as the
+corner.  Instead, it continues looking for another
+<SAMP>`corner-surround'</SAMP> points; if it finds another point <EM>q</EM> whose
+angle is less than that of <EM>p</EM>, <VAR>q</VAR> will become the corner.
+(And then Limn looks for another <SAMP>`corner-surround'</SAMP> points beyond
+<VAR>q</VAR>, and so on.)
+</P><P>
+
+This continued searching prevents having two corners near each other,
+which is usually wrong, if the angles at the two would-be corners are
+approximately the same.  On the other hand, sometimes there are
+extremely sharp turns in the outline within <SAMP>`corner-surround'</SAMP>
+pixels; in that case, one does want nearby corners after all.
+</P><P>
+
+<A NAME="IDX668"></A>
+So Limn has one more option, <SAMP>`-corner-always-threshold'</SAMP>.  If the
+angle at a point is below this value (60 degrees by default), then that
+point is considered a corner, regardless of how close it is to other
+corners.  The search for another corner within <SAMP>`corner-surround'</SAMP>
+pixels continues, however.
+</P><P>
+
+<A NAME="Removing knees"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_68.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_70.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

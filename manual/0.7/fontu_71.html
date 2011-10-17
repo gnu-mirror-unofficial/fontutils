@@ -1,0 +1,125 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_71.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_71.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_70.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 10.1.4 Filtering curves </H3>
+<!--docid::SEC71::-->
+<P>
+
+<A NAME="IDX671"></A>
+<A NAME="IDX672"></A>
+<A NAME="IDX673"></A>
+</P><P>
+
+After generating the final pixel coordinates for each curve (see the
+previous sections), Limn next <EM>filters</EM> the curves to smooth them.
+Before this step, all the coordinates are on integer boundaries, which
+makes the curves rather bumpy and difficult to fit well.
+</P><P>
+
+<A NAME="IDX674"></A>
+<A NAME="IDX675"></A>
+To filter a point <EM>p</EM>, Limn does the following:
+</P><P>
+
+<OL>
+
+<LI>
+Computes the sum of the distances of <EM>n</EM> neighbors (points before
+and after <EM>p</EM>) to <EM>p</EM>.  These neighbors are always taken from
+the original curve, since we don't want a newly filtered point to affect
+subsequent points as we continue along the curve; that leads to strange
+results.
+<P>
+
+<LI>
+Multiplies that sum by a weight, and adds the result to <EM>p</EM>.  The
+weight is one-third by default; you can change this with the
+<SAMP>`-filter-percent'</SAMP> option, which takes an integer between zero and
+100.
+<P>
+
+</OL>
+<P>
+
+<A NAME="IDX676"></A>
+<A NAME="IDX677"></A>
+Repeatedly filtering a curve leads to even more smoothing, at the
+expense of fidelity to the original.  By default, Limn filters each
+curve 4 times; you can change this with the <SAMP>`-filter-iterations'</SAMP>
+option.
+</P><P>
+
+<A NAME="IDX678"></A>
+If the curve has less than five points, filtering is omitted altogether,
+since such a short curve tends to collapse down to a single point.
+</P><P>
+
+<A NAME="IDX679"></A>
+<A NAME="IDX680"></A>
+<A NAME="IDX681"></A>
+The most important filtering parameter is the number <EM>n</EM> of
+surrounding points which are used to produce the new point.  Limn has
+two different possibilities for this, to keep features from disappearing
+in the original curve.  Let's call these possibilities <VAR>n</VAR> and
+<VAR>alt_n</VAR>; typically <VAR>alt_n</VAR> is smaller than <VAR>n</VAR>.  Limn
+computes the total distance along the curve both coming into and going
+out of the point <EM>p</EM> for both <VAR>n</VAR> and <VAR>alt_n</VAR> surrounding
+points.  Then it computes the angles between the in and out vectors for
+both.  If those two angles differ by more than some threshold (10
+degrees by default; you can change it with
+<A NAME="IDX682"></A>
+the <SAMP>`-filter-epsilon'</SAMP> option), then Limn uses <VAR>alt_n</VAR> to
+compute the new point; otherwise, it uses <VAR>n</VAR>.
+</P><P>
+
+Geometrically, this means that if using <VAR>n</VAR> points would result in a
+much different new point than using <VAR>alt_n</VAR>, use the latter, smaller
+number, thus (hopefully) distorting the curve less.
+</P><P>
+
+<A NAME="IDX683"></A>
+<A NAME="IDX684"></A>
+<A NAME="IDX685"></A>
+Limn uses 2 for <VAR>n</VAR> and 1 for <VAR>alt_n</VAR> by default.  You can use
+the options <SAMP>`-filter-surround'</SAMP> and
+<SAMP>`-filter-alternative-surround'</SAMP> to change them.  If the resolution
+of the input font is not 300dpi, you should scale them
+proportionately.  (For a 1200dpi font, we've had good results with
+<SAMP>`-filter-surround=12'</SAMP> and <SAMP>`filter-alternative-surround= 6'</SAMP>.)
+</P><P>
+
+<A NAME="Fitting the bitmap curve"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_70.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

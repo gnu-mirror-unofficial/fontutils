@@ -1,0 +1,224 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_130.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_130.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_129.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_131.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_128.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_127.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_133.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 16.2 Program features </H2>
+<!--docid::SEC130::-->
+<P>
+
+<A NAME="IDX1237"></A>
+</P><P>
+
+Here are some possible projects:
+</P><P>
+
+<DL COMPACT>
+
+<DT>BZRedit
+<DD><UL>
+<LI>
+Rewrite as a C program along the lines of XBfe.
+<LI>
+<A NAME="IDX1238"></A>
+Add support for hints.
+</UL>
+<P>
+
+<DT>BZRto
+<DD><UL>
+<LI>
+<A NAME="IDX1239"></A>
+Output more font formats, e.g., TrueType.
+<LI>
+Output hints for Metafont and Type 1 fonts.
+<LI>
+<A NAME="IDX1240"></A>
+Make better guesses for the <CODE>FontInfo</CODE> information.
+<LI>
+<A NAME="IDX1241"></A>
+Handle obliquing fonts by changing the transform matrix in the output,
+instead of changing the numbers in the splines.
+<LI>
+<A NAME="IDX1242"></A>
+<A NAME="IDX1243"></A>
+<A NAME="IDX1244"></A>
+<A NAME="IDX1245"></A>
+Do nonlinear scaling.
+<LI>
+<A NAME="IDX1246"></A>
+Handle italic corrections in the Metafont output somehow.  Probably have
+to do the same in Charspace.
+</UL>
+<P>
+
+<DT>Fontconvert
+<DD><UL>
+<LI>
+<A NAME="IDX1247"></A>
+Output virtual fonts as an option, instead of another bitmap font.
+<LI>
+<A NAME="IDX1248"></A>
+Allow specifying entire input encodings and output encodings (the
+same <TT>`.enc'</TT> files that the other programs read).
+</UL>
+<P>
+
+<DT>GF library
+<DD><UL>
+<LI>
+Support multiple simultaneous open fonts, like the PK library does now.
+<A NAME="IDX1249"></A>
+<LI>
+Output a checksum.
+</UL>
+<P>
+
+<DT>GSrenderfont
+<DD><UL>
+<LI>
+<A NAME="IDX1250"></A>
+<A NAME="IDX1251"></A>
+Allow for characters larger than 1 inch square in the original font.
+<LI>
+<A NAME="IDX1252"></A>
+<A NAME="IDX1253"></A>
+<A NAME="IDX1254"></A>
+Implement slanting, extending, and small caps, a la Dvips.
+</UL>
+<P>
+
+<DT>Imageto
+<DD><UL>
+<LI>
+<A NAME="IDX1255"></A>
+Recognize more image formats, e.g., Tiff.
+<LI>
+<A NAME="IDX1256"></A>
+<A NAME="IDX1257"></A>
+Perhaps the <SAMP>`-column-split'</SAMP> option in Fontconvert should be
+removed, and the equivalent information specified in the IFI file.
+</UL>
+<P>
+
+<DT>IMGrotate
+<DD><UL>
+<LI>
+Perhaps combine with Imageto.
+<LI>
+<A NAME="IDX1258"></A>
+<A NAME="IDX1259"></A>
+Implement a good rotation algorithm, perhaps as described in: "A Fast
+Algorithm for General Raster Rotation", by Alan Paeth, <CITE>Graphics
+Interface '86</CITE>, pages 77--81.  (We'd be interested in hearing of
+optimized alternatives for the case of 90 degree rotation only).  The
+program <CODE>pnmrotate</CODE>, which mentions that article, in the PBMplus
+distribution could perhaps be adapted.
+</UL>
+<P>
+
+<DT><CODE>lib</CODE>
+<DD><UL>
+<LI>
+Extend the encoding files to allow defining math attributes, probably by
+rewriting the parsing routines as a Bison grammar.
+<LI>
+<A NAME="IDX1260"></A>
+<A NAME="IDX1261"></A>
+<A NAME="IDX1262"></A>
+<A NAME="IDX1263"></A>
+<A NAME="IDX1264"></A>
+Write a variant of <CODE>string_to_bitmap</CODE> (in <TT>`font.c'</TT>) which
+understands kerns and ligatures.
+<LI>
+<A NAME="IDX1265"></A>
+Add support for BDF or other bitmap formats.  Unrelated utility programs
+now exist for handling the X11 BDF format (specifically, Bdf2gf and
+GFto), but it might be useful to integrate BDF support.
+</UL>
+<P>
+
+<DT>Limn
+<DD>Handle the standard X toolkit options.
+<P>
+
+<DT>PK library
+<DD>Implement output of PK files.
+<P>
+
+<DT>TFM library
+<DD><UL>
+<LI>
+Support multiple simultaneous open fonts, like PK does now.
+<A NAME="IDX1266"></A>
+<LI>
+Support ligatures in their full generality.
+<LI>
+Output a checksum.
+</UL>
+<P>
+
+<DT>XBfe
+<DD><UL>
+<LI>
+Allow showing more than one character at a time.
+<A NAME="IDX1267"></A>
+<LI>
+Adjusting (or at least seeing) the baseline, cap height, x-height, or
+arbitrary guidelines.
+<LI>
+Handle multiple fonts.
+<LI>
+Notice if the window it's given is too small, and give up.
+<LI>
+<A NAME="IDX1268"></A>
+Ask the window manager for a window big enough for the largest character
+in the font, not the first character.
+</UL>
+<P>
+
+</DL>
+<P>
+
+In addition, one general enhancement would be to allow more than 256
+characters per font.  The bitmap formats allow this already, and the TFM
+format has some support for it.
+</P><P>
+
+Two other smaller general improvements: combine multiple <SAMP>`-range'</SAMP>
+options; allow for omitting ranges.
+</P><P>
+
+<A NAME="Portability"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_129.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_131.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_128.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_127.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_133.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

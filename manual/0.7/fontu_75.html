@@ -1,0 +1,71 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_75.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_75.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_74.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_76.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 10.1.5.3 Finding the spline </H4>
+<!--docid::SEC75::-->
+<P>
+
+<A NAME="IDX709"></A>
+<A NAME="IDX710"></A>
+At last, after all the preprocessing steps described in the previous
+sections, we can actually fit a spline to the bitmap.  Subject to the
+tangent constraints (see the previous section), Limn finds the spline which
+minimizes the <EM>error</EM>---the overall distance to the pixel coordinates.
+</P><P>
+
+<A NAME="IDX711"></A>
+<A NAME="IDX712"></A>
+More precisely, Limn uses a <EM>least-squares error metric</EM> to measure
+the "goodness" of the fit.  This metric minimizes the sum of the
+squares of the distance between each point on the bitmap curve and its
+corresponding point on the fitted spline.  (It is appropriate to square
+the distance because it is equally bad for the fitted spline to diverge
+from the curve in a positive or negative direction.)
+</P><P>
+
+<A NAME="IDX713"></A>
+The correspondence between the fitted spline and the bitmap curve is
+defined by the <EM>t</EM> value that is associated with each point
+(see section <A HREF="fontu_73.html">10.1.5.1 Initializing <EM>t</EM></A>).
+</P><P>
+
+<A NAME="IDX714"></A>
+For a given set of <EM>t</EM> values and given endpoints on the spline,
+the control points which minimize the least-squares metric are unique.
+The formula which determines them is derived in Schneider's thesis (see
+the reference in <TT>`limn/README'</TT>); Limn implements that formula.
+</P><P>
+
+Once we have the control points, we can ask how well the resulting
+spline actually does fit the bitmap curve.  Limn can do two things to
+improve the fit: change the <EM>t</EM> values (reparameterization); or
+break the curve into two pieces and then try to fit each piece
+separately (subdivision).
+</P><P>
+
+The following two sections describe these operations in more detail.
+</P><P>
+
+<A NAME="Reparameterization"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

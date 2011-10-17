@@ -1,0 +1,131 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_13.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_13.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_12.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_14.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_9.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_18.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.2 Common options </H3>
+<!--docid::SEC13::-->
+<P>
+
+<A NAME="IDX143"></A>
+<A NAME="IDX144"></A>
+</P><P>
+
+Certain options are available in all or most of the programs.  Rather
+than writing identical descriptions in the chapters for each of the
+programs, they are described here.
+</P><P>
+
+This first table lists common options which do not convey anything about
+the input.  They merely direct the program to print additional output.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-help'</SAMP>
+<DD><A NAME="IDX145"></A>
+<A NAME="IDX146"></A>
+Prints a usage message listing all available options on standard error.
+The program exits after doing so.
+<P>
+
+<DT><SAMP>`-log'</SAMP>
+<DD><A NAME="IDX147"></A>
+<A NAME="IDX148"></A>
+Write information about everything the program is doing to the file
+<TT>`<VAR>foo</VAR>.log'</TT>, where <VAR>foo</VAR> is the root part of the main input
+file.
+<P>
+
+<DT><SAMP>`-verbose'</SAMP>
+<DD><A NAME="IDX149"></A>
+<A NAME="IDX150"></A>
+<A NAME="IDX151"></A>
+<A NAME="IDX152"></A>
+<A NAME="IDX153"></A>
+<A NAME="IDX154"></A>
+Prints brief status reports as the program runs, typically the character
+code of each character as it is processed.  This usually goes to
+standard output; but if the program is outputting other information
+there, it goes to standard error.
+<P>
+
+<DT><SAMP>`-version'</SAMP>
+<DD><A NAME="IDX155"></A>
+<A NAME="IDX156"></A>
+Prints the version number of the program on standard output.  If a main
+input file is supplied, processing continues; otherwise, the program
+exits normally.
+<P>
+
+</DL>
+<P>
+
+This second table lists common options which change the program's
+behavior in more substantive ways.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-dpi <VAR>dpi</VAR>'</SAMP>
+<DD><A NAME="IDX157"></A>
+<A NAME="IDX158"></A>
+<A NAME="IDX159"></A>
+Look for the main input font at a resolution of <VAR>dpi</VAR> pixels per
+inch.  The default is to infer the information from the main input
+filename (see section <A HREF="fontu_12.html">3.3.1 The main input file</A>).
+<P>
+
+<DT><SAMP>`-output-file <VAR>fname</VAR>'</SAMP>
+<DD><A NAME="IDX160"></A>
+Write the main output of the program to <VAR>fname</VAR>.  If <VAR>fname</VAR> has
+a suffix, it is used unchanged; otherwise, it is extended with some
+standard suffix, such as <TT>`<VAR>resolution</VAR>gf'</TT>.  Unless <VAR>fname</VAR>
+is an absolute or explicitly relative pathname, the file is written in
+the current directory.
+<P>
+
+<DT><SAMP>`-range <CODE><VAR>start</VAR>-<VAR>end</VAR></CODE>'</SAMP>
+<DD><A NAME="IDX161"></A>
+Only look at the characters between the character codes <VAR>start</VAR> and
+<VAR>end</VAR>, inclusive.  The default is to look at all characters in the
+font.  See section <A HREF="fontu_14.html">3.3.3 Specifying character codes</A>, for the precise syntax of
+character codes.
+<P>
+
+</DL>
+<P>
+
+<A NAME="Specifying character codes"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_12.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_14.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_9.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_18.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

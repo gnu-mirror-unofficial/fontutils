@@ -1,0 +1,241 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_92.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_92.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_91.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_93.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_89.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 11.5 Invoking BZRto </H2>
+<!--docid::SEC92::-->
+<P>
+
+<A NAME="IDX874"></A>
+<A NAME="IDX875"></A>
+<A NAME="IDX876"></A>
+</P><P>
+
+This section describes the options that BZRto accepts.
+See section <A HREF="fontu_11.html">3.3 Command-line options</A>, for general option syntax.
+</P><P>
+
+The root of the main input fontname is called <VAR>font-name</VAR> below.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-concat <VAR>bzr-name1</VAR>, <VAR>bzr-name2</VAR>, <small>...</small>'</SAMP>
+<DD><A NAME="IDX877"></A>
+<A NAME="IDX878"></A>
+<A NAME="IDX879"></A>
+<A NAME="IDX880"></A>
+<A NAME="IDX881"></A>
+Concatenate the main input file with the given <VAR>bzr-name</VAR>s; if a
+character code exists in more than one of the BZR files, it's the first
+occurrence that counts.  The BZR files can have any design size; the
+output is normalized to the size of the main input file.
+<P>
+
+<DT><SAMP>`-ccc-file <VAR>filename</VAR>'</SAMP>
+<DD><A NAME="IDX882"></A>
+Read the CCC file <VAR>filename</VAR> (if <VAR>filename</VAR> has a suffix) or
+<TT>`<VAR>filename</VAR>.ccc'</TT> (if it doesn't).  Default is to use
+<VAR>font-name</VAR> for <VAR>filename</VAR>, but if BZRto does not find
+the file <TT>`<VAR>font-name</VAR>.ccc'</TT>, it does not complain.
+<P>
+
+<DT><SAMP>`-encoding <VAR>filename</VAR>'</SAMP>
+<DD><A NAME="IDX883"></A>
+<A NAME="IDX884"></A>
+Specify the encoding file for the input font, so character names in the
+CCC files can be matched to character codes.  If <VAR>filename</VAR> has no
+suffix, use <TT>`<VAR>filename</VAR>.enc'</TT>, otherwise just <VAR>filename</VAR>.
+The default is to guess the encoding from the <SAMP>`codingscheme'</SAMP> string
+in a TFM file corresponding to the main input file, if such exists.
+<P>
+
+<DT><SAMP>`-help'</SAMP>
+<DD><A NAME="IDX885"></A>
+Print a usage message.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<DT><SAMP>`-metafont'</SAMP>
+<DD><A NAME="IDX886"></A>
+Translate the input to a Metafont program; write to
+<TT>`<VAR>font-name</VAR>.mf'</TT>.  See section <A HREF="fontu_84.html">11.1 Metafont and BZRto</A>.
+<P>
+
+<DT><SAMP>`-mf'</SAMP>
+<DD><A NAME="IDX887"></A>
+Synonym for <SAMP>`-metafont'</SAMP>.
+<P>
+
+<DT><SAMP>`-oblique-angle <VAR>angle-in-degrees</VAR>'</SAMP>
+<DD><A NAME="IDX888"></A>
+<A NAME="IDX889"></A>
+<A NAME="IDX890"></A>
+Angle in degrees from the vertical by which to slant the shapes; default
+is zero.
+<P>
+
+<DT><SAMP>`-output-file <VAR>filename</VAR>'</SAMP>
+<DD><A NAME="IDX891"></A>
+Output to <VAR>filename</VAR> (if it has a suffix) or to
+<TT>`<VAR>filename</VAR>.<VAR>font-format</VAR>'</TT> (if it doesn't), where
+<VAR>font-format</VAR> is <TT>`mf'</TT>, <TT>`gsf'</TT>, etc.  If you give more than
+one of the output format options (i.e., <SAMP>`metafont'</SAMP>, <SAMP>`pstype1'</SAMP> and
+<SAMP>`pstype3'</SAMP>), <VAR>filename</VAR> cannot have a suffix.  The default is
+<VAR>font-name</VAR> with a trailing number removed, so that, for example, an
+input filename of <TT>`cmr10'</TT> becomes <TT>`cmr'</TT>.
+<P>
+
+<DT><SAMP>`-ps-font-info <VAR>name1</VAR>:<VAR>value1</VAR>,<small>...</small>'</SAMP>
+<DD><A NAME="IDX892"></A>
+<A NAME="IDX893"></A>
+Assign each <VAR>value</VAR> to the corresponding <VAR>name</VAR> when outputting
+a PostScript font (either Type 1 or Type 3).  Case is significant in
+both the <VAR>name</VAR>s and <VAR>value</VAR>s.  You can specify the following:
+<P>
+
+<DL COMPACT>
+
+<DT><SAMP>`FontName:<VAR>string</VAR>'</SAMP>
+<DD><A NAME="IDX894"></A>
+<A NAME="IDX895"></A>
+The full PostScript name of the font; e.g., <CODE>Times-BoldItalic</CODE>.
+The default is <CODE>unknown</CODE>.
+<P>
+
+<DT><SAMP>`FamilyName:<VAR>string</VAR>'</SAMP>
+<DD><A NAME="IDX896"></A>
+The name of the typeface family to which this font belongs; e.g.,
+<CODE>Times</CODE>.  The default is to use <CODE>FontName</CODE> up to the first
+<SAMP>`-'</SAMP>.
+<P>
+
+<DT><SAMP>`Weight:<VAR>string</VAR>'</SAMP>
+<DD><A NAME="IDX897"></A>
+The typographic weight of the font, e.g., <CODE>Bold</CODE>.  If
+<CODE>FontName</CODE> contains one of the strings <SAMP>`Black'</SAMP>, <SAMP>`Book'</SAMP>,
+<SAMP>`Bold'</SAMP>, <SAMP>`Demi'</SAMP>, <SAMP>`ExtraBold'</SAMP>, <SAMP>`Light'</SAMP>, <SAMP>`Heavy'</SAMP>,
+<SAMP>`Regular'</SAMP>, <SAMP>`Semibold'</SAMP>, or <SAMP>`Ultra'</SAMP>, that is the
+weight.  Otherwise, BZRto uses <SAMP>`Medium'</SAMP>.
+<P>
+
+<DT><SAMP>`ItalicAngle:<VAR>real</VAR>'</SAMP>
+<DD><A NAME="IDX898"></A>
+The angle in degrees by which the font slopes to the right from the
+vertical.  Default is zero.  Typical slanted or italic fonts have values
+between 10--20.
+<P>
+
+<DT><SAMP>`isFixedPitch:<CODE>true</CODE> or <CODE>false</CODE>'</SAMP>
+<DD><A NAME="IDX899"></A>
+<A NAME="IDX900"></A>
+Whether or not this font is monospaced.  If a TFM file corresponding to
+the main BZR file exists, and specifies a zero interword stretch and
+shrink, and a nonzero interword space, the default is <CODE>true</CODE>.
+Otherwise, it's <CODE>false</CODE>.
+<P>
+
+<DT><SAMP>`UnderlinePosition:<VAR>real</VAR>'</SAMP>
+<DD><A NAME="IDX901"></A>
+Distance from the baseline for positioning underlines, in units of the
+character coordinate system.  Default is <EM>-100</EM>.
+<P>
+
+<DT><SAMP>`UnderlineThickness:<VAR>real</VAR>'</SAMP>
+<DD><A NAME="IDX902"></A>
+Thickness of underlines.  Default is 50.
+<P>
+
+<DT><SAMP>`UniqueID:<VAR>non-negative integer</VAR>'</SAMP>
+<DD><A NAME="IDX903"></A>
+An integer in the range 0 to 16777215 (2^24 - 1) uniquely identifying
+this font.  The default is zero, meaning (for our purposes) not to
+output any <CODE>UniqueID</CODE>.  This avoids unlikely-but-possible conflicts
+with existing fonts.
+<P>
+
+<DT><SAMP>`version:<VAR>string</VAR>'</SAMP>
+<DD><A NAME="IDX904"></A>
+Identification for the particular version of this font.  If a TFM file
+corresponding to the main BZR file exists, and specifies a version
+number, that is the default; otherwise, there is none.
+<P>
+
+</DL>
+<P>
+
+All values except <CODE>FontName</CODE> and <CODE>UniqueID</CODE> go in
+the <CODE>FontInfo</CODE> dictionary.
+</P><P>
+
+<DT><SAMP>`-pstype1'</SAMP>
+<DD><A NAME="IDX905"></A>
+Translate the input to (unencrypted) PostScript Type 1 font format;
+write to <TT>`<VAR>font-name</VAR>.gsf'</TT>.  See section <A HREF="fontu_87.html">11.2 Type 1 PostScript fonts and BZRto</A>.
+<P>
+
+<DT><SAMP>`-pstype3'</SAMP>
+<DD><A NAME="IDX906"></A>
+Translate the input to PostScript Type 3 font format; write to
+<TT>`<VAR>font-name</VAR>.pf3'</TT>.  See section <A HREF="fontu_88.html">11.3 Type 3 PostScript fonts and BZRto</A>.
+<P>
+
+<DT><SAMP>`-range <VAR>char1</VAR>-<VAR>char2</VAR>'</SAMP>
+<DD><A NAME="IDX907"></A>
+Only process characters between the character codes <VAR>char1</VAR> and
+<VAR>char2</VAR>, inclusive.
+<P>
+
+<DT><SAMP>`-text'</SAMP>
+<DD><A NAME="IDX908"></A>
+Translate the font to a BPL file, i.e., human-readable text; write to
+standard output.  See section <A HREF="fontu_101.html">12.1 BPL files</A>.
+<P>
+
+<DT><SAMP>`-verbose'</SAMP>
+<DD><A NAME="IDX909"></A>
+Output progress reports to standard output, unless <SAMP>`-text'</SAMP> is
+specified, in which case output to standard error.
+<P>
+
+<DT><SAMP>`-version'</SAMP>
+<DD><A NAME="IDX910"></A>
+Print the version number.
+<P>
+
+</DL>
+<P>
+
+<A NAME="BZR files"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_91.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_93.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_89.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

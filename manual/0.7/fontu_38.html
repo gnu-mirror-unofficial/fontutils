@@ -1,0 +1,107 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_38.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_38.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_37.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_35.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 6.1.3 Dirty images </H3>
+<!--docid::SEC38::-->
+<P>
+
+<A NAME="IDX337"></A>
+<A NAME="IDX338"></A>
+<A NAME="IDX339"></A>
+<A NAME="IDX340"></A>
+<A NAME="IDX341"></A>
+<A NAME="IDX342"></A>
+<A NAME="IDX343"></A>
+</P><P>
+
+Your image may not be completely "clean", i.e., the scanning process
+may have introduced artifacts: black lines at the edge of the paper;
+blotches where the original had a speck of dirt or ink; broken lines
+where the image had a continuous line.  To get a correct output font,
+you must correct these problems.
+</P><P>
+
+<A NAME="IDX344"></A>
+<A NAME="IDX345"></A>
+To remove blotches, you can simply put <CODE>.notdef</CODE> in the appropriate
+place in the IFI file.  You can find the "appropriate place" when you
+look at the output font; some character will be nothing but a (possibly
+tiny) speck, and all the characters following will be in the wrong
+position.
+</P><P>
+
+<A NAME="IDX346"></A>
+<A NAME="IDX347"></A>
+<A NAME="IDX348"></A>
+The <SAMP>`-print-clean-info'</SAMP> option might also help you to
+diagnose which bounding boxes are being assigned to which characters,
+when you are in doubt.  Here is an example of its output:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>[Cleaning 149x383 bitmap:
+  checking (0,99)-(10,152) ... clearing.
+  checking (0,203)-(35,263) ... clearing.
+  checking (0,99)-(130,382) ... keeping.
+  checking (113,0)-(149,37) ... keeping.
+106]
+</pre></td></tr></table></P><P>
+
+The final <SAMP>`106'</SAMP> is the character code output (ASCII
+<SAMP>`j'</SAMP>).  The size of the overall bitmap which contains the `j' is 149
+pixels wide and 383 pixels high.  The bitmap contained four bounding
+boxes, the last two of which belonged to the `j' and were kept, and the
+first two from the adjacent character (`i') and were erased.  (As shown
+in the example image above, the tail of the `j' often overlaps the `i'
+in type specimens.)
+</P><P>
+
+If the image has blobs you have not removed with <CODE>.notdef</CODE>, you
+will see a small bounding box in this output.  The numbers shown are in
+"bitmap coordinates": (0,0) is the upper left-hand pixel of the
+bitmap.
+</P><P>
+
+<A NAME="IDX349"></A>
+<A NAME="IDX350"></A>
+If a blotch appears outside of the row of characters, Imageto will
+consider it to be its own (very small) image row.  If you are using
+<SAMP>`-baselines'</SAMP>, you must specify an arbitrary value corresponding to
+the blotch, even though the bounding box in the image will be ignored.
+See the section above for an example.
+</P><P>
+
+<A NAME="IFI files"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_37.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_35.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

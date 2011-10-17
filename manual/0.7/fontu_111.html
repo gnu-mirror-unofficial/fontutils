@@ -1,0 +1,103 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_111.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_111.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_110.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_112.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_109.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_110.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_113.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 13.1.2.1 Selections </H4>
+<!--docid::SEC111::-->
+<P>
+
+<A NAME="IDX1058"></A>
+<A NAME="IDX1059"></A>
+XBfe supports selection, pasting, and filling operations on a
+rectangle of pixels, as follows.
+</P><P>
+
+To select an arbitrary rectangle, press the left mouse button to
+determine the first corner; then move the mouse (with the button still
+down) to update the other corner of the rectangle; and release the
+button to define the rectangle.  (If you release the button when the mouse
+is off the character bitmap, the selection rectangle remains unchanged.)
+</P><P>
+
+<A NAME="IDX1060"></A>
+<A NAME="IDX1061"></A>
+Once a rectangle has been selected, you can <EM>paste</EM> it, either
+within the same character from which it was selected, or in a different
+character.  To do this, press the middle button; this outlines the
+region that will be changed; as you move the mouse (with the button
+still down), the outline moves accordingly; when you release the
+middle button, the selected rectangle is pasted onto the current bitmap,
+erasing whatever was in the affected area.
+</P><P>
+
+<A NAME="IDX1062"></A>
+<A NAME="IDX1063"></A>
+<A NAME="IDX1064"></A>
+Pasting has several variations: if you have the <KBD>Alt</KBD> (a.k.a.
+Meta) key down when you release the middle button, the selection is
+flipped vertically; if the <KBD>Control</KBD> key is down, the selection is
+flipped horizontally; and if both are down, the selection is flipped in
+both directions.  Here is a minimal example:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>original  vertical  horizontal  both
+  **         *         **        *
+   *        **         *         **
+</pre></td></tr></table></P><P>
+
+<A NAME="IDX1065"></A>
+<A NAME="IDX1066"></A>
+This is useful when pasting serifs, since serifs are attached
+to the main stems in different orientations.  (Incidentally,
+making the serif shapes consist of exactly the same pixels may actually
+make the serifs look different, because of surrounding character
+features or the difference in orientation.  But it is still a good place
+to start.)
+</P><P>
+
+<A NAME="IDX1067"></A>
+<A NAME="IDX1068"></A>
+<A NAME="IDX1069"></A>
+<A NAME="IDX1070"></A>
+<A NAME="IDX1071"></A>
+<A NAME="IDX1072"></A>
+You can also fill the selected rectangle, i.e., change it to entirely
+black or white, by holding the <KBD>Alt</KBD> key down and pressing the right
+mouse button.  The selection is filled with the color of the pixel the
+mouse is on.  This is how you entirely erase a portion of the bitmap.
+</P><P>
+
+<A NAME="Enlarging the bitmap"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_110.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_112.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_109.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_110.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_113.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,59 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_30.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_30.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_29.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_31.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_28.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_29.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_33.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 5.3.1 Character names </H3>
+<!--docid::SEC30::-->
+<P>
+
+<A NAME="IDX286"></A>
+<A NAME="IDX287"></A>
+</P><P>
+
+The <EM>character name</EM> in an encoding file is an arbitrary sequence of
+nonblank characters (except it can't include a <CODE>%</CODE>, since that
+starts a comment).  Conventionally, it consists of only lowercase
+letters, except where an uppercase letter is actually involved.  (For
+example, <CODE>eacute</CODE> is a lowercase <CODE>e</CODE> with an acute accent;
+<CODE>Eacute</CODE> is an uppercase <CODE>E</CODE> with an acute accent.
+</P><P>
+
+<A NAME="IDX288"></A>
+<A NAME="IDX289"></A>
+<A NAME="IDX290"></A>
+<A NAME="IDX291"></A>
+If a character code has no equivalent character in the font, i.e., the
+font table has a "blank spot", you should use the name <CODE>.notdef</CODE>
+for that code.  This is the only name you can usefully give more than
+once.  If any other name is used more than once, the results are
+undefined.
+</P><P>
+
+To avoid unnecessary proliferation of character names, you should use
+names from existing <TT>`.enc'</TT> files where possible.  All the
+<TT>`.enc'</TT> files we have created are distributed in the <TT>`data'</TT>
+directory.
+</P><P>
+
+<A NAME="Ligature definitions"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

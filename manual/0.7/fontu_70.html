@@ -1,0 +1,70 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_70.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_70.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_69.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 10.1.3 Removing knees </H3>
+<!--docid::SEC70::-->
+<P>
+
+<A NAME="IDX669"></A>
+<A NAME="IDX670"></A>
+</P><P>
+
+For each curve in the curve list determined by the corners on the pixel
+outline (see the previous section), Limn next removes
+<EM>knees</EM>---points on the inside of the outline that form a "right
+angle" with its predecessor and successor.  That is, either (1) its
+predecessor differs only in <EM>x</EM>, and its successor only in
+<EM>y</EM>; or (2) its predecessor differs only in <EM>y</EM>, and its
+successor only in <EM>x</EM>.
+</P><P>
+
+It is hard to describe in words, but here is a picture:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>**
+ X*
+  *
+</pre></td></tr></table></P><P>
+
+The point <SAMP>`X'</SAMP> is a knee, if we're moving in a clockwise
+direction.
+</P><P>
+
+Such a "right angle" point can be on either the inside or the outside
+of the outline.  Points on the inside do nothing useful, they just slow
+things down and, more importantly, make the curve being fit less
+accurate.  So we remove them.  But points on the outside help to define
+the shape of the curve, so we keep those.  (For example, if <SAMP>`X'</SAMP> was
+moved up one diagonally, we certainly want it as a part of the curve.)
+</P><P>
+
+Although we haven't found a case where removing knees produces an
+inferior result, there's no theory about it always helping.  Also, you
+may just be curious what difference it makes (as we were when we
+programmed the operation).  So Limn provides an option
+<SAMP>`-keep-knees'</SAMP>; if you specify it, Limn simply skips this step.
+</P><P>
+
+<A NAME="Filtering curves"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

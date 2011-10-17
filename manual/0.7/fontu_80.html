@@ -1,0 +1,51 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_80.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_80.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_79.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_81.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 10.1.8 Aligning endpoints </H3>
+<!--docid::SEC80::-->
+<P>
+
+<A NAME="IDX739"></A>
+<A NAME="IDX740"></A>
+</P><P>
+
+After fitting a mathematical outline of splines and lines to a pixel
+outline (see section <A HREF="fontu_68.html">10.1.1 Finding pixel outlines</A>), Limn aligns the endpoints on
+the fitted outline.  This involves simply checking each spline to see if
+its starting point and ending point (in either axis) are "close
+enough" to each other.  If they are, then they are made equal to their
+average.
+</P><P>
+
+This is useful because even a slight offset of the endpoints can be
+produce a noticeable result, especially for straight lines and corners.
+</P><P>
+
+<A NAME="IDX741"></A>
+By default, "close enough" is half a pixel.  You can change this with
+the <SAMP>`-align-threshold'</SAMP> option.
+</P><P>
+
+<A NAME="Displaying fitting online"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

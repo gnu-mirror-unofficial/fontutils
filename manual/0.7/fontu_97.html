@@ -1,0 +1,97 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_97.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_97.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_96.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_98.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_95.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_96.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_99.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 11.6.3.1 BZR character beginnings </H4>
+<!--docid::SEC97::-->
+<P>
+
+<A NAME="IDX933"></A>
+<A NAME="IDX934"></A>
+</P><P>
+
+BZR format provides two ways to start characters: an abbreviated one,
+which saves space in common cases, and a longer form which (we hope)
+will always suffice.
+</P><P>
+
+The short form looks like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=display><pre style="font-family: serif"><CODE>BOC_ABBREV</CODE> @cmindex BOC_ABBREV
+<CODE>charcode</CODE>[1]
+<CODE>set-width</CODE>[2]
+<CODE>llx</CODE>[2] <CODE>lly</CODE>[2] <CODE>urx</CODE>[2] <CODE>ury</CODE>[2]
+</pre></td></tr></table></P><P>
+
+The long form:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=display><pre style="font-family: serif"><CODE>BOC</CODE> @cmindex BOC
+<CODE>charcode</CODE>[1]
+<CODE>set-width</CODE>[3]
+<CODE>llx</CODE>[3] <CODE>lly</CODE>[3] <CODE>urx</CODE>[3] <CODE>ury</CODE>[3]
+</pre></td></tr></table></P><P>
+
+Here is a description of these components:
+</P><P>
+
+<UL>
+
+<LI>
+The <CODE>BOC</CODE> or <CODE>BOC_ABBREV</CODE> opcode byte introduces the character.
+<P>
+
+<A NAME="IDX935"></A>
+<LI>
+<CODE>charcode</CODE> defines the character code in question.
+<P>
+
+<A NAME="IDX936"></A>
+<LI>
+<CODE>set-width</CODE> defines the set width of the character, given as a
+design-size scaled, in printer's points.
+<P>
+
+<LI>
+<CODE>llx</CODE> <small>...</small> <CODE>ury</CODE> (which stand for "lower left <EM>x</EM>",
+"lower left <EM>y</EM>", "upper right <EM>x</EM>", and "upper right
+<EM>y</EM>") define the bounding box for this character.  The values are
+designsize-scaled, in printer's points.  The bounding box is not
+guaranteed to be the tightest possible, because it is difficult to
+compute the exact path of any splines in the character shape (see section <A HREF="fontu_98.html">11.6.3.2 BZR character shapes</A>).
+<P>
+
+</UL>
+<P>
+
+As with other formats, the left side bearing is defined by <CODE>llx</CODE>,
+and the right side bearing by <CODE>set-width</CODE> - <CODE>urx</CODE>.
+</P><P>
+
+See section <A HREF="fontu_94.html">11.6.1 BZR format introduction</A>, for general information about BZR files
+and for the definition of the types used here.
+</P><P>
+
+<A NAME="BZR character shapes"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

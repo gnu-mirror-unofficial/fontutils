@@ -1,0 +1,67 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_113.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_113.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_112.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_114.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_110.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_108.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_114.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 13.1.3 XBfe metrics editing </H3>
+<!--docid::SEC113::-->
+<P>
+
+<A NAME="IDX1075"></A>
+<A NAME="IDX1076"></A>
+<A NAME="IDX1077"></A>
+<A NAME="IDX1078"></A>
+</P><P>
+
+<A NAME="IDX1079"></A>
+<A NAME="IDX1080"></A>
+<A NAME="IDX1081"></A>
+You can change the left side bearing for the current character by typing
+the new value in the <SAMP>`lsb'</SAMP> item (and hitting <KBD>RET</KBD>, as always
+for information you type).  Likewise for the right side bearing and the
+<SAMP>`rsb'</SAMP> item.  The side bearing values must be integers.
+</P><P>
+
+<A NAME="IDX1082"></A>
+<A NAME="IDX1083"></A>
+<A NAME="IDX1084"></A>
+XBfe shows a box with any kerns for the current character.  Each item in
+the kern box looks like <SAMP>`<VAR>code</VAR>: <VAR>kern</VAR>'</SAMP>, where <VAR>code</VAR>
+is the character code (in decimal) of the character kerned with, and
+<VAR>kern</VAR> is the kern distance (in pixels).  You can edit the kern
+distances just as with the side bearings; the values here are real
+numbers.
+</P><P>
+
+<A NAME="IDX1085"></A>
+<A NAME="IDX1086"></A>
+<A NAME="IDX1087"></A>
+<A NAME="IDX1088"></A>
+You can add new kerns by typing the character code of the new
+kerned-with character in the <SAMP>`Add kern'</SAMP> item; then a kern item with
+that code is added to the kern box, with a distance of zero (which you
+can then change to whatever you want).  Similarly, you can delete a kern
+by typing the character code in the <SAMP>`Del kern'</SAMP> item.
+</P><P>
+
+<A NAME="Invoking XBfe"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

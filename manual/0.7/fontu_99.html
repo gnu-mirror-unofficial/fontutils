@@ -1,0 +1,128 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_99.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_99.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_98.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_96.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_93.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 11.6.4 BZR postamble </H3>
+<!--docid::SEC99::-->
+<P>
+
+<A NAME="IDX951"></A>
+<A NAME="IDX952"></A>
+</P><P>
+
+The postamble of a BZR file consists of the following.  See section <A HREF="fontu_94.html">11.6.1 BZR format introduction</A>, for general information about BZR files and for the
+definition of the types used here.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=display><pre style="font-family: serif"><CODE>POST</CODE> @cmindex POST opcode in BZR files
+<CODE>llx</CODE>[3] <CODE>lly</CODE>[3] <CODE>urx</CODE>[3] <CODE>ury</CODE>[3]
+character locators (see below)
+<CODE>POST_POST</CODE> @cmindex POST_POST opcode in BZR files
+<CODE>nchars</CODE>[1]
+<CODE>post-ptr</CODE>[4]
+<CODE>id</CODE>[1]
+1 to any number of <CODE>NO_OP</CODE>'s
+</pre></td></tr></table><A NAME="IDX953"></A>
+</P><P>
+
+Here is a description of these components:
+</P><P>
+
+<UL>
+
+<A NAME="IDX954"></A>
+<A NAME="IDX955"></A>
+<LI>
+<CODE>llx</CODE> <small>...</small> <CODE>ury</CODE> are all designsize-scaled
+numbers.  They define the bounding box for the entire font, which is
+simply the smallest box that encloses all the characters.  See section <A HREF="fontu_97.html">11.6.3.1 BZR character beginnings</A>.
+<P>
+
+<A NAME="IDX956"></A>
+<LI>
+A character locators provides a pointer to the first byte of the
+corresponding character description, i.e., its <CODE>BOC</CODE>.  There are
+two forms of character locators: one abbreviates the common case of the
+pointer being less than 65536; the other allows for a full four-byte
+pointer value.
+<P>
+
+<A NAME="IDX957"></A>
+More precisely, an abbreviated character locator consists of:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>CHAR_LOC_ABBREV charcode[1] pointer[2]
+</pre></td></tr></table></P><P>
+
+<A NAME="IDX958"></A>
+and a long character locator consists of:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=display><pre style="font-family: serif"><CODE>CHAR_LOC</CODE> <CODE>charcode</CODE>[1] <CODE>pointer</CODE>[4]
+</pre></td></tr></table></P><P>
+
+<A NAME="IDX959"></A>
+<A NAME="IDX960"></A>
+<LI>
+<CODE>nchars</CODE> is the number of characters defined in the BZR file.
+<P>
+
+<A NAME="IDX961"></A>
+<LI>
+<CODE>post-ptr</CODE> points to the <CODE>POST</CODE> byte.
+<P>
+
+<A NAME="IDX962"></A>
+<A NAME="IDX963"></A>
+<LI>
+<CODE>id</CODE> identifies the version of BZR format; this is currently 75.
+<P>
+
+</UL>
+<P>
+
+<A NAME="IDX964"></A>
+This way of ending BZR files makes it straightforward to process a BZR
+file from end to beginning, even though it must of course be written
+beginning to end.  The BZR-reading program can position itself at the
+end of the file, skip over the <CODE>NO_OP</CODE> bytes at the end to the
+<CODE>id</CODE> byte, and then read the pointer to the postamble proper, which
+provides enough information to read each character individually.  This
+eliminates the need to read the entire (potentially large) BZR file into
+memory before doing any processing.
+</P><P>
+
+<A NAME="BPLtoBZR"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_98.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_96.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_93.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

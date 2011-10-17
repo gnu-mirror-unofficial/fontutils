@@ -1,0 +1,117 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_37.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_37.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_36.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_38.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_35.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 6.1.2 Image to font conversion </H3>
+<!--docid::SEC37::-->
+<P>
+
+<A NAME="IDX326"></A>
+<A NAME="IDX327"></A>
+<A NAME="IDX328"></A>
+<A NAME="IDX329"></A>
+<A NAME="IDX330"></A>
+</P><P>
+
+Once you can see what is in the image, the next step is to prepare the
+IFI file (see section <A HREF="fontu_39.html">6.2 IFI files</A>) corresponding to its characters.  Imageto
+relies completely on the IFI files to describe the image; it makes no
+attempt at optical character recognition, i.e., guessing what the
+characters are from their shapes.
+</P><P>
+
+You must also decide on a few more aspects of the output font, which you
+specify with options:
+</P><P>
+
+<UL>
+
+<LI>
+<A NAME="IDX331"></A>
+<A NAME="IDX332"></A>
+The <EM>design size</EM>, which you specify with the <SAMP>`-designsize'</SAMP>
+option.  The default is 10pt.  Even if you know the true design
+size of the original scanned image, you may wish to change it.  For
+example, some of our original specimens were stated to be 30pt,
+but that resulted in the 10pt size being too small to our
+(20th-century) eyes.  So we specified a design size of 26pt.
+<P>
+
+<LI>
+<A NAME="IDX333"></A>
+<A NAME="IDX334"></A>
+<A NAME="IDX335"></A>
+The <EM>baselines</EM>, which you specify with the <SAMP>`-baselines'</SAMP>
+option.  You can specify the baseline for each image row (the bottom
+scanline of each image row is numbered zero, with coordinates increasing
+upward).  You can make an adjustment for individual characters in the
+IFI files, but you save yourself at least some of this hassle by
+specifying a general baseline for each row.
+<P>
+
+For instance, in the example image in <A HREF="fontu_35.html">6.1 Imageto usage</A>, it would be
+best to specify <SAMP>`-baselines=2,0'</SAMP>.  The <SAMP>`2'</SAMP> is scanline #5 in
+that image.  The <SAMP>`0'</SAMP> is an arbitrary value for scanline #10, which
+we will ignore via the IFI file (see section <A HREF="fontu_39.html">6.2 IFI files</A>).
+</P><P>
+
+<A NAME="IDX336"></A>
+For each character written, the <SAMP>`-print-guidelines'</SAMP> option produces
+output on the terminal that looks like:
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>75 (K) 5/315
+</pre></td></tr></table></P><P>
+
+This means that character code 75, whose name in
+the encoding file is <SAMP>`K'</SAMP>, has its bottom row at row 5, and its top
+row at row 315; i.e., the character has five blank rows above the
+origin.  This is almost certainly wrong (the letter `K' should sit on
+the typesetting baseline), so we would want to adjust it downwards to 0
+via the individual character adjustment (see section <A HREF="fontu_39.html">6.2 IFI files</A>).
+</P><P>
+
+</UL>
+<P>
+
+The final invocation to produce the font might look something like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>imageto -baselines=121,130,120 -designsize=26 ggmr
+</pre></td></tr></table></P><P>
+
+The output from this would be <TT>`ggmr26.1200gf'</TT>.
+</P><P>
+
+<A NAME="Dirty images"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_36.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_38.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_35.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

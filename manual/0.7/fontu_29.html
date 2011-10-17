@@ -1,0 +1,98 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_29.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_29.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_28.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_30.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_33.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 5.3 Encoding files </H2>
+<!--docid::SEC29::-->
+<P>
+
+<A NAME="IDX281"></A>
+<A NAME="IDX282"></A>
+<A NAME="IDX283"></A>
+<A NAME="IDX284"></A>
+</P><P>
+
+The <EM>encoding</EM> of a font specifies the mapping from character codes
+(an integer, typically between zero and 255) to the characters
+themselves; e.g., does a character with code 92 wind up printing as a
+backslash (as it does under the ASCII encoding) or as a double left
+quote (as it does under the most common TeX font encoding)?  Put
+another way, the encoding is the arrangement of the characters in the
+font.
+</P><P>
+
+It is sad but true that no single encoding has been widely adopted, even
+for basic text fonts.  (Text fonts and, say, math fonts or symbol fonts
+will clearly have different encodings.)  Every typesetting program
+and/or font source seems to come up with a new encoding; GNU is no
+exception (see below).  Therefore, when you decide on the encoding for
+the fonts you create, you should choose whatever is most convenient for
+the typesetting programs you intend to run it with.  (Decent typesetting
+systems would make it trivial to set font encodings; unfortunately,
+almost nothing is decent in that regard!)
+</P><P>
+
+<A NAME="IDX285"></A>
+The <EM>encoding file</EM> format we invented is a font-format-independent
+representation of an encoding.  Encoding files are "data files" which
+have the basic syntax elements described above (see section <A HREF="fontu_28.html">5.2 Common file syntax</A>).  They are usually named with the extension <CODE>.enc</CODE>.
+</P><P>
+
+The first nonblank non-comment line in an encoding file is a string to
+put into TFM files as the "coding scheme" to describe the encoding;
+some common coding schemes are <SAMP>`TeX text'</SAMP>, <SAMP>`TeX math symbol'</SAMP>,
+<SAMP>`Adobe standard'</SAMP>.  Case is irrelevant; that is, any programs which
+use the coding scheme should pay no attention to its case.
+</P><P>
+
+Thereafter, each nonblank non-comment line defines the character for the
+corresponding code: the first such line defines the character with code
+zero, the next with code one, and so on.
+</P><P>
+
+Each character consists of a name, optionally followed by ligature
+information.  (All fonts using the same encoding should have the same
+ligatures, it seems to us.)
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_30.html">5.3.1 Character names</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to write character names.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_31.html">5.3.2 Ligature definitions</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to define ligatures.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_32.html">5.3.3 GNU encodings</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Why we invented new encodings for GNU.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Character names"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_28.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_30.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_33.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

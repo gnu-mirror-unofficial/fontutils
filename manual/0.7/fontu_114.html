@@ -1,0 +1,121 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_114.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_114.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_113.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_115.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_108.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_107.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_115.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 13.2 Invoking XBfe </H2>
+<!--docid::SEC114::-->
+<P>
+
+<A NAME="IDX1089"></A>
+<A NAME="IDX1090"></A>
+<A NAME="IDX1091"></A>
+</P><P>
+
+This section describes the options that XBfe accepts.
+See section <A HREF="fontu_11.html">3.3 Command-line options</A>, for general option syntax.
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX1092"></A>
+<DT><SAMP>`-dpi <VAR>unsigned</VAR>'</SAMP>
+<DD>The resolution, in pixels per inch.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<A NAME="IDX1093"></A>
+<A NAME="IDX1094"></A>
+<A NAME="IDX1095"></A>
+<A NAME="IDX1096"></A>
+<DT><SAMP>`-expansion <VAR>unsigned</VAR>'</SAMP>
+<DD>Expand each pixel in the character bitmaps to this many pixels
+square on the display; default is 12, i.e., each pixel in the original
+bitmap will become a 12 by 12 rectangle.
+<P>
+
+You can't use `=' here to separate the option name and value.
+</P><P>
+
+<A NAME="IDX1097"></A>
+<A NAME="IDX1098"></A>
+<A NAME="IDX1099"></A>
+<A NAME="IDX1100"></A>
+You can also set this value by setting the resource <SAMP>`expansion'</SAMP> in
+<TT>`.Xdefaults'</TT>.
+</P><P>
+
+<A NAME="IDX1101"></A>
+<A NAME="IDX1102"></A>
+<A NAME="IDX1103"></A>
+<A NAME="IDX1104"></A>
+<DT><SAMP>`-initial-char <VAR>charcode</VAR>'</SAMP>
+<DD>Initially display the character <VAR>charcode</VAR>; default is the first
+character in the font, i.e., the one with the lowest character code.
+<P>
+
+<A NAME="IDX1105"></A>
+<DT><SAMP>`-help'</SAMP>
+<DD>Print a usage message.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<A NAME="IDX1106"></A>
+<DT><SAMP>`-output-file <VAR>filename</VAR>'</SAMP>
+<DD>Write the output to <TT>`<VAR>filename</VAR>.<VAR>dpi</VAR>gf'</TT> and
+<TT>`<VAR>filename</VAR>.tfm'</TT>.  The default is to use the name of the main
+input file for <VAR>filename</VAR>.
+<P>
+
+<A NAME="IDX1107"></A>
+<DT><SAMP>`-version'</SAMP>
+<DD>Print the version number.
+<P>
+
+</DL>
+<P>
+
+<A NAME="IDX1108"></A>
+<A NAME="IDX1109"></A>
+<A NAME="IDX1110"></A>
+<A NAME="IDX1111"></A>
+In addition to the above options, XBfe also accepts the standard X
+toolkit options (and resources), such as <SAMP>`-display'</SAMP> to specify the
+X server to use.  See the documentation for any X program for a
+description of these options.  Unlike the options above, you cannot use
+<SAMP>`--'</SAMP> to start X toolkit options, nor can you use <SAMP>`='</SAMP> to
+separate option names and values; for example, neither <SAMP>`--display
+host:0'</SAMP> nor <SAMP>`-display=host:0'</SAMP> are recognized.
+</P><P>
+
+<A NAME="BZRedit"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_113.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_115.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_108.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_107.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_115.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,59 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_60.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_60.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_59.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_61.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 9.2.5 <CODE>kern</CODE> command </H3>
+<!--docid::SEC60::-->
+<P>
+
+<A NAME="IDX544"></A>
+<A NAME="IDX545"></A>
+</P><P>
+
+The <CODE>kern</CODE> command defines a space to insert or remove between two
+particular characters.  The kerning information is written only to the
+TFM file.  It has the form:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>kern <VAR>name1</VAR> <VAR>name2</VAR> <VAR>expr</VAR>
+</pre></td></tr></table></P><P>
+
+where <VAR>name1</VAR> and <VAR>name2</VAR> are character names, as in
+the <CODE>char</CODE> command (see section <A HREF="fontu_57.html">9.2.2 <CODE>char</CODE> command</A>), and <VAR>expr</VAR> is the
+amount of the kern in pixels.
+</P><P>
+
+For example:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>kern F dot -7.5
+</pre></td></tr></table></P><P>
+
+would put an entry in the TFM file's kerning table such that
+when TeX typesets a <SAMP>`F'</SAMP> followed by a <SAMP>`.'</SAMP>, it inserts
+an additional space equivalent to <EM>-7.5</EM> pixels in the resolution of
+Charspace's input font, i.e., it moves the two characters closer together.
+</P><P>
+
+<A NAME="codingscheme command"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

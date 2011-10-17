@@ -1,0 +1,215 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_9.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_9.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_8.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_10.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 3.2 Creating fonts </H2>
+<!--docid::SEC9::-->
+<P>
+
+<A NAME="IDX121"></A>
+<A NAME="IDX122"></A>
+<A NAME="IDX123"></A>
+<A NAME="IDX124"></A>
+</P><P>
+
+The previous section described pictorially the usual order in which these
+programs are used.  This section will do the same in words.
+</P><P>
+
+Naturally, you may not need to go through all the steps described here.
+For example, if you are not starting with a scanned image, but already
+have a bitmap font, then the first step--running Imageto--is
+irrelevant.
+</P><P>
+
+Here is a description of the usual font creation process, starting with
+a scanned image of a type specimen and ending with fonts which can be
+used by Ghostscript, TeX, etc.
+</P><P>
+
+<OL>
+
+<LI>
+<A NAME="IDX125"></A>
+<A NAME="IDX126"></A>
+To see what an image <VAR>I</VAR> consists of, run Imageto with the
+<SAMP>`-strips'</SAMP> option.  This produces a bitmap font <TT>`<VAR>I</VAR>sp'</TT> in
+which each character is simply a constant number of scanlines from the
+image.
+<P>
+
+<LI>
+Run Fontconvert (see section <A HREF="fontu_46.html">8. Fontconvert</A>) on <TT>`<VAR>I</VAR>sp'</TT> with the
+<SAMP>`-tfm'</SAMP> option, to produce a TFM file.  This is because of
+the next step:
+<P>
+
+<LI>
+<A NAME="IDX127"></A>
+Run TeX on <TT>`imageto/strips.tex'</TT>, telling TeX to use the
+font <TT>`<VAR>I</VAR>sp'</TT>.  This produces a DVI file which you can print or
+preview as you usually do with TeX documents.  (If you don't know how
+to do this, you'll have to ask someone knowledgeable at your site, or
+otherwise investigate.)  This will (finally) show you what is in the
+image.
+<P>
+
+An alternative to the above steps is to run Imageto with the
+<SAMP>`-epsf'</SAMP> option.  This outputs an Encapsulated PostScript file with
+the image given as a simple PostScript bitmap.  Then you can use
+Ghostscript or some other PostScript interpreter to look at the EPS file.
+This method is simpler, but has the disadvantage of using much more
+disk space, and needing a PostScript interpreter.
+</P><P>
+
+<LI>
+If the original was not scanned in the normal orientation, the image
+must be rotated 90 degrees in some direction and/or flipped end for end.
+(Sometimes we have not scanned in the normal orientation because the
+physical construction of the book we were scanning made it difficult or
+impossible.)  In this case, you must rotate the image to be upright.
+The program IMGrotate does this, given the <SAMP>`-flip'</SAMP> or
+<SAMP>`rotate-clockwise'</SAMP> option.  Given an image <VAR>RI</VAR>, this outputs
+the upright image <VAR>I</VAR>.
+<P>
+
+<LI>
+Once you have an upright image <VAR>I</VAR>, you can use Imageto
+(see section <A HREF="fontu_34.html">6. Imageto</A>) to extract the characters from the image and make a
+bitmap font <TT>`<VAR>I</VAR>.<VAR>dpi</VAR>gf'</TT>, where <VAR>dpi</VAR> is the
+resolution of the image in pixels per inch.  (If the image itself does
+not contain the resolution, you must specify it on the command line with
+<SAMP>`-dpi'</SAMP>.)  To do this, you must first prepare an IFI file describing
+the image.  See section <A HREF="fontu_39.html">6.2 IFI files</A>, for a description of IFI files.
+<P>
+
+<LI>
+<A NAME="IDX128"></A>
+To view the resulting GF file, run Fontconvert to make a TFM file, as
+above.  Then run TeX on <TT>`testfont.tex'</TT> and use the <CODE>\table</CODE>
+or <CODE>\sample</CODE> commands to produce a font table.  Next, print or
+preview the DVI file that TeX outputs, as before.  This will probably
+reveal problems in your IFI file, e.g., that not all the characters are
+present, or that they are not in the right positions.  So you need to
+iterate until the image is correctly processed.
+<P>
+
+<TT>`testfont.tex'</TT> should have come with your TeX distribution.  If
+for some reason you do not have it, you can use the one distributed in
+the <TT>`data'</TT> directory.
+</P><P>
+
+<LI>
+Once all the characters have been properly extracted from the image, you
+have a bitmap font.  Unlike the above, the following steps all interact
+with each other, in the sense that fixing problems found at one stage may
+imply changes in an earlier stage.  As a result, you must expect to
+iterate them several (billion) times.
+<P>
+
+At any rate, given a bitmap font <VAR>f</VAR> you then run Charspace
+(see section <A HREF="fontu_53.html">9. Charspace</A>) to add side bearings to <VAR>f</VAR>, producing a new
+bitmap font, say <VAR>g</VAR>, and a corresponding TFM file
+<TT>`<VAR>g</VAR>.tfm'</TT>.  To do this, you must prepare a CMI file specifying
+the side bearings.  See section <A HREF="fontu_55.html">9.2 CMI files</A>, for a description of CMI files.
+</P><P>
+
+<LI>
+To fit outlines to the characters in a bitmap font, run Limn
+(see section <A HREF="fontu_66.html">10. Limn</A>).  Given the bitmap font <VAR>g</VAR>, it produces the BZR
+(see section <A HREF="fontu_93.html">11.6 BZR files</A>) outline font <TT>`<VAR>g</VAR>.bzr'</TT>.  The side bearings
+in <VAR>g</VAR> are carried along.
+<P>
+
+Although Limn will (should) always be able to fit some sort of outline
+to the bitmaps, you can get the best results only by fiddling with the
+(unfortunately numerous) parameters.  See section <A HREF="fontu_82.html">10.2 Invoking Limn</A>.
+</P><P>
+
+<LI>
+To convert from the BZR file <TT>`<VAR>g</VAR>.bzr'</TT> that Limn outputs to a
+font format that a typesetting program can use, run BZRto
+(see section <A HREF="fontu_83.html">11. BZRto</A>).  While developing a font, we typically convert it to a
+Metafont program (with the <SAMP>`-metafont'</SAMP> option).
+<P>
+
+As you get closer to a finished font, you may want to prepare a CCC file
+(see section <A HREF="fontu_89.html">11.4 CCC files</A>) to tell BZRto how construct composite characters
+(pre-accented `A's, for example) to complete the font.
+</P><P>
+
+<LI>
+Given the font in Metafont form, you can then either make
+the font at its true size for some device, or make an enlarged version
+to examine the characters closely.  See section <A HREF="fontu_84.html">11.1 Metafont and BZRto</A>, for the
+full details.
+<P>
+
+Briefly, to do the former, run Metafont with a <CODE>mode</CODE> of whatever
+device you wish (the mode <CODE>localfont</CODE> will get you the most
+common local device, if Metafont has been installed properly).  Then you
+can use <TT>`testfont.tex'</TT> to get a font sample, as described above.
+</P><P>
+
+To do the latter, run Metafont with no assignment to <CODE>mode</CODE>.  This
+should get you <CODE>proof</CODE> mode.  You can then use GFtoDVI to get a DVI
+file with one character per page, showing you the control points Limn
+chose for the outlines.
+</P><P>
+
+<LI>
+Problems can arise at any stage.  For example, the character spacing
+might look wrong; in that case, you should fix the CMI files and rerun
+Charspace (and all subsequent programs, naturally).  Or the outlines
+might not match the bitmaps very well; then you can change the
+parameters to Limn, or use XBfe (see section <A HREF="fontu_107.html">13. XBfe</A>) to hand-edit the bitmaps
+so Limn will do a better job.  (To eliminate some of tedium of fixing
+digitization problems in the scanned image, you might want to use the
+filtering options in Fontconvert before hand-editing; see <A HREF="fontu_50.html">8.1.3 Character manipulation options</A>.)
+<P>
+
+Inevitably, as one problem gets fixed you notice new ones <small>...</small>
+</P><P>
+
+</OL>
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_10.html">3.2.1 Font creation example</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A real-life example.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Font creation example"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_8.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_10.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,72 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_90.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_90.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_89.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_91.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_88.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_89.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_92.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 11.4.1 CCC <CODE>setchar</CODE> statements </H3>
+<!--docid::SEC90::-->
+<P>
+
+<A NAME="IDX857"></A>
+<A NAME="IDX858"></A>
+To use an existing character as part of a new character, you can use
+either the <CODE>setchar</CODE> or <CODE>setcharbb</CODE> statement.  They both take
+a character name in parentheses as their argument, as in:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>setchar ( <VAR>name</VAR> )
+setcharbb ( <VAR>name</VAR> )
+</pre></td></tr></table></P><P>
+
+See section <A HREF="fontu_30.html">5.3.1 Character names</A>, for the details of character names.
+</P><P>
+
+<A NAME="IDX859"></A>
+The difference between the two commands lies in their treatment of the
+existing character's sidebearings: the <CODE>setchar</CODE> command includes
+them, and <CODE>setcharbb</CODE> does not.  <CODE>setcharbb</CODE> also removes
+any white space above and below the character shapes, as is usually
+present in accent characters.
+</P><P>
+
+This difference lets you construct characters without worrying about
+interaction between their side bearings.  For example, you could make an
+`A' with an acute accent centered over the body of the `A' as follows:
+</P><P>
+
+<A NAME="IDX860"></A>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>define Aacute =
+  setchar (A)
+  hmove -.5 width (A)
+  vmove height (A)
+  setcharbb (acute)
+end
+</pre></td></tr></table></P><P>
+
+(See the next section for a description of the <CODE>hmove</CODE> and
+<CODE>vmove</CODE> commands.)  Without the <CODE>setcharbb</CODE> command, this
+definition would be complicated by the side bearings on the <CODE>acute</CODE>
+character.
+</P><P>
+
+<A NAME="CCC move"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

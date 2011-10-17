@@ -1,0 +1,95 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_74.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_74.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_73.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_75.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 10.1.5.2 Finding tangents </H4>
+<!--docid::SEC74::-->
+<P>
+
+<A NAME="IDX699"></A>
+<A NAME="IDX700"></A>
+As mentioned above, Limn moves the control points on the spline
+to optimally fit the bitmap.  But it cannot just move them arbitrarily,
+because it must make sure that the spline fitting one part of the bitmap
+blends smoothly with those fit to adjacent parts.
+</P><P>
+
+<A NAME="IDX701"></A>
+<A NAME="IDX702"></A>
+<A NAME="IDX703"></A>
+<A NAME="IDX704"></A>
+Technically, this smooth blending is called <EM>continuity</EM>, and it
+comes in degrees.  Limn is concerned with the first two degrees: zero-
+and first-order.  Zero-order continuity between two curves simply means
+the curves are connected; first-order geometric (G1) continuity means
+the tangents to each curve at the point of connection have the same
+direction.  (There are other kinds of continuity besides "geometric",
+but they are not important for our purposes.)
+</P><P>
+
+Informally, this means that the final shape will not abruptly turn at
+the point where two splines meet.  (Any computer graphics textbook will
+discuss the properties of tangents, continuity, and splines, if you're
+unfamiliar with the subject.)
+</P><P>
+
+<A NAME="IDX705"></A>
+To achieve G1 continuity, Limn puts the first control point of a spline
+on a line going in the direction of the tangent to the start of the
+spline; and it puts the second control point on a line in the direction
+of the tangent to the end of the spline.  (It would be going far afield
+to prove that this together with the properties of Bezier splines imply
+G1 continuity, but they do.  See Schneider's thesis referenced in
+<TT>`limn/README'</TT> for a complete mathematical treatment.)
+</P><P>
+
+<A NAME="IDX706"></A>
+<A NAME="IDX707"></A>
+<A NAME="IDX708"></A>
+For the purposes of using Limn, the important thing is that Limn must
+compute the tangents to the spline at the beginning and end, and must do
+so accurately in order to achieve a good fit to the bitmap.  Since Limn
+has available only samples (i.e., the pixel coordinates) of the curve
+being fit, it cannot compute the true tangent.  Instead, it must
+approximate the tangent by looking at some number of coordinates on
+either side of a point.  By default, the number is 3, but you can
+specify a different number with the <SAMP>`-tangent-surround'</SAMP> option.  If
+the resolution of the input font is different than 300dpi, or if
+the outline Limn fits to the bitmap seems off, you will want to scale it
+proportionately.
+</P><P>
+
+<A NAME="Finding the spline"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_73.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_75.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

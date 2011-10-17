@@ -1,0 +1,127 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_64.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_64.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_63.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_62.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 9.2.8 CMI processing </H3>
+<!--docid::SEC64::-->
+<P>
+
+<A NAME="IDX610"></A>
+</P><P>
+
+Here are some further details on how Charspace processes the CMI files:
+</P><P>
+
+<UL>
+
+<A NAME="IDX611"></A>
+<A NAME="IDX612"></A>
+<A NAME="IDX613"></A>
+<LI>
+Charspace uses a single <EM>namespace</EM>; i.e., each defined identifier,
+whether it be a character name, an internal identifier, a fontdimen
+name, or whatever, is stored in the same table.  Furthermore, Charspace
+does not complain, or even warn, about redefinition of identifiers: as
+we build up CMI files to be shared among different fonts, we felt such
+redefinition would be common.
+<P>
+
+<A NAME="IDX614"></A>
+<A NAME="IDX615"></A>
+<LI>
+Charspace does not insist that identifiers be used before they are
+defined.  For example, the following sequence:
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>define foo bar
+define bar 1.0
+char A foo , bar
+</pre></td></tr></table></P><P>
+
+is valid, and defines both side bearings of <SAMP>`A'</SAMP> to be
+1.0.  (See the preceding sections for the definition of the various
+commands allowed in CMI files.)
+</P><P>
+
+<A NAME="IDX616"></A>
+<LI>
+Charspace only tries to resolve the definitions of those identifiers
+which are actually used to produce the output files (i.e., those in a
+sidebearing definition, a kern value, or a fontdimen value).  Thus,
+something like
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>define foo bar
+</pre></td></tr></table></P><P>
+
+will elicit no complaint, if <SAMP>`foo'</SAMP> is not needed to make
+the output files.
+</P><P>
+
+<LI>
+Charspace reads the contents of all the CMI files before attempting to
+resolve any definitions.  Thus, it is the last definition which counts.
+For example:
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>define bar 100
+define foo 2 bar
+define bar 1
+char A foo , foo
+</pre></td></tr></table></P><P>
+
+defines both side bearings of <SAMP>`A'</SAMP> to be 2, not 200.
+</P><P>
+
+<A NAME="IDX617"></A>
+<LI>
+Charspace predefines one identifier, <CODE>designsize</CODE>, to be the
+design size of the input font (in pixels).  It can be redefined like any
+other identifier.
+<P>
+
+</UL>
+<P>
+
+<A NAME="IDX618"></A>
+<A NAME="IDX619"></A>
+If you can read programs in the C language, you may find it instructive
+to examine the implementation of CMI file processing in the source files
+<TT>`charspace/char.c'</TT> and <TT>`charspace/cmi.y'</TT>.  The source provides
+the full details of CMI processing.
+</P><P>
+
+<A NAME="Invoking Charspace"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_63.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_62.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

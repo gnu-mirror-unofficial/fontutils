@@ -1,0 +1,71 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_33.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_33.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_32.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_29.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 5.4 Coding scheme map file </H2>
+<!--docid::SEC33::-->
+<P>
+
+<A NAME="IDX304"></A>
+<A NAME="IDX305"></A>
+</P><P>
+
+When a program reads a TFM file, it's given an arbitrary string (at
+best) for the coding scheme.  To be useful, it needs to find the
+corresponding encoding file.  We couldn't think of any way to name our
+<TT>`.enc'</TT> files that would allow the filename to be guessed
+automatically.  Therefore, we invented another data file which maps the
+TFM coding scheme strings to our <TT>`.enc'</TT> filenames.
+</P><P>
+
+<A NAME="IDX306"></A>
+This file is distributed as <TT>`data/encoding.map'</TT>.  See section <A HREF="fontu_28.html">5.2 Common file syntax</A>, for a description of the common syntax elements.
+</P><P>
+
+Each nonblank non-comment line in <TT>`encoding.map'</TT> has two entries:
+the first word (contiguous nonblank characters) is the <TT>`.enc'</TT>
+filename; the rest of the line, after ignoring whitespace, is the string
+in the TFM file.  This should be the same string that appears on the
+first line of the <TT>`.enc'</TT> file (see section <A HREF="fontu_29.html">5.3 Encoding files</A>).
+</P><P>
+
+Programs should ignore case when using the coding scheme string.
+</P><P>
+
+Here is the coding scheme map file we distribute:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>adobestd 	Adobe standard
+ascii		ASCII
+dvips		dvips
+dvips		TeX text + adobestandardencoding
+gnulatin	GNU Latin text
+gnulcomp 	GNU Latin text complement
+psymbol 	PostScript Symbol
+texlatin	Extended TeX Latin
+textext		TeX text
+zdingbat	Zapf Dingbats
+</pre></td></tr></table></P><P>
+
+<A NAME="Imageto"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

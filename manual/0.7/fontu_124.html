@@ -1,0 +1,59 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_124.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_124.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_123.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_125.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_121.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_122.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_126.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 15.1.2 GSrenderfont output size </H3>
+<!--docid::SEC124::-->
+<P>
+
+<A NAME="IDX1186"></A>
+<A NAME="IDX1187"></A>
+<A NAME="IDX1188"></A>
+</P><P>
+
+<A NAME="IDX1189"></A>
+<A NAME="IDX1190"></A>
+For convenience, GSrenderfont allows you to independently specify the
+point size and the resolution of the output font: the <SAMP>`-point-size'</SAMP>
+option, as an integer in points, and the latter with
+<SAMP>`-dpi'</SAMP> in pixels per inch.  The defaults are 10pt and
+300dpi.
+</P><P>
+
+<A NAME="IDX1191"></A>
+<A NAME="IDX1192"></A>
+Because PostScript fonts are (in practice) linearly scaled, however,
+GSrenderfont does not put the point size in the output filename.
+Instead, it simply computes the final resolution as the <SAMP>`dpi'</SAMP>
+multiplied by the <SAMP>`point-size'</SAMP> divided by 10.  This assumes that
+the default size of the fonts as used in TeX is 10pt, which is
+true for the PostScript fonts distributed with Dvips.
+</P><P>
+
+For example, supposing the output filename is <TT>`ptmr'</TT>, and you
+specify <SAMP>`-point-size=12'</SAMP>, the bitmap font will be named
+<TT>`ptmr.360pk'</TT>.
+</P><P>
+
+<A NAME="GSrenderfont encoding"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

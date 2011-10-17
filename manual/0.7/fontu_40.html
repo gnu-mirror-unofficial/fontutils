@@ -1,0 +1,183 @@
+<html><head><title>Font utilities</title>
+<base href="http://www.delorie.com/gnu/docs/fontutils/fontu_40.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_40.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_41.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_41.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 6.3 Invoking Imageto </H2>
+<!--docid::SEC40::-->
+<P>
+
+<A NAME="IDX369"></A>
+<A NAME="IDX370"></A>
+<A NAME="IDX371"></A>
+</P><P>
+
+This section describes the options that Imageto accepts.
+See section <A HREF="fontu_11.html">3.3 Command-line options</A>, for general option syntax.
+</P><P>
+
+The main input filename (see section <A HREF="fontu_12.html">3.3.1 The main input file</A>) is called
+<VAR>image-name</VAR> below.
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`-baselines <VAR>scanline1</VAR>,<VAR>scanline2</VAR>,<small>...</small>'</SAMP>
+<DD><A NAME="IDX372"></A>
+<A NAME="IDX373"></A>
+Define the baselines for each image row.  The default baseline for the
+characters in the first image row is taken to be <VAR>scanline1</VAR>, etc.
+The <VAR>scanline</VAR>s are <EM>not</EM> cumulative: the top scanline in each
+image row is numbered zero.
+<P>
+
+<DT><SAMP>`-designsize <VAR>real</VAR>'</SAMP>
+<DD><A NAME="IDX374"></A>
+<A NAME="IDX375"></A>
+<A NAME="IDX376"></A>
+Set the design size of the output font to <VAR>real</VAR>; default is 10.0.
+<P>
+
+<DT><SAMP>`-dpi <VAR>unsigned</VAR>'</SAMP>
+<DD><A NAME="IDX377"></A>
+The resolution of the input image, in pixels per inch (required for PBM
+input).  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<DT><SAMP>`-encoding <VAR>enc-file</VAR>'</SAMP>
+<DD><A NAME="IDX378"></A>
+The encoding file to read for the mapping between character names and
+character codes.  See section <A HREF="fontu_29.html">5.3 Encoding files</A>.  If <VAR>enc-file</VAR> has no
+suffix, <SAMP>`.enc'</SAMP> is appended.  Default is to assign successive
+character codes to the character names in the IFI file.
+<P>
+
+<DT><SAMP>`-epsf'</SAMP>
+<DD><A NAME="IDX379"></A>
+Write the image to <TT>`<VAR>image-name</VAR>.eps'</TT> as an Encapsulated
+PostScript file.
+<P>
+
+<DT><SAMP>`-help'</SAMP>
+<DD><A NAME="IDX380"></A>
+Print a usage message.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<A NAME="IDX381"></A>
+<DT><SAMP>`-ifi-file <VAR>filename</VAR>'</SAMP>
+<DD>Set the name of the IFI file to <VAR>filename</VAR> (if <VAR>filename</VAR> has an
+extension) or <TT>`<VAR>filename</VAR>.ifi'</TT> (if it doesn't).  The default is
+<TT>`<VAR>image-name</VAR>.ifi'</TT>.
+<P>
+
+<DT><SAMP>`-input-format <VAR>format</VAR>'</SAMP>
+<DD><A NAME="IDX382"></A>
+Specify the format of the input image; <VAR>format</VAR> must be
+one of <SAMP>`pbm'</SAMP> or <SAMP>`img'</SAMP>.  The default is taken from
+<VAR>image-name</VAR>, if possible.
+<P>
+
+<DT><SAMP>`-nchars <VAR>unsigned</VAR>'</SAMP>
+<DD><A NAME="IDX383"></A>
+Only write the first <VAR>unsigned</VAR> (approximately) characters from the
+image to the output font; default is all the characters.
+<P>
+
+<DT><SAMP>`-output-file <VAR>filename</VAR>'</SAMP>
+<DD><A NAME="IDX384"></A>
+<A NAME="IDX385"></A>
+Write to <VAR>filename</VAR> if <VAR>filename</VAR> has a suffix.  If it doesn't,
+then if writing strips, write to <VAR>filename</VAR>sp.<VAR>dpi</VAR>gf; else
+write to <TT>`<VAR>filename</VAR>.<VAR>dpi</VAR>gf'</TT>.  By default, use
+`<VAR>image-name</VAR> <VAR>designsize</VAR>' for <VAR>filename</VAR>.
+<P>
+
+<DT><SAMP>`-print-clean-info'</SAMP>
+<DD><A NAME="IDX386"></A>
+Print the size of each bounding box considered for removal, and the size
+of the containing bitmaps.  This option implies <SAMP>`-verbose'</SAMP>.
+See section <A HREF="fontu_38.html">6.1.3 Dirty images</A>, for a full explanation of its output.
+<P>
+
+<DT><SAMP>`-print-guidelines'</SAMP>
+<DD><A NAME="IDX387"></A>
+Print the numbers of the top and bottom scanlines for each
+character.  This implies <SAMP>`verbose'</SAMP>.  See section <A HREF="fontu_37.html">6.1.2 Image to font conversion</A>, for a full explanation of its output.
+<P>
+
+<DT><SAMP>`-range <VAR>char1</VAR>-<VAR>char2</VAR>'</SAMP>
+<DD><A NAME="IDX388"></A>
+Only output characters with codes between <VAR>char1</VAR> and <VAR>char2</VAR>,
+inclusive.  (See section <A HREF="fontu_13.html">3.3.2 Common options</A>, and <A HREF="fontu_14.html">3.3.3 Specifying character codes</A>.)
+<P>
+
+<DT><SAMP>`-strips'</SAMP>
+<DD><A NAME="IDX389"></A>
+Take a constant number of scanlines from the image as each character in
+the output font, instead of using an IFI file to analyze the image.
+<P>
+
+<DT><SAMP>`-trace-scanlines'</SAMP>
+<DD><A NAME="IDX390"></A>
+<A NAME="IDX391"></A>
+<A NAME="IDX392"></A>
+Show every scanline as we read it as plain text, using <SAMP>`*'</SAMP> and
+space characters.  This is still another way to view the image
+(see section <A HREF="fontu_36.html">6.1.1 Viewing an image</A>), but the result takes an enormous amount of
+disk space (over eight times as much as the original image) and is quite
+difficult to look at (because it's so big).  To be useful at all, we
+start a giant XTerm window with the smallest possible font and look at
+the resulting file in Emacs.  This option is primarily for debugging.
+<P>
+
+<DT><SAMP>`-verbose'</SAMP>
+<DD><A NAME="IDX393"></A>
+<A NAME="IDX394"></A>
+<A NAME="IDX395"></A>
+Output progress reports.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.  Specifically, a
+<SAMP>`.'</SAMP> is output for every 100 scanlines read, a <SAMP>`+'</SAMP> is
+output when an image row does not end on a character boundary, and the
+character code is output inside brackets.
+<P>
+
+<DT><SAMP>`-version'</SAMP>
+<DD><A NAME="IDX396"></A>
+Print the version number.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+</DL>
+<P>
+
+<A NAME="IMGrotate"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_41.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_41.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

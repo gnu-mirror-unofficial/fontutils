@@ -1,0 +1,161 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_39.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_39.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_38.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_40.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_35.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_41.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 6.2 IFI files </H2>
+<!--docid::SEC39::-->
+<P>
+
+<A NAME="IDX351"></A>
+<A NAME="IDX352"></A>
+</P><P>
+
+An <EM>image font information</EM> (IFI) file is a text file which
+describes the contents of an image file.  You yourself must create it;
+as we will see, the information it contains usually cannot be determined
+automatically.
+</P><P>
+
+<A NAME="IDX353"></A>
+<A NAME="IDX354"></A>
+If your image file is named <TT>`<VAR>foo</VAR>.img'</TT> (or
+<TT>`<VAR>foo</VAR>.pbm'</TT>), it is customary to name the corresponding IFI
+file <TT>`<VAR>foo</VAR>.ifi'</TT>.  That is what Imageto looks for by default.
+If you name it something else, you must specify the name with the
+<SAMP>`-ifi-file'</SAMP> option.
+</P><P>
+
+Imageto does not look for an IFI file if either the <SAMP>`-strips'</SAMP> or
+<SAMP>`-epsf'</SAMP> options were specified.
+</P><P>
+
+<A NAME="IDX355"></A>
+Each nonblank non-comment line in the IFI file represents a a sequence
+of bounding boxes in the image, and a corresponding character in the
+output font.  See section <A HREF="fontu_28.html">5.2 Common file syntax</A>, for a description of syntax
+elements common to all data files processed by these programs, including
+comments.
+</P><P>
+
+<A NAME="IDX356"></A>
+Each line has one to five <EM>entries</EM>, separated by spaces and/or
+tabs.  If a line contains fewer than five entries, suitable defaults (as
+described below) are taken for the missing trailing entries.  (It is
+impossible to supply a value for entry #3, say, without also supplying
+values for entries #1 and #2.)
+</P><P>
+
+Here is the meaning of each entry, in order:
+</P><P>
+
+<OL>
+
+<LI>
+<A NAME="IDX357"></A>
+The character name of the output character.  Usually, Imageto outputs
+the bounding boxes from the image as a character in the output font,
+assigning it the character code of the name as defined in the encoding
+vector (see section <A HREF="fontu_40.html">6.3 Invoking Imageto</A>).  However, if the character name is
+<CODE>.notdef</CODE>, or if the character name is not specified in the
+encoding, Imageto just throws away the bounding boxes.  See section <A HREF="fontu_29.html">5.3 Encoding files</A>, for general information on encoding files.
+<P>
+
+<LI>
+<A NAME="IDX358"></A>
+<A NAME="IDX359"></A>
+<A NAME="IDX360"></A>
+An adjustment to the baseline of the output character, as a (possibly
+signed) decimal number.  The default baseline is either the bottom
+scanline of the image row, or the value you specified with the
+<SAMP>`-baselines'</SAMP> option.  The number given here, in the IFI file, is
+subtracted from that default.  Thus, a positive adjustment moves the
+baseline up (i.e., moves the character down relative to the typesetting
+baseline), a negative one down.  The default adjustment is zero.
+<P>
+
+<LI>
+<A NAME="IDX361"></A>
+<A NAME="IDX362"></A>
+<A NAME="IDX363"></A>
+<A NAME="IDX364"></A>
+<A NAME="IDX365"></A>
+The number of bounding boxes which comprise this character, as a decimal
+number.  The default is one.  If this number is negative, it indicates
+that the bounding boxes for this character are not consecutive in the
+image; instead, they alternate with the following character.  For
+example, the tail of an italic `j' might protrude to the left of the
+`i'; then Imageto will find the tail of the `j' first (so it should come
+first in the IFI file), but it will find the dot of the `i' next.  In
+this case, the bounding box count for both the `i' and the `j' should be
+<CODE>-2</CODE>.
+<P>
+
+<LI>
+<A NAME="IDX366"></A>
+<A NAME="IDX367"></A>
+The left side bearing (lsb).  Most type specimens unfortunately don't
+include side bearing information, but if you happen to have such, you
+can give it here.  (GSrenderfont (see section <A HREF="fontu_121.html">15. GSrenderfont</A>) uses this
+feature).  The default is zero.
+<P>
+
+You can run Charspace (see section <A HREF="fontu_53.html">9. Charspace</A>) to add side bearings to a font
+semi-automatically.  This is usually less work than trying to guess
+at numbers here.
+</P><P>
+
+<A NAME="IDX368"></A>
+<LI>
+The right side bearing.  As with the lsb, the default is zero.
+<P>
+
+</OL>
+<P>
+
+Here is a possible IFI file for the image in <A HREF="fontu_35.html">6.1 Imageto usage</A>.  We
+throw away the black line that is the second image row.  (Imagine that
+it is a scanner artifact.)
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>% IFI file for example image.
+i 0 2
+j 0 2
+l
+m 1
+.notdef % Ignore the black line at the bottom.
+</pre></td></tr></table></P><P>
+
+<A NAME="Invoking Imageto"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_38.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_40.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_35.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_41.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

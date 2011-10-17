@@ -1,0 +1,101 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_123.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_123.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_122.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_124.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_121.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_122.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_126.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 15.1.1 GSrenderfont font names </H3>
+<!--docid::SEC123::-->
+<P>
+
+<A NAME="IDX1174"></A>
+<A NAME="IDX1175"></A>
+<A NAME="IDX1176"></A>
+</P><P>
+
+<A NAME="IDX1177"></A>
+GSrenderfont needs at least two font names to do its job: the PostScript
+name, e.g., <SAMP>`Times-Roman'</SAMP>, and the output filename, e.g.,
+<TT>`ptmr'</TT>.  (The PostScript font name cannot also be used as the
+filename because of its length.  At best, the result would be unwieldy,
+and at worst, invalid because of operating system restrictions.)
+If the font is not known to Ghostscript (i.e., in its <TT>`Fontmap'</TT>
+<A NAME="IDX1178"></A>
+file), then an input filename is also needed.
+</P><P>
+
+<A NAME="IDX1179"></A>
+<A NAME="IDX1180"></A>
+You can explicitly specify the first with the <SAMP>`-font'</SAMP> option, the
+second with the <SAMP>`-output-file'</SAMP> option, and the third with a
+non-option argument.  If you specify them all, as in
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>gsrenderfont -font=Myfont -out=test myfont.ps
+</pre></td></tr></table></P><P>
+
+then GSrenderfont simply uses what you've given.
+</P><P>
+
+<A NAME="IDX1181"></A>
+<A NAME="IDX1182"></A>
+<A NAME="IDX1183"></A>
+<A NAME="IDX1184"></A>
+<A NAME="IDX1185"></A>
+But if you specify only the font name or the input filename,
+GSrenderfont tries to guess the other using a <EM>mapping file</EM>.  On
+each line of this file the first (whitespace-delimited) <EM>word</EM> is
+the filename (possibly preceded by an <SAMP>`r'</SAMP>; see section `Introduction' in <CITE>Filenames for fonts</CITE>, for why), the second word
+is the PostScript font name, and any remaining stuff is ignored.  Unlike
+the other data files, GSrenderfont does not use path searching to find
+this file; it just uses the default:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>/usr/local/lib/tex/dvips/psfonts.map
+</pre></td></tr></table></P><P>
+
+unless you specify a different file with the <SAMP>`-map'</SAMP> option.  The
+reason for this is that <TT>`psfonts.map'</TT> should contain all the
+PostScript fonts in use at your site.
+</P><P>
+
+GSrenderfont complains and gives up if you specify neither the
+PostScript font name nor the input filename.  It also gives up if it
+can't determine the filename from the PostScript name or vice versa.
+</P><P>
+
+The default for the output filename is the input filename.
+</P><P>
+
+<A NAME="GSrenderfont output size"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_122.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_124.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_121.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_122.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_126.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

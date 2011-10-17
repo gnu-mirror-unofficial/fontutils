@@ -1,0 +1,112 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_77.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_77.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_76.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 10.1.5.5 Subdivision </H4>
+<!--docid::SEC77::-->
+<P>
+
+<A NAME="IDX720"></A>
+<A NAME="IDX721"></A>
+<A NAME="IDX722"></A>
+</P><P>
+
+When Limn cannot fit a bitmap curve within the <SAMP>`error-threshold'</SAMP>
+(see the previous section), it must subdivide the curve into two pieces
+and fit each independently, applying the fitting algorithm recursively.
+</P><P>
+
+<A NAME="IDX723"></A>
+<A NAME="IDX724"></A>
+</P><P>
+
+As a strategy to improve the fit, subdivision is inferior to
+reparameterization, because it increases the number of splines in the
+character definition.  This increases the memory required to store the
+character, and also the time to render it.  However, subdivision is
+unavoidable in some circumstances: for example, the outlines on an
+<SAMP>`o'</SAMP> cannot be fit by a single spline.
+</P><P>
+
+<A NAME="IDX725"></A>
+<A NAME="IDX726"></A>
+For the initial guess of the point at which to subdivide, Limn chooses
+the point of worst error--the point where the fitted spline is farthest
+from the bitmap curve. Although this is usually a good choice,
+minimizing the chance that further subdivision will be necessary,
+occasionally it is not the best: in order to preserve straight lines,
+it is better to subdivide at the point where a straight becomes a curve
+if that point is close to the worst point.  For example, this happens
+where a serif joins the stem.
+</P><P>
+
+Limn has three options to control this process:
+</P><P>
+
+<OL>
+
+<A NAME="IDX727"></A>
+<LI>
+<SAMP>`-subdivide-search <VAR>percent</VAR>'</SAMP> specifies how far away from the
+worst point to search for a better subdivision point, as a percentage of
+the total number of points in the curve; the default is 10.  If you find
+Limn missing a join as a subdivision point, resulting in a straight line
+becoming a curve, you probably need to increase this.
+<P>
+
+<A NAME="IDX728"></A>
+<LI>
+<SAMP>`-subdivide-threshold <VAR>real</VAR>'</SAMP>: if the distance between a point
+<EM>p</EM> (within the search range) and a straight line is less than
+this, subdivide at <EM>p</EM>; default is .03 pixels.
+<P>
+
+<A NAME="IDX729"></A>
+<LI>
+<SAMP>`-subdivide-surround <VAR>unsigned</VAR>'</SAMP>: when calculating the linearity
+of the curve surrounding a potential subdivision, use this many points; 
+default is 4.
+<P>
+
+</OL>
+<P>
+
+Because fitting a shorter curve is easier, this process will always
+terminate.  (Eventually the curve will be short enough to fit with a
+straight line (see section <A HREF="fontu_72.html">10.1.5 Fitting the bitmap curve</A>), if nothing else.)
+</P><P>
+
+<A NAME="Changing splines to lines"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_76.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,78 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_88.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_88.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_87.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_89.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 11.3 Type 3 PostScript fonts and BZRto </H2>
+<!--docid::SEC88::-->
+<P>
+
+<A NAME="IDX843"></A>
+<A NAME="IDX844"></A>
+<A NAME="IDX845"></A>
+<A NAME="IDX846"></A>
+</P><P>
+
+Type 3 PostScript fonts are not defined in a singular format, as are
+Type 1 fonts (see the previous section).  Rather, they are general
+PostScript programs which happen to meet the PostScript language's
+(liberal) requirements for being a font.  They can therefore be used
+with any PostScript interpreter.
+</P><P>
+
+<A NAME="IDX847"></A>
+BZRto generates a Type 3 font <TT>`<VAR>foo</VAR>.pf3'</TT> from an input BZR
+file <TT>`<VAR>foo</VAR>.bzr'</TT> if you specify the <SAMP>`-pstype3'</SAMP> option, as
+in:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>bzrto -pstype3 <VAR>foo</VAR>
+</pre></td></tr></table></P><P>
+
+<A NAME="IDX848"></A>
+We do not know of any conventional extension for Type 3 fonts; we made
+up <TT>`pf3'</TT> to stand for "PostScript font Type 3".
+</P><P>
+
+<A NAME="IDX849"></A>
+The most important part of a Type 3 font is the <CODE>BuildChar</CODE>
+routine, which does the actual rendering from the character program.
+Unlike Type 1 fonts, whose <CODE>BuildChar</CODE> routine is built into the
+PostScript interpreter, each Type 3 font supplies its own
+<CODE>BuildChar</CODE> routine.
+</P><P>
+
+<A NAME="IDX850"></A>
+<A NAME="IDX851"></A>
+The Type 3 fonts output by BZRto use a <CODE>BuildChar</CODE> routine defined
+in a separate file <TT>`bzrbuildch.PS'</TT> (distributed in the <TT>`bzr'</TT>
+directory).  They use the PostScript <CODE>run</CODE> command to read that
+file; so if you want to download one to a printer (which naturally will
+not have access to the file on your computer), you must replace the
+<CODE>run</CODE> command with the contents of the file.  For PostScript
+interpreters which run on a host computer, such as Ghostscript, you have
+to install <TT>`bzrbuildch.PS'</TT> in a directory where it will be found,
+but you need not modify the fonts.
+</P><P>
+
+<A NAME="CCC files"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

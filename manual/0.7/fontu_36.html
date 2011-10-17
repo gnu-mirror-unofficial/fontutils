@@ -1,0 +1,93 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_36.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_36.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_35.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_37.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_35.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 6.1.1 Viewing an image </H3>
+<!--docid::SEC36::-->
+<P>
+
+<A NAME="IDX316"></A>
+<A NAME="IDX317"></A>
+<A NAME="IDX318"></A>
+<A NAME="IDX319"></A>
+</P><P>
+
+<A NAME="IDX320"></A>
+<A NAME="IDX321"></A>
+Typically, the first step in extracting a font from an image is to see
+exactly what is in the image.  (Clearly, this is unnecessary if you
+already know what your image file contains.)
+</P><P>
+
+<A NAME="IDX322"></A>
+<A NAME="IDX323"></A>
+The simplest way to get a look at the image file, if you have
+Ghostscript or some other suitable PostScript interpreter, is to convert
+the image file into an EPSF file with the <SAMP>`-epsf'</SAMP> option.  Here is
+a possible invocation:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>imageto -epsf ggmr.img
+</pre></td></tr></table></P><P>
+
+Here we read an input file <TT>`ggmr.img'</TT>; the output is
+<TT>`ggmr.eps'</TT>.  You can then view the EPS file with
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>gs ggmr.eps
+</pre></td></tr></table></P><P>
+
+(presuming that <TT>`gs'</TT> invokes your PostScript interpreter).
+</P><P>
+
+<A NAME="IDX324"></A>
+If you don't have both a suitable PostScript interpreter and enough
+disk space to store the EPS file (it uses approximately twice as much
+disk space as the original image), the above won't work.  Instead, to
+view the image you must make a font with the <SAMP>`-strips'</SAMP> option:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>imageto -strips ggmr.img
+</pre></td></tr></table></P><P>
+
+The output of this will be <TT>`ggmrsp.1200gf'</TT> (our image having a
+resolution of 1200 dpi).  Although the GF font cannot be conveniently
+viewed directly, you can use TeX and your favorite DVI processor to
+look at it, as follows:
+</P><P>
+
+<A NAME="IDX325"></A>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>fontconvert -tfm ggmrsp.1200
+echo ggmrsp | tex strips
+</pre></td></tr></table></P><P>
+
+This outputs in <TT>`strips.dvi'</TT>, which you can view with your favorite
+DVI driver.  (See section <A HREF="fontu_5.html">2.2.1 Archives</A>, for how to obtain the DVI drivers for
+PostScript and X we recommend.)
+</P><P>
+
+<TT>`strips.tex'</TT> is distributed in the <TT>`imageto'</TT> directory.
+</P><P>
+
+<A NAME="Image to font conversion"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

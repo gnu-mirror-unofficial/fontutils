@@ -1,0 +1,127 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_98.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_98.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_97.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_99.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_95.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_96.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_99.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 11.6.3.2 BZR character shapes </H4>
+<!--docid::SEC98::-->
+<P>
+
+<A NAME="IDX937"></A>
+<A NAME="IDX938"></A>
+<A NAME="IDX939"></A>
+<A NAME="IDX940"></A>
+</P><P>
+
+In the BZR format, a character shape is defined as a sequence of
+(non-contiguous) closed paths, i.e., outlines.  Each path can contain
+straight lines and Bezier cubic splines.  As a BZR-reading program
+interprets the character definition, it keeps track of a "current
+point", which is initially undefined.
+</P><P>
+
+<A NAME="IDX941"></A>
+<A NAME="IDX942"></A>
+Each path--and therefore also the character shape itself--starts with a
+path command: <CODE>PATH</CODE>, <CODE>x</CODE>[3], <CODE>y</CODE>[3].  This
+finishes off any previous outline and starts a new one, setting the
+current point to <CODE>(x,y)</CODE>.  <CODE>x</CODE> and <CODE>y</CODE> are
+designsize-scaled values in printer's points.
+</P><P>
+
+After a path command has started an outline, a sequence of zero or more
+line and/or spline commands, intermixed in any order, follows.  (A path
+command followed by another path command is allowed, but does nothing
+useful.)
+</P><P>
+
+<A NAME="IDX943"></A>
+<A NAME="IDX944"></A>
+<A NAME="IDX945"></A>
+<A NAME="IDX946"></A>
+Although the BZR format itself does not require it, for the font to work
+properly when translated to some other formats, the "outside curves"
+must be drawn counterclockwise, and the inside ones clockwise.
+</P><P>
+
+The BZR format defines both abbreviated and long versions of both straight
+line and spline commands, as follows.
+</P><P>
+
+<A NAME="IDX947"></A>
+The abbreviated line command is:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=display><pre style="font-family: serif"><CODE>LINE_ABBREV</CODE> @cmindex LINE_ABBREV opcode in BZR files
+<CODE>ex</CODE>[2]
+<CODE>ey</CODE>[2]
+</pre></td></tr></table></P><P>
+
+which defines a straight line from the current point to
+<CODE>(ex,ey)</CODE>.  <CODE>ex</CODE> and <CODE>ey</CODE> are designsize-scaled numbers
+in points.  After drawing the line, the current point is set to
+<CODE>(ex,ey)</CODE>.
+</P><P>
+
+<A NAME="IDX948"></A>
+The long form of the line command differs only in starting with a
+<CODE>LINE</CODE> opcode, and the coordinate parameters being three bytes long,
+instead of two.
+</P><P>
+
+<A NAME="IDX949"></A>
+The spline commands are analogous.  Here is the abbreviated form:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=display><pre style="font-family: serif"><CODE>SPLINE_ABBREV</CODE> @cmindex SPLINE_ABBREV opcode in BZR files
+<CODE>c1x</CODE>[2] <CODE>c1y</CODE>[2]
+<CODE>c2x</CODE>[2] <CODE>c2y</CODE>[2]
+<CODE>ex</CODE>[2] <CODE>ey</CODE>[2]
+</pre></td></tr></table></P><P>
+
+This defines a Bezier spline with initial point the
+current point, control points <CODE>(c1x,c1y)</CODE> and <CODE>(c2x,c2y)</CODE>, and
+ending point <CODE>(ex,ey)</CODE>.  The current point is then set to
+<CODE>(ex,ey)</CODE>.  As with the line commands, the coordinate parameters
+are designsize-scaled in units of points.
+</P><P>
+
+<A NAME="IDX950"></A>
+Also as with the line commands, the long form of the spline command
+differs only in starting with a <CODE>SPLINE</CODE> opcode and the other
+parameters being three bytes long instead of two.
+</P><P>
+
+<A NAME="BZR postamble"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_97.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_99.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_95.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_96.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_99.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,198 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_3.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_3.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_2.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_4.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_2.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_2.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 2.1 The <CODE>configure</CODE> script </H2>
+<!--docid::SEC3::-->
+<P>
+
+<A NAME="IDX10"></A>
+<A NAME="IDX11"></A>
+<A NAME="IDX12"></A>
+</P><P>
+
+<A NAME="IDX13"></A>
+(This section is largely from the Autoconf manual, by David MacKenzie.
+See section `Running <CODE>configure</CODE> scripts' in <CITE>Autoconf</CITE>.)
+</P><P>
+
+<A NAME="IDX14"></A>
+The <CODE>configure</CODE> script that comes with the font utilities is
+generated automatically by the Autoconf program.  You can regenerate
+<CODE>configure</CODE> by rerunning Autoconf (for example, if a new version of
+Autoconf is released); you must arrange for Autoconf to use the macros
+in <TT>`./aclocal.m4'</TT> (see section `Generating <CODE>configure</CODE>' in <CITE>Autoconf</CITE>).
+</P><P>
+
+The purpose of <CODE>configure</CODE> is to adapt the source code to your
+system: for example, the name of the directory header file
+(<TT>`dirent.h'</TT> or <TT>`sys/dir.h'</TT>), whether an <CODE>install</CODE> program
+is available, and so on.
+</P><P>
+
+<A NAME="IDX15"></A>
+Normally, you do not need to give any options to <CODE>configure</CODE>; you
+<CODE>cd</CODE> to the directory with the source code and type
+<SAMP>`configure'</SAMP>.  Exceptions: if <TT>`.'</TT> is not in your <CODE>PATH</CODE>,
+you must type <SAMP>`./configure'</SAMP>; if you are using a
+non-Bourne-compatible shell on some old systems, you must samp <SAMP>`sh
+configure'</SAMP>.
+</P><P>
+
+<A NAME="IDX16"></A>
+<A NAME="IDX17"></A>
+<A NAME="IDX18"></A>
+<A NAME="IDX19"></A>
+Running <CODE>configure</CODE> takes a minute or two.  While it is running, it
+prints some messages that tell what it is doing.  If you don't want to
+see the messages, run <CODE>configure</CODE> with its standard output
+redirected to <TT>`/dev/null'</TT>; for example, <SAMP>`configure &#62;/dev/null'</SAMP>.
+</P><P>
+
+<A NAME="IDX20"></A>
+<A NAME="IDX21"></A>
+To compile the package in a different directory from the one containing
+the source code, you must use a variant of Make that supports the
+<CODE>VPATH</CODE> variable, such as GNU Make.  <CODE>cd</CODE> to the
+directory where you want the object files and executables to go and run
+<CODE>configure</CODE> with the option <SAMP>`--srcdir=<VAR>dir</VAR>'</SAMP>, where
+<VAR>dir</VAR> is the directory that contains the source code.  Using this
+option is unnecessary if the source code is in the parent directory of
+the one in which you are compiling; <CODE>configure</CODE> automatically
+checks for the source code in <TT>`..'</TT> if it does not find it in
+<TT>`.'</TT>.
+</P><P>
+
+<A NAME="IDX22"></A>
+<A NAME="IDX23"></A>
+<A NAME="IDX24"></A>
+<CODE>configure</CODE> guesses the default installation prefix (we'll call it
+<CODE>$(prefix)</CODE>) by looking for the directory which contains the
+command <CODE>gcc</CODE>, and using its parent.  For example, if <CODE>gcc</CODE> is
+installed as <TT>`/usr/local/gnu/bin/gcc'</TT>, <CODE>$(prefix)</CODE> will be set
+to <TT>`/usr/local/gnu'</TT>.
+</P><P>
+
+<A NAME="IDX25"></A>
+<A NAME="IDX26"></A>
+<A NAME="IDX27"></A>
+You can override this default guess for the installation prefix by giving
+<CODE>configure</CODE> the option <SAMP>`--prefix=<VAR>path</VAR>'</SAMP>.  You can also
+specify separate installation prefixes for architecture-specific files
+and architecture-independent files by giving <CODE>configure</CODE> the option
+<SAMP>`--exec_prefix=<VAR>xpath</VAR>'</SAMP>. Then <VAR>xpath</VAR> will be the prefix
+for installing programs and libraries.  Data files and documentation
+will still use the regular prefix.  Normally, all files are installed
+using the regular prefix.
+</P><P>
+
+<A NAME="IDX28"></A>
+<A NAME="IDX29"></A>
+<A NAME="IDX30"></A>
+You can tell <CODE>configure</CODE> to figure out the configuration for your
+system, and record it in <TT>`config.status'</TT>, without actually
+configuring the package.  To do this, give <CODE>configure</CODE> the
+<SAMP>`--no-create'</SAMP> option.  Later, you can run <TT>`./config.status'</TT> to
+actually configure the package.  This option is useful mainly in
+<TT>`Makefile'</TT> rules for updating <TT>`config.status'</TT> and the
+<TT>`Makefile'</TT> itself.  You can also give <TT>`config.status'</TT> the
+<SAMP>`--recheck'</SAMP> option, which makes it rerun <CODE>configure</CODE> with the
+same arguments you used before.  This is useful if you change
+<CODE>configure</CODE>.
+</P><P>
+
+<CODE>configure</CODE> ignores any other arguments that you give it.
+</P><P>
+
+On systems that require unusual options for compilation or linking that
+the package's <CODE>configure</CODE> script does not know about, you can give
+<CODE>configure</CODE> initial values for variables by setting them in the
+environment.  In Bourne-compatible shells, you can do that on the
+command line like this:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>CC='gcc -traditional' LIBS=-lposix sh configure
+</pre></td></tr></table></P><P>
+
+The Make variables that you might want to override with
+environment variables when running <CODE>configure</CODE> are:
+</P><P>
+
+(For these variables, any value given in the environment overrides the
+value that <CODE>configure</CODE> would choose.)
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX31"></A>
+<DT><CODE>CC</CODE>
+<DD>The C compiler program.  The default is <CODE>gcc</CODE> if that is in your
+<CODE>PATH</CODE>, <CODE>cc</CODE> otherwise.
+<P>
+
+<A NAME="IDX32"></A>
+<DT><CODE>INSTALL</CODE>
+<DD>The program to use to install files.  The default is <CODE>install</CODE> if you
+have it, <CODE>cp</CODE> otherwise.
+</DL>
+<P>
+
+(For these variables, any value given in the environment is added to
+the value that <CODE>configure</CODE> chooses.)
+</P><P>
+
+<DL COMPACT>
+<A NAME="IDX33"></A>
+<DT><CODE>DEFS</CODE>
+<DD>Configuration options, in the form <SAMP>`-Dfoo -Dbar<small>...</small>'</SAMP>.  Packages
+that use the Autoconf macro <CODE>AC_CONFIG_HEADER</CODE> (including the file
+utilities) do not use this variable.
+<P>
+
+<A NAME="IDX34"></A>
+<DT><CODE>LIBS</CODE>
+<DD>Libraries to link with, in the form <SAMP>`-lfoo -lbar<small>...</small>'</SAMP>.
+</DL>
+<P>
+
+<A NAME="IDX35"></A>
+<A NAME="IDX36"></A>
+Of course, problems requiring manual intervention (e.g., setting these
+variables) should ideally be fixed by updating either the Autoconf
+macros or the <TT>`configure.in'</TT> file for that package.
+</P><P>
+
+<A NAME="Prereqs"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_2.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_4.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_2.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_2.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

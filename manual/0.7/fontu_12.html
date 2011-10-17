@@ -1,0 +1,63 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_12.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_12.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_13.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_9.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_18.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.3.1 The main input file </H3>
+<!--docid::SEC12::-->
+<P>
+
+<A NAME="IDX141"></A>
+<A NAME="IDX142"></A>
+</P><P>
+
+By convention, all the programs accept only one non-option argument,
+which they take to be the name of the main input file.
+</P><P>
+
+Usually this is the name of a bitmap font.  By their nature, bitmap
+fonts are for a particular resolution.  You can specify the resolution
+in two ways: with the <SAMP>`-dpi'</SAMP> option (see the next section), or by
+giving an extension to the font name on the command line.
+</P><P>
+
+For example, you could specify the font <CODE>foo</CODE> at a resolution of
+300dpi to the program <VAR>program</VAR> in either of these two ways
+(<SAMP>`$ '</SAMP> being the shell prompt):
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>$ <VAR>program</VAR> foo.300
+$ <VAR>program</VAR> -dpi=300 foo
+</pre></td></tr></table></P><P>
+
+You can also say, e.g., <SAMP>`<VAR>program</VAR> foo.300gf'</SAMP>, but the <SAMP>`gf'</SAMP> is
+ignored.  These programs always look for a given font in PK format
+before looking for it in GF format, under the assumption that if both
+fonts exist, and have the same stem, they are the same.
+</P><P>
+
+If the filename is absolute or explicitly relative, i.e., starts with
+<SAMP>`/'</SAMP> or <SAMP>`./'</SAMP> or <SAMP>`../'</SAMP>, then the programs do not use search
+paths to look for it, as described in <A HREF="fontu_18.html">3.4 Font searching</A>.  Instead,
+the fonts are simply searched for in the given directory.
+</P><P>
+
+<A NAME="Common options"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

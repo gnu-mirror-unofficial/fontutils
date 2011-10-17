@@ -1,0 +1,75 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_62.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_62.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_61.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_63.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_64.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 9.2.7 <CODE>fontdimen</CODE> command </H3>
+<!--docid::SEC62::-->
+<P>
+
+<A NAME="IDX550"></A>
+<A NAME="IDX551"></A>
+</P><P>
+
+The <CODE>fontdimen</CODE> command defines a font parameter to be put in the
+TFM file.  It has the form:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>fontdimen <VAR>fontdimen-name</VAR> <VAR>expr</VAR>
+</pre></td></tr></table></P><P>
+
+where <VAR>fontdimen-name</VAR> is any of the fontdimen names
+listed in the section below, and <VAR>expr</VAR> gives the new value of the
+fontdimen, in pixels.
+</P><P>
+
+For example, <TT>`common.cmi'</TT> (see section <A HREF="fontu_54.html">9.1 Charspace usage</A>) makes the
+following definitions:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>fontdimen quad designsize
+fontdimen space .333 quad
+</pre></td></tr></table></P><P>
+
+This defines the fontdimen <CODE>quad</CODE>, which determines the
+width of the <CODE>em</CODE> dimension in TeX, to be the same as the design
+size of the font.  (This is traditionally the case, although it is not a
+hard-and-fast rule.)  Then it defines the fontdimen <CODE>space</CODE>, which
+is the normal interword space in TeX, to be one-third of the quad.
+</P><P>
+
+Because of the way that Charspace processes the CMI files
+(see section <A HREF="fontu_64.html">9.2.8 CMI processing</A>), if you redefine the <CODE>quad</CODE> fontdimen in
+another CMI file, the value of <CODE>space</CODE> will change correspondingly.
+</P><P>
+
+The section below lists all the TFM fontdimen names Charspace
+recognizes, and their meaning to TeX.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_63.html">9.2.7.1 TFM fontdimens</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">All the valid fontdimens.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="TFM fontdimens"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

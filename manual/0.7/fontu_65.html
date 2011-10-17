@@ -1,0 +1,150 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_65.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_65.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_64.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 9.3 Invoking Charspace </H2>
+<!--docid::SEC65::-->
+<P>
+
+<A NAME="IDX620"></A>
+<A NAME="IDX621"></A>
+<A NAME="IDX622"></A>
+</P><P>
+
+This section describes the options that Charspace accepts.
+See section <A HREF="fontu_11.html">3.3 Command-line options</A>, for general option syntax.
+</P><P>
+
+The root of the main input fontname is called <VAR>font-name</VAR> below.
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX623"></A>
+<DT><SAMP>`-cmi-files <VAR>file1</VAR>,<VAR>file2</VAR>,<small>...</small>'</SAMP>
+<DD>read the CMI files <TT>`<VAR>file1</VAR>.<VAR>dpi</VAR>cmi'</TT>,
+<TT>`<VAR>file2</VAR>.<VAR>dpi</VAR>cmi'</TT>, etc., where <VAR>dpi</VAR> is the resolution
+of the main input font.  Default is to read
+<TT>`<VAR>font-name</VAR>.<VAR>dpi</VAR>cmi'</TT>.  The <TT>`.<VAR>dpi</VAR>cmi'</TT> is not
+appended to any of the <VAR>file</VAR>s which already have a suffix.
+<P>
+
+<A NAME="IDX624"></A>
+<TT>`common.cmi'</TT> is read before any of these files.
+</P><P>
+
+<A NAME="IDX625"></A>
+<DT><SAMP>`-dpi <VAR>unsigned</VAR>'</SAMP>
+<DD>The resolution, in pixels per inch.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<A NAME="IDX626"></A>
+<DT><SAMP>`-encoding <VAR>enc-file</VAR>'</SAMP>
+<DD>The encoding file to read for the mapping between character codes in the
+input font and character names.  See section <A HREF="fontu_29.html">5.3 Encoding files</A>.  If
+<VAR>enc-file</VAR> has no suffix, <SAMP>`.enc'</SAMP> is appended.  The default is
+to read the encoding file specified via the <CODE>codingscheme</CODE> command
+(see section <A HREF="fontu_61.html">9.2.6 <CODE>codingscheme</CODE> command</A>).
+<P>
+
+If a TFM file <TT>`<VAR>font-name</VAR>.tfm'</TT> exists, it is also read for
+default ligature, headerbyte, and fontdimen information.  Definitions in
+the CMI files override those in such a TFM file.
+</P><P>
+
+<A NAME="IDX627"></A>
+<DT><SAMP>`-fontdimens <VAR>fd1</VAR>:<VAR>value1</VAR>,<VAR>fd2</VAR>:<VAR>value2</VAR>,<small>...</small>'</SAMP>
+<DD>See section <A HREF="fontu_63.html">9.2.7.1 TFM fontdimens</A>.
+<P>
+
+<A NAME="IDX628"></A>
+<DT><SAMP>`-help'</SAMP>
+<DD>Print a usage message.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<A NAME="IDX629"></A>
+<DT><SAMP>`-no-gf'</SAMP>
+<DD>Don't output a revised GF file.  This is primarily useful while
+debugging the TFM output, since without a bitmap font to match the TFM
+output, you can't actually print anything reliably.
+<P>
+
+<A NAME="IDX630"></A>
+<A NAME="IDX631"></A>
+<DT><SAMP>`-output-file <VAR>filename</VAR>'</SAMP>
+<DD>If <VAR>filename</VAR> does not have a suffix, write the output to
+<TT>`<VAR>filename</VAR>.tfm'</TT> and (if <SAMP>`-no-gf'</SAMP> was not specified)
+<TT>`<VAR>filename</VAR>.<VAR>dpi</VAR>gf'</TT>.  If this would overwrite an input
+file, prepend an <SAMP>`x'</SAMP> to the output name.
+<P>
+
+If <VAR>filename</VAR> has a suffix, and <SAMP>`-no-gf'</SAMP> was not specified,
+Charspace complains and gives up, since it can't output two files with
+the same name.
+</P><P>
+
+By default, use the name of the main input font for <VAR>filename</VAR>.
+</P><P>
+
+<A NAME="IDX632"></A>
+<DT><SAMP>`-range <VAR>char1</VAR>-<VAR>char2</VAR>'</SAMP>
+<DD>Only output characters with codes between <VAR>char1</VAR> and <VAR>char2</VAR>,
+inclusive.  (See section <A HREF="fontu_13.html">3.3.2 Common options</A>, and <A HREF="fontu_14.html">3.3.3 Specifying character codes</A>.)
+<P>
+
+<A NAME="IDX633"></A>
+<DT><SAMP>`-verbose'</SAMP>
+<DD>Output progress reports.
+<P>
+
+<A NAME="IDX634"></A>
+<DT><SAMP>`-version'</SAMP>
+<DD>Print the version number.
+<P>
+
+<A NAME="IDX635"></A>
+<DT><SAMP>`-xheight-char <VAR>code</VAR>'</SAMP>
+<DD>Use the TFM height of <VAR>code</VAR> for the <CODE>xheight</CODE> fontdimen
+(see section <A HREF="fontu_63.html">9.2.7.1 TFM fontdimens</A>); default is 120 (ASCII <SAMP>`x'</SAMP>).  (It is
+reasonable to use 120 instead of whatever <SAMP>`x'</SAMP> is in the underlying
+character set because most font encoding schemes are based on ASCII
+regardless of the host computer's character set.)
+<P>
+
+</DL>
+<P>
+
+<A NAME="Limn"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_64.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

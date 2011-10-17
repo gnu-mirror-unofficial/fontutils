@@ -1,0 +1,81 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_101.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_101.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_102.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_106.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 12.1 BPL files </H2>
+<!--docid::SEC101::-->
+<P>
+
+<A NAME="IDX968"></A>
+<A NAME="IDX969"></A>
+<A NAME="IDX970"></A>
+</P><P>
+
+Bezier property list (BPL) files are free-format text files which
+describe an outline font.  They are a transliteration of the binary
+BZR font format (see section <A HREF="fontu_93.html">11.6 BZR files</A>).
+</P><P>
+
+<A NAME="IDX971"></A>
+<A NAME="IDX972"></A>
+<A NAME="IDX973"></A>
+A BPL file is a sequence of entries of the form
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(<VAR>property-name</VAR> <VAR>value1</VAR> <VAR>value2</VAR> <small>...</small>)
+</pre></td></tr></table></P><P>
+
+<A NAME="IDX974"></A>
+<A NAME="IDX975"></A>
+<A NAME="IDX976"></A>
+<A NAME="IDX977"></A>
+The <VAR>property-name</VAR> is one of a small set of keywords understood by
+BPLtoBZR.  The <VAR>value</VAR>s vary depending on the property being
+defined.  BPL files have four types of values: unsigned integers, reals,
+strings (enclosed in typewriter double-quote <SAMP>`"'</SAMP> marks), and
+<EM>real strings</EM> (<EM>realstr</EM> for short)---a real number in quotes.
+See section <A HREF="fontu_119.html">14.1.3 Editing BPL files</A>, for an explanation of why realstrs are
+necessary.
+</P><P>
+
+<A NAME="IDX978"></A>
+<A NAME="IDX979"></A>
+<A NAME="IDX980"></A>
+A <VAR>property-name</VAR> of <CODE>comment</CODE> introduces a comment, which
+continues through the next right parenthesis.  This implies nested
+comments are <EM>not</EM> allowed: <SAMP>`(comment (wrong!))'</SAMP> will get an
+error at the second <SAMP>`)'</SAMP>.
+</P><P>
+
+BPL files have three parts: a preamble, character definitions, and a
+postamble.  They must appear in that order.  In many cases, the order in
+which you give the properties within a part is also significant.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_102.html">12.1.1 BPL preamble</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The beginning.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_103.html">12.1.2 BPL characters</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The middle.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_105.html">12.1.3 BPL postamble</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The end.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="BPL preamble"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

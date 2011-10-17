@@ -1,0 +1,91 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_55.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_55.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_56.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 9.2 CMI files </H2>
+<!--docid::SEC55::-->
+<P>
+
+<A NAME="IDX509"></A>
+<A NAME="IDX510"></A>
+<A NAME="IDX511"></A>
+<A NAME="IDX512"></A>
+</P><P>
+
+<EM>Character metric information</EM> (CMI) files are free-format text
+files which (primarily) describe the side bearings for characters in a
+font.  <EM>Side bearings</EM> are the blank spaces to the left and right of
+a character which makeprinted type easier to read, as well as more pleasing
+visually.
+</P><P>
+
+In addition to side bearing definitions, CMI files can also contain
+<EM>kerns</EM>, which insert or remove space between particular letter
+pairs; and font dimensions, global information about the font which is
+stored in the TFM file (see section <A HREF="fontu_63.html">9.2.7.1 TFM fontdimens</A>).
+</P><P>
+
+If your font is named <TT>`<VAR>foo</VAR>.300gf'</TT> (or <TT>`<small>...</small> pk'</TT>), it
+is customary to name the corresponding CMI file <TT>`<VAR>foo</VAR>.300cmi'</TT>.
+That is what Charspace looks for by default.  If you name it something
+else, you must use the <SAMP>`-cmi-files'</SAMP> option to tell Charspace its
+name.  It is reasonable to use the resolution as part of the CMI
+filename, since the values written in it are (for the most part) in
+pixels.
+</P><P>
+
+See section <A HREF="fontu_28.html">5.2 Common file syntax</A>, for a precise description of syntax elements
+common to all data files processed by these programs, including
+comments.
+</P><P>
+
+In the following sections, we describe the individual commands, the
+tokens that comprise them, and the way Charspace processes them.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_56.html">9.2.1 CMI tokens</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The building blocks of CMI files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_57.html">9.2.2 <CODE>char</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Defining a character's side bearings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_58.html">9.2.3 <CODE>char-width</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Defining side bearings via the set width.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_59.html">9.2.4 <CODE>define</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Introducing a new identifier.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_60.html">9.2.5 <CODE>kern</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Defining a kerning pair.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_61.html">9.2.6 <CODE>codingscheme</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying the font encoding.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_62.html">9.2.7 <CODE>fontdimen</CODE> command</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Defining additional font parameters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_64.html">9.2.8 CMI processing</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Charspace reads CMI files.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="CMI tokens"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_56.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

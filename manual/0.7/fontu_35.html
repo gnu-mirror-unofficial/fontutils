@@ -1,0 +1,99 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_35.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_35.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_36.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 6.1 Imageto usage </H2>
+<!--docid::SEC35::-->
+<P>
+
+<A NAME="IDX309"></A>
+<A NAME="IDX310"></A>
+</P><P>
+
+Usually there are two prerequisites to extracting a usable font from an
+image file.  First, looking at the image, so you can see what you've
+got.  Second, preparing the IFI file describing the contents of the
+image: the character codes to output, any baseline adjustment (as for,
+e.g., <SAMP>`j'</SAMP>), and how many pieces each character has.  Each
+is a separate invocation of Imageto; the first time with either the
+<SAMP>`-strips'</SAMP> or <SAMP>`-epsf'</SAMP> option, the second time with neither.
+</P><P>
+
+<A NAME="IDX311"></A>
+<A NAME="IDX312"></A>
+<A NAME="IDX313"></A>
+In the second step, Imageto considers the input image as a series of
+<EM>image rows</EM>.  Each image row consists of all the scanlines between
+a nonblank scanline and the next entirely blank scanline.  (A
+<EM>scanline</EM> is a single horizontal row of pixels in the image.)
+Within each image row, Imageto looks top-to-bottom, left-to-right, for
+<EM>bounding boxes</EM>: closed contours, i.e., an area whose edge
+you can trace with a pencil without lifting it.
+</P><P>
+
+<A NAME="IDX314"></A>
+<A NAME="IDX315"></A>
+For example, in the following image Imageto would find two image rows,
+the first from scanlines 1 to scanline 7, the second consisting of only
+scanline 10.  There are six bounding boxes in the first image row, only
+one in the second.  (This example also shows some typical problems in
+scanned images: the baseline of the <SAMP>`m'</SAMP> is not aligned with those
+of the <SAMP>`i'</SAMP>, <SAMP>`j'</SAMP>, and <SAMP>`l'</SAMP>; a meaningless black line is
+present; the <SAMP>`i'</SAMP> and <SAMP>`j'</SAMP> overlap.)
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>  01234567890123456789
+ 0
+ 1       x
+ 2 x x   x
+ 3       x
+ 4 x x   x   xxxxx
+ 5 x x   x   x x x
+ 6   x       x x x
+ 7 xx
+ 8
+ 9
+10 xxxxxxxxxxxxxxx
+</pre></td></tr></table></P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_36.html">6.1.1 Viewing an image</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Seeing what's in an image.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_37.html">6.1.2 Image to font conversion</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Extracting a font.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_38.html">6.1.3 Dirty images</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Handling scanning artifacts or other noise.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Viewing an image"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_36.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_34.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_39.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

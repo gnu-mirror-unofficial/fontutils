@@ -1,0 +1,65 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_53.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_53.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_52.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H1> 9. Charspace </H1>
+<!--docid::SEC53::-->
+<P>
+
+<A NAME="IDX498"></A>
+<A NAME="IDX499"></A>
+<A NAME="IDX500"></A>
+<A NAME="IDX501"></A>
+</P><P>
+
+Charspace lets you add <EM>side bearings</EM> (the blank spaces on either
+side of a character) to a bitmap font.  This is necessary because
+scanned images typically do not include side bearing information, and
+therefore Imageto (see section <A HREF="fontu_34.html">6. Imageto</A>) cannot determine it.
+</P><P>
+
+The input is a bitmap (GF or PK) font, together with one or more CMI
+files (see section <A HREF="fontu_55.html">9.2 CMI files</A>), which specify character metric information.  If a
+corresponding TFM file exists, it is read to get default values for the
+character dimensions (Charspace promptly overwrites the widths).  The
+output is a TFM file and (typically) a revised GF file with the new
+width information.
+</P><P>
+
+<A NAME="IDX502"></A>
+<A NAME="IDX503"></A>
+<A NAME="IDX504"></A>
+The basic idea for Charspace came from Harry Smith, via Walter Tracy's
+book <CITE>Letters of Credit</CITE>.  See <TT>`charspace/README'</TT> for the full
+citation.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_54.html">9.1 Charspace usage</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Details on improving the character metrics.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_55.html">9.2 CMI files</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">You specify the metrics in a separate file.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_65.html">9.3 Invoking Charspace</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Command-line options.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Charspace usage"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,75 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_115.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_115.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_114.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_116.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_107.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_121.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H1> 14. BZRedit </H1>
+<!--docid::SEC115::-->
+<P>
+
+<A NAME="IDX1112"></A>
+<A NAME="IDX1113"></A>
+<A NAME="IDX1114"></A>
+<A NAME="IDX1115"></A>
+<A NAME="IDX1116"></A>
+</P><P>
+
+BZRedit allows hand-editing of outline fonts in the BZR font format
+output by Limn (see section <A HREF="fontu_66.html">10. Limn</A>).  
+</P><P>
+
+<A NAME="IDX1117"></A>
+<A NAME="IDX1118"></A>
+It is written in GNU Emacs Lisp, and thus works only inside GNU Emacs
+(see section `Top' in <CITE>GNU Emacs Manual</CITE>).  It uses Ghostscript to
+display the character images, and thus you must have Ghostscript
+installed to use it.  See section <A HREF="fontu_5.html">2.2.1 Archives</A>, for information on how to obtain
+GNU software.
+</P><P>
+
+BZRedit provides only a simple form of editing: you change the textual
+representation of the BZR font in an Emacs buffer; when you wish to see
+the image corresponding to the particular character you have been
+editing, you type an explicit command to tell Emacs to send the image in
+PostScript form to a Ghostscript subprocess.
+</P><P>
+
+BZRedit uses BPL format for the "textual representation".  See section <A HREF="fontu_101.html">12.1 BPL files</A>, for the precise details on what BPL files contain; however, you
+will probably find them fairly self-explanatory.
+</P><P>
+
+<A NAME="IDX1119"></A>
+<A NAME="IDX1120"></A>
+A more featureful editor would allow interactive manipulation of the
+outlines, say via a mouse in an X window.  It would also be useful to
+allow adding or editing of hints (additional commands which improve
+rasterization at low resolution and/or small sizes); right now, none of
+the programs do anything at all about hints.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_116.html">14.1 BZRedit usage</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Operating the editor.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="BZRedit usage"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

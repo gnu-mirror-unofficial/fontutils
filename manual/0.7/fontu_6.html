@@ -1,0 +1,155 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_6.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_6.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_5.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_4.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_2.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 2.3 Problems </H2>
+<!--docid::SEC6::-->
+<P>
+
+<A NAME="IDX81"></A>
+<A NAME="IDX82"></A>
+<A NAME="IDX83"></A>
+</P><P>
+
+This section lists some things which have caused trouble during
+installation.  If you encounter other problems, please send a bug
+report.  See section <A HREF="fontu_20.html">4. Bugs</A>, for how to submit a useful bug report.
+</P><P>
+
+<UL>
+
+<A NAME="IDX84"></A>
+<A NAME="IDX85"></A>
+<LI>
+You may get a warning from the compiler about <SAMP>`-static'</SAMP> being an
+unrecognized option.  Ignore it.  (This has already been reported to
+<SAMP>`bug-gcc'</SAMP>.)
+<P>
+
+<A NAME="IDX86"></A>
+<A NAME="IDX87"></A>
+<A NAME="IDX88"></A>
+<A NAME="IDX89"></A>
+<A NAME="IDX90"></A>
+<LI>
+Under SunOS 4.x, the programs which use X (XBfe and Limn) cannot be
+dynamically linked, because (apparently) <TT>`/bin/ld'</TT> pulls in the
+entire <TT>`.sa'</TT> file, and the Form, Label, and Viewport widgets are
+multiply defined.  (To us, this seems to defeat the whole purpose of
+having libraries.  It also seems bizarre to us that X was written so
+that these multibyte functions are always needed (via
+<CODE>__Xsi<small>...</small></CODE>), and furthermore that the multibyte functions need
+to specifically call the dynamic linking functions.)
+<P>
+
+<A NAME="IDX91"></A>
+<A NAME="IDX92"></A>
+<A NAME="IDX93"></A>
+The file <TT>`lib/dlsym.c'</TT> (from the MIT X distribution) defines the
+<CODE>dlsym</CODE>, <CODE>dlclose</CODE>, and <CODE>dlopen</CODE> symbols, so static
+linking should work now.
+</P><P>
+
+<A NAME="IDX94"></A>
+If the current setup fails, it might work to change <SAMP>`-lXaw'</SAMP> in
+the definition of <CODE>X_libraries</CODE> in <TT>`lib/defs.make'</TT> to
+the full pathname of the Xaw library.
+</P><P>
+
+<A NAME="IDX95"></A>
+<A NAME="IDX96"></A>
+<A NAME="IDX97"></A>
+<LI>
+On many machines (Sun 3 or Sun 4 running SunOS 4.1, Sun386i running
+4.0.2, 386 running ISC 2.2), GCC 1.40 gets a fatal error compiling
+<TT>`imageto/main.c'</TT> with <SAMP>`-O'</SAMP>.  Just use <SAMP>`-g'</SAMP> for that file,
+or use a newer version of GCC.
+<P>
+
+<A NAME="IDX98"></A>
+<A NAME="IDX99"></A>
+<A NAME="IDX100"></A>
+<LI>
+On a 386 running Interactive UNIX 2.2, <TT>`&#60;math.h&#62;'</TT> declares the
+wrong prototype for <CODE>fmod</CODE>: the routine takes two doubles, not one.
+We simply corrected our system include file.
+<P>
+
+<A NAME="IDX101"></A>
+<A NAME="IDX102"></A>
+<A NAME="IDX103"></A>
+<A NAME="IDX104"></A>
+<A NAME="IDX105"></A>
+<A NAME="IDX106"></A>
+<A NAME="IDX107"></A>
+<A NAME="IDX108"></A>
+<A NAME="IDX109"></A>
+You may get compiler warnings for the file <TT>`widgets/Bitmap.c'</TT> at
+the lines which use the Xt function <CODE>XtIsRealized</CODE> on systems which
+define <CODE>NULL</CODE> as <CODE>(void *) 0</CODE>.  The reason is that macro
+definition of <CODE>XtIsRealized</CODE> in <TT>`&#60;X11/IntrinsicP.h&#62;'</TT>
+incorrectly compares the result of <CODE>XtWindowOfObject</CODE> to
+<CODE>NULL</CODE>, instead of <CODE>0</CODE>.  If the warnings bother you, fix
+<TT>`IntrinsicP.h'</TT>.
+</P><P>
+
+<A NAME="IDX110"></A>
+<A NAME="IDX111"></A>
+<A NAME="IDX112"></A>
+<A NAME="IDX113"></A>
+<A NAME="IDX114"></A>
+<A NAME="IDX115"></A>
+<A NAME="IDX116"></A>
+<A NAME="IDX117"></A>
+<LI>
+The application resource files <TT>`limn/Limn'</TT> and <TT>`xbfe/XBfe'</TT>
+must be installed in a directory where your X server can find them.
+This directory varies according to how X was installed; in the default X
+distribution, it is <TT>`/usr/lib/X11/app-defaults'</TT>.  If you cannot (or
+do not want to) write in the default directory, you can install them
+elsewhere and set the <CODE>XAPPLRESDIR</CODE> environment variable to that
+directory.  See the tutorial on resources that comes with the MIT X
+distribution (<TT>`mit/doc/tutorial/resources.txt'</TT>) for more
+information.
+<P>
+
+</UL>
+<P>
+
+Good luck.
+</P><P>
+
+<A NAME="Overview"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_5.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_4.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_2.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

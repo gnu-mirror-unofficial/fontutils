@@ -1,0 +1,109 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_56.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_56.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_57.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 9.2.1 CMI tokens </H3>
+<!--docid::SEC56::-->
+<P>
+
+<A NAME="IDX513"></A>
+<A NAME="IDX514"></A>
+Tokens in a CMI file are one of the following.
+</P><P>
+
+<OL>
+
+<A NAME="IDX515"></A>
+<A NAME="IDX516"></A>
+<A NAME="IDX517"></A>
+<LI>
+A numeric constant consists of (in order) an optional sign, zero or more
+digits, an optional decimal point, and zero or more digits--but at
+least one digit must be present.  For example, <SAMP>`+0'</SAMP>, <SAMP>`-0'</SAMP>,
+<SAMP>`0'</SAMP>, <SAMP>`.0'</SAMP>, and <SAMP>`-0.0'</SAMP> are all valid ways to write the
+number zero.
+<P>
+
+<A NAME="IDX518"></A>
+<LI>
+A string constant consists of all characters between two double-quote
+characters <SAMP>`"'</SAMP>.  We made no provision for quoting <SAMP>`"'</SAMP>, because
+our particular uses for string constants never need quote characters.
+<P>
+
+<A NAME="IDX519"></A>
+<LI>
+A comma is a self-terminating token.  It serves merely to separate two
+expressions.
+<P>
+
+<A NAME="IDX520"></A>
+<A NAME="IDX521"></A>
+<A NAME="IDX522"></A>
+<LI>
+An identifier is any number of characters starting with a non-whitespace
+character (whitespace being defined by the C facility <CODE>isspace</CODE>)
+not listed above, and terminated by a whitespace character.
+<P>
+
+<A NAME="IDX523"></A>
+In some contexts, an identifier is taken as a <EM>character name</EM>---a name
+from the encoding file Charspace is using, either the default or one you
+specified with <SAMP>`-encoding'</SAMP> (see section <A HREF="fontu_65.html">9.3 Invoking Charspace</A>).
+See section <A HREF="fontu_29.html">5.3 Encoding files</A>, for the definition of encoding files.
+</P><P>
+
+In all other cases, identifiers are internal to Charspace.  The particular
+commands describe the semantics which apply to them.
+</P><P>
+
+<A NAME="IDX524"></A>
+<A NAME="IDX525"></A>
+Some identifiers are <EM>reserved</EM>, i.e., they cannot be used in any
+context except as described in the following sections.  Reserved words
+are always shown in typewriter type.
+</P><P>
+
+</OL>
+<P>
+
+<A NAME="IDX526"></A>
+An expression in a CMI file is one of: a number, an identifier, or a
+number followed by an identifier.  This last, as in <SAMP>`.75 foo'</SAMP>,
+denotes multiplication.
+</P><P>
+
+<A NAME="char command"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_57.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

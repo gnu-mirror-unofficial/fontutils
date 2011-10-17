@@ -1,0 +1,122 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_48.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_48.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_49.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 8.1.1 Fontconvert output options </H3>
+<!--docid::SEC48::-->
+<P>
+
+<A NAME="IDX424"></A>
+<A NAME="IDX425"></A>
+<A NAME="IDX426"></A>
+</P><P>
+
+The following table describes the options which affect the output
+file(s) Fontconvert writes.  You can specify as many as you like.  If
+you don't specify any, the default is to write nothing at all.
+</P><P>
+
+In the following, <VAR>font-name</VAR> stands for the root part of the main
+input file (see section <A HREF="fontu_12.html">3.3.1 The main input file</A>).  The output filenames here are the
+defaults; you can override them with the <SAMP>`-output-file'</SAMP> option
+(see section <A HREF="fontu_52.html">8.1.5 Miscellaneous options</A>).
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX427"></A>
+<A NAME="IDX428"></A>
+<A NAME="IDX429"></A>
+<DT><SAMP>`-epsf'</SAMP>
+<DD>Output each character as an Encapsulated PostScript (EPS) file named
+<TT>`<VAR>font-name</VAR>-<VAR>code</VAR>.eps'</TT>, where <VAR>code</VAR> is the character
+code (in decimal).  This may be useful if the input "font" is actually
+a collection of images.
+<P>
+
+<A NAME="IDX430"></A>
+<A NAME="IDX431"></A>
+<A NAME="IDX432"></A>
+<DT><SAMP>`-gf'</SAMP>
+<DD>Output a GF font <TT>`<VAR>font-name</VAR>.<VAR>dpi</VAR>gf'</TT>, where <VAR>dpi</VAR> is
+the resolution of the input font in dots per inch.  If this would
+overwrite the input file (presumably because it, too, is a GF font),
+then prepend <SAMP>`x'</SAMP> to the output name.
+<P>
+
+This is mainly useful in conjunction with options that change the
+characters in the input font in some way.
+</P><P>
+
+<A NAME="IDX433"></A>
+<A NAME="IDX434"></A>
+<A NAME="IDX435"></A>
+<A NAME="IDX436"></A>
+<A NAME="IDX437"></A>
+<DT><SAMP>`-text'</SAMP>
+<DD>Write the output in a human-readable plain text form to standard output.
+The bitmap for each character is shown using <SAMP>`*'</SAMP> and <SAMP>` '</SAMP>.
+This is an easy way to see what output is being generated, without going
+to the trouble of running TeX and a DVI driver.  (The standard TeX
+programs GFtype and PKtype, which serve a similar purpose, do not always
+write the entire bitmap.)
+<P>
+
+<A NAME="IDX438"></A>
+<A NAME="IDX439"></A>
+<DT><SAMP>`-tfm'</SAMP>
+<DD>Write a TFM file to <TT>`<VAR>font-name</VAR>.tfm'</TT>.  If a TFM file
+<TT>`<VAR>font-name</VAR>.tfm'</TT> can be found, it is read, and an <SAMP>`x'</SAMP> is
+prepended to the output name.
+<P>
+
+If an existing TFM file is found, then Fontconvert uses it (by default)
+for the TFM header information, and for the ligature and kern
+information.  Unless the <SAMP>`-baseline-adjust'</SAMP>, <SAMP>`-column-split'</SAMP>,
+filtering, or randomizing options were specified, Fontconvert also uses
+it for the character dimensions.  (Those options radically change the
+appearance and size of the characters, so using the dimensions of the
+originals would be inappropriate.)
+</P><P>
+
+See section <A HREF="fontu_51.html">8.1.4 Fontwide information options</A>, for how to specify the global TFM
+information yourself, overriding the default.
+</P><P>
+
+</DL>
+<P>
+
+<A NAME="Character selection options"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_49.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

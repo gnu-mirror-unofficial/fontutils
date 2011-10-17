@@ -1,0 +1,113 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_51.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_51.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_50.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_52.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 8.1.4 Fontwide information options </H3>
+<!--docid::SEC51::-->
+<P>
+
+These options provide a way for you to set the global information in TFM
+and GF files.  They override the default values (which are taken from
+the input bitmap or TFM files).
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX480"></A>
+<A NAME="IDX481"></A>
+<A NAME="IDX482"></A>
+<DT><SAMP>`-designsize <VAR>real</VAR>'</SAMP>
+<DD>Set the design size in both the TFM and GF output files to <VAR>real</VAR>.
+You give <VAR>real</VAR> in printer's points.
+<P>
+
+You might want to use this after seeing the Metafont or PostScript fonts
+output by BZRto, and deciding they look too small.  For example, the
+original Garamond type specimen we scanned was (nominally) printed in
+30pt.  But when scaled down to 10pt via Metafont, the
+characters looked too small.  So we ran Fontconvert with
+<SAMP>`-designsize=26'</SAMP> on the bitmap font made from the original image,
+and then reran Limn, BZRto, and Metafont to see the result.  (We settled
+on 26 after several trials.)  See section <A HREF="fontu_9.html">3.2 Creating fonts</A>, for a description
+of all the steps in creating fonts from scanned images.
+</P><P>
+
+<A NAME="IDX483"></A>
+<DT><SAMP>`-fontdimens <VAR>fd1</VAR>:<VAR>value1</VAR>,<VAR>fd2</VAR>:<VAR>value2</VAR>,<small>...</small>'</SAMP>
+<DD>See section <A HREF="fontu_63.html">9.2.7.1 TFM fontdimens</A>.
+<P>
+
+<A NAME="IDX484"></A>
+<A NAME="IDX485"></A>
+<A NAME="IDX486"></A>
+<DT><SAMP>`-tfm-header <VAR>name1</VAR>:<VAR>value1</VAR>,<VAR>name2</VAR>:<VAR>value2</VAR>,<small>...</small>'</SAMP>
+<DD>Assign each <VAR>value</VAR> to the corresponding <VAR>name</VAR> in the header
+information written to the TFM file.  The standard TeX names are
+recognized:
+<P>
+
+<DL COMPACT>
+
+<A NAME="IDX487"></A>
+<DT><SAMP>`checksum'</SAMP>
+<DD>The corresponding <VAR>value</VAR> should be an unsigned integer, which should
+uniquely identify this TFM file.  A checksum of zero disables testing.
+The default is zero.
+<P>
+
+<A NAME="IDX488"></A>
+<DT><SAMP>`designsize'</SAMP>
+<DD>The corresponding <VAR>value</VAR> should be a real number between 1 and 2048
+(this limit is in the TFM file format).  This overrides (for the TFM
+output only) the <SAMP>`-designsize'</SAMP> option, if both are specified.  The
+default is the design size of the input.
+<P>
+
+<A NAME="IDX489"></A>
+<DT><SAMP>`codingscheme'</SAMP>
+<DD>The corresponding <VAR>value</VAR> should be a string of length less than 40,
+containing no parentheses or commas.  Again, these restrictions are due
+to the TFM file format.  This coding scheme declares the font's
+encoding vector.  See section <A HREF="fontu_33.html">5.4 Coding scheme map file</A>.
+<P>
+
+</DL>
+<P>
+
+</DL>
+<P>
+
+<A NAME="Miscellaneous options"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_50.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_52.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

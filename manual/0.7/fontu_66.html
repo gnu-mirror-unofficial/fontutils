@@ -1,0 +1,79 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_66.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_66.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H1> 10. Limn </H1>
+<!--docid::SEC66::-->
+<P>
+
+<A NAME="IDX636"></A>
+<A NAME="IDX637"></A>
+<A NAME="IDX638"></A>
+<A NAME="IDX639"></A>
+</P><P>
+
+<A NAME="IDX640"></A>
+<A NAME="IDX641"></A>
+These days, fonts to be used on computers are represented in one of two
+ways: as a <EM>bitmap font</EM>, which specifies each individual pixel in
+the image of a character; and/or as an <EM>outline font</EM>, which
+specifies the image as a collection of mathematically-specified curves.
+Each method has its own advantages and disadvantages; typesetting
+programs, page description languages, and output devices can generally
+deal with both.
+</P><P>
+
+<A NAME="IDX642"></A>
+<A NAME="IDX643"></A>
+Limn converts a font from a bitmap to an outline by fitting curves to
+the pixels.  Non-shape-related information in the bitmap font, such as
+that for the side bearings, is preserved in the outline output.
+</P><P>
+
+Specifically, the input is a bitmap (GF or PK) font.  The output is a
+BZR outline font (see section <A HREF="fontu_93.html">11.6 BZR files</A>), which can then be converted to
+(for example) Metafont or PostScript with BZRto (see section <A HREF="fontu_83.html">11. BZRto</A>).
+</P><P>
+
+<A NAME="IDX644"></A>
+<A NAME="IDX645"></A>
+<A NAME="IDX646"></A>
+<A NAME="IDX647"></A>
+<A NAME="IDX648"></A>
+There is a fair amount of literature on converting bitmaps to outlines.
+We found three particularly helpful: Philip Schneider's Master's thesis
+on his system Phoenix; Michael Plass and Maureen Stone's article
+`Curve-fitting with piecewise parametric cubics' published in SIGGRAPH;
+and Jakob Gonczarowski's article `A fast approach to auto-tracing (with
+parametric cubics)' in the RIDT 91 conference proceedings.  See
+the file <TT>`limn/README'</TT> for the full citations.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_67.html">10.1 Limn algorithm</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Limn fits outlines to bitmaps.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_82.html">10.2 Invoking Limn</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Command-line options.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Limn algorithm"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

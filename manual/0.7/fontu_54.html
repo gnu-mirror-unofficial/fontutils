@@ -1,0 +1,106 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_54.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_54.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 9.1 Charspace usage </H2>
+<!--docid::SEC54::-->
+<P>
+
+<A NAME="IDX505"></A>
+<A NAME="IDX506"></A>
+</P><P>
+
+Charspace makes no attempt to be intelligent about the side bearings it
+computes; it just follows the instructions in the CMI files.
+</P><P>
+
+The CMI files must be created by human hands, since the information they
+contain usually cannot be determined automatically.  See the next
+section for the details on what CMI files contain.
+</P><P>
+
+<A NAME="IDX507"></A>
+We supply one CMI file, <TT>`common.cmi'</TT> (distributed in the
+<TT>`data'</TT> directory), which defines more-or-less typeface-independent
+definitions for most common characters.  Charspace reads
+<TT>`common.cmi'</TT> before any of the CMI files you supply, so your
+definitions override its.
+</P><P>
+
+<TT>`common.cmi'</TT> can be used for all typefaces because its definitions
+are entirely symbolic; therefore, your CMI file must define actual
+values for the identifiers it uses.  For example, <TT>`common.cmi'</TT>
+defines the right side bearing of <SAMP>`K'</SAMP> to be <CODE>uc-min-sb</CODE>; you
+yourself must define <CODE>uc-min-sb</CODE>.
+</P><P>
+
+You must also define side bearings for characters not in
+<TT>`common.cmi'</TT>.  And you can redefine side bearings that <EM>are</EM>
+in <TT>`common.cmi'</TT>, if you find its definitions unsuitable.
+</P><P>
+
+Once you have prepared a CMI file, you can run Charspace, e.g.:
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>charspace -verbose -encoding=<VAR>enc-file</VAR> <VAR>fontname</VAR>.<VAR>dpi</VAR> \
+  -output-file=<VAR>out-fontname</VAR>
+</pre></td></tr></table></P><P>
+
+where <VAR>enc-file</VAR> specifies the encoding,
+<VAR>fontname</VAR> the input font, <VAR>dpi</VAR> the resolution, and
+<VAR>out-fontname</VAR> the name of the output font.
+</P><P>
+
+<A NAME="IDX508"></A>
+With these options, Charspace will write files
+<TT>`<VAR>out-fontname</VAR>.tfm'</TT> and <TT>`<VAR>out-fontname</VAR>.<VAR>dpi</VAR>gf'</TT>.
+You can then run TeX on <TT>`testfont.tex'</TT>, telling TeX to use
+the font <VAR>out-fontname</VAR>.  This produces a DVI file which you can
+print or preview as you usually do with TeX documents.
+</P><P>
+
+This will probably reveal problems in your CMI file, e.g., the spacing
+for some characters or character combinations will be poor.  So you need
+to iterate.
+</P><P>
+
+However, if you are planning to eventually run your bitmap font through
+Limn (see section <A HREF="fontu_66.html">10. Limn</A>) and BZRto (see section <A HREF="fontu_83.html">11. BZRto</A>) to make an outline font,
+there's little point in excessively fine-tuning the spacing of the
+original bitmap font.  The reason is that the generated outline font
+will inevitably rasterize differently than the original bitmaps, and the
+change in character shapes will almost certainly affect the spacing.
+</P><P>
+
+<A NAME="CMI files"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

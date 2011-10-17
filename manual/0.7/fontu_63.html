@@ -1,0 +1,319 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_63.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_63.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_62.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_64.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_61.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_62.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_64.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 9.2.7.1 TFM fontdimens </H4>
+<!--docid::SEC63::-->
+<P>
+
+<A NAME="IDX552"></A>
+<A NAME="IDX553"></A>
+<A NAME="IDX554"></A>
+<A NAME="IDX555"></A>
+</P><P>
+
+This section lists all the TFM fontdimens recognized by these programs:
+all those recognized by TeX, plus a few others we thought would prove
+useful when writing TeX macros.
+</P><P>
+
+A <EM>fontdimen</EM> is an arbitrary number, in all cases but one
+(<CODE>slant</CODE>, see below) measured in printer's points, which is
+associated with a particular font.  Their values are stored in the TFM
+file for the font.  We also refer, context permitting, to fontdimens as
+"font parameters", or simply "parameters".
+</P><P>
+
+Fontdimens affect many aspects of TeX's behavior: the interword
+spacing, accent placement, and math formula construction.  The math
+fontdimens in particular are fairly obscure; if you don't have a firm
+grasp on how TeX constructs math formulas, the explanations below
+will probably be meaningless to you, and--unless you're making a font
+for math typesetting--can be ignored.
+</P><P>
+
+<A NAME="IDX556"></A>
+The <TT>`common.cmi'</TT> file which Charspace reads sets reasonable
+defaults for the fontdimens relevant to normal text typesetting.
+</P><P>
+
+<A NAME="IDX557"></A>
+When TeX (or other programs) scale a font, its fontdimen values are
+scaled proportionally to the design size.  For example, suppose the
+designsize of some font <VAR>f</VAR> is 10pt, and some fontdimen in
+<VAR>f</VAR> has the value 7.5pt.  Then if the font is used scaled to
+20pt, the fontdimen's value is scaled to 15pt.
+</P><P>
+
+<A NAME="IDX558"></A>
+You can get the table of fontdimen values in a particular TFM file by
+running the standard TeX utility program PLtoTF and inspecting its
+(human-readable text) output.
+</P><P>
+
+In our programs and in PLtoTF, fontdimens are typically shown by their
+names.  But each also has a number, starting at 1.  You can use either
+the number or the name on the command line (in the argument to the
+<SAMP>`-fontdimens'</SAMP> option).  The numbers are given in parentheses after
+the name in the table below.
+</P><P>
+
+<A NAME="IDX559"></A>
+<A NAME="IDX560"></A>
+<A NAME="IDX561"></A>
+<A NAME="IDX562"></A>
+In a few cases (fontdimens 8--13), the same number fontdimen has two
+different names, and two different meanings.  This does not cause
+problems in practice, because these fontdimens are used only in the
+TeX math symbol and math extension fonts, which TeX can
+distinguish via its "math families" (see <CITE>The TeXbook</CITE> for
+the details).
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX563"></A>
+<A NAME="IDX564"></A>
+<DT><CODE>slant (1)</CODE>
+<DD>Unlike all other fontdimens, the <CODE>slant</CODE> parameter is not scaled
+with the font when it is loaded.  It defines the "slant per pt" of the
+font; for example, a <CODE>slant</CODE> of 0.2 means a 1pt-high
+character stem would end 0.2pt to the right of where it began.
+This value is typical for slanted or italic fonts; for normal upright
+fonts, <CODE>slant</CODE> is zero, naturally.  TeX uses this to position
+accents.
+<P>
+
+<A NAME="IDX565"></A>
+<A NAME="IDX566"></A>
+<A NAME="IDX567"></A>
+<DT><CODE>space (2)</CODE>
+<DD>The <CODE>space</CODE> parameter defines the normal interword space of the
+font.  This is typically about one-third of the design size, but it
+varies according to the type design: a narrow, spiky typeface will
+have a small interword space relative to a wide, regular one.
+Exception: in math fonts, the interword space is zero.
+<P>
+
+<A NAME="IDX568"></A>
+<DT><CODE>stretch (3)</CODE>
+<DD>The <CODE>stretch</CODE> parameter defines the interword stretch of the font.
+This is typically about one-half of the <CODE>space</CODE> parameter.  TeX
+is reluctant to increase interword spacing beyond the width
+<EM><CODE>space</CODE> + <CODE>stretch</CODE></EM>.  In monospaced fonts, the stretch
+is typically zero.
+<P>
+
+<A NAME="IDX569"></A>
+<DT><CODE>shrink (4)</CODE>
+<DD>The <CODE>shrink</CODE> parameter defines the interword shrink of the font.
+This is typically about one-third of the <CODE>space</CODE> parameter.  TeX
+does not decrease interword spacing beyond the width <EM><CODE>space</CODE>
+- <CODE>shrink</CODE></EM>.  In monospaced fonts, the shrink is typically zero.
+<P>
+
+<A NAME="IDX570"></A>
+<DT><CODE>xheight (5)</CODE>
+<DD>The <CODE>xheight</CODE> parameter defines the x-height of the font, i.e., the
+main body size.  The height of the lowercase `x' is often used for this,
+since neither the top nor the bottom of `x' are curves.  There is no
+hard-and-fast rule in TeX that the x-height must equal the height of
+`x', however.
+<P>
+
+<A NAME="IDX571"></A>
+This fontdimen defines the value of the <CODE>ex</CODE> dimension in TeX.
+TeX also uses this to position: it assumes the accents in the font
+are properly positioned over a character that is exactly 1ex high.
+</P><P>
+
+<A NAME="IDX572"></A>
+<A NAME="IDX573"></A>
+<DT><CODE>quad (6)</CODE>
+<DD>The <CODE>quad</CODE> fontdimen defines the value of the <CODE>em</CODE> dimension
+in TeX.  This is often the same as the design size of the font, but
+as usual, that's not an absolute requirement.
+<P>
+
+Typesetters often use <CODE>em</CODE>s and <CODE>ex</CODE>s instead of hardwiring
+dimensions in terms of (say) points; that way, experimenting with
+different fonts for a particular job does not require changing the
+dimensions.
+</P><P>
+
+<A NAME="IDX574"></A>
+<A NAME="IDX575"></A>
+<A NAME="IDX576"></A>
+<DT><CODE>extraspace (7)</CODE>
+<DD>The <CODE>extraspace</CODE> fontdimen defines the space TeX puts at the end
+of sentence.  (Technically, when the <CODE>\spacefactor</CODE> is 20000 or
+more.)  This is typically about one-sixth of the normal interword space.
+<P>
+
+<A NAME="IDX577"></A>
+<DT><CODE>num1 (8)</CODE>
+<DD><P>
+
+(Sorry, we haven't written a description of the math fontdimens yet.)
+</P><P>
+
+<A NAME="IDX578"></A>
+<DT><CODE>num2 (9)</CODE>
+<DD><P>
+
+<A NAME="IDX579"></A>
+<DT><CODE>num3 (10)</CODE>
+<DD><P>
+
+<A NAME="IDX580"></A>
+<DT><CODE>denom1 (11)</CODE>
+<DD><P>
+
+<A NAME="IDX581"></A>
+<DT><CODE>denom2 (12)</CODE>
+<DD><P>
+
+<A NAME="IDX582"></A>
+<DT><CODE>sup1 (13)</CODE>
+<DD><P>
+
+<A NAME="IDX583"></A>
+<DT><CODE>sup2 (14)</CODE>
+<DD><P>
+
+<A NAME="IDX584"></A>
+<DT><CODE>sup3 (15)</CODE>
+<DD><P>
+
+<A NAME="IDX585"></A>
+<DT><CODE>sub1 (16)</CODE>
+<DD><P>
+
+<A NAME="IDX586"></A>
+<DT><CODE>sub2 (17)</CODE>
+<DD><P>
+
+<A NAME="IDX587"></A>
+<DT><CODE>supdrop (18)</CODE>
+<DD><P>
+
+<A NAME="IDX588"></A>
+<DT><CODE>subdrop (19)</CODE>
+<DD><P>
+
+<A NAME="IDX589"></A>
+<DT><CODE>delim1 (20)</CODE>
+<DD><P>
+
+<A NAME="IDX590"></A>
+<DT><CODE>delim2 (21)</CODE>
+<DD><P>
+
+<A NAME="IDX591"></A>
+<DT><CODE>axisheight (22)</CODE>
+<DD><P>
+
+<A NAME="IDX592"></A>
+<DT><CODE>defaultrulethickness (8)</CODE>
+<DD><P>
+
+<A NAME="IDX593"></A>
+<DT><CODE>bigopspacing1 (9)</CODE>
+<DD><P>
+
+<A NAME="IDX594"></A>
+<DT><CODE>bigopspacing2 (10)</CODE>
+<DD><P>
+
+<A NAME="IDX595"></A>
+<DT><CODE>bigopspacing3 (11)</CODE>
+<DD><P>
+
+<A NAME="IDX596"></A>
+<DT><CODE>bigopspacing4 (12)</CODE>
+<DD><P>
+
+<A NAME="IDX597"></A>
+<DT><CODE>bigopspacing5 (13)</CODE>
+<DD><P>
+
+<A NAME="IDX598"></A>
+<A NAME="IDX599"></A>
+<A NAME="IDX600"></A>
+<A NAME="IDX601"></A>
+<A NAME="IDX602"></A>
+<A NAME="IDX603"></A>
+<DT><CODE>leadingheight (23)</CODE>
+<DD>The <CODE>leadingheight</CODE> parameter defines the height component of the
+recommended leading for this font.  <EM>Leading</EM> is the
+baseline-to-baseline distance when setting lines of type.
+<P>
+
+TeX does not automatically use this fontdimen, and the standard
+TeX fonts do not define it, but you may wish to include it in new
+fonts for the benefit of future TeX macro.  This fontdimen is a GNU
+extension.
+</P><P>
+
+<A NAME="IDX604"></A>
+<DT><CODE>leadingdepth (24)</CODE>
+<DD>The <CODE>leadingdepth</CODE> parameters defines the depth of the recommended
+leading for this font.  See <CODE>leadingheight</CODE> directly above.  This
+fontdimen is a GNU extension.
+<P>
+
+<A NAME="IDX605"></A>
+<DT><CODE>fontsize (25)</CODE>
+<DD>The <CODE>fontsize</CODE> parameter is the design size of the font.  This is
+needed for TeX macros to find the font's design size.  This fontdimen
+is a GNU extension.
+<P>
+
+<A NAME="IDX606"></A>
+<A NAME="IDX607"></A>
+<A NAME="IDX608"></A>
+<A NAME="IDX609"></A>
+<DT><CODE>version (26)</CODE>
+<DD>The <CODE>version</CODE> parameter identifies a particular version of the TFM
+file.  Whenever the character dimensions, kerns, or ligature table for a
+font changes, it is good to increment the version number.  It is also good
+to keep such changes to a minimum, since they can change the line breaks
+and page breaks in documents typeset with previous versions.  This
+fontdimen is a GNU extension.
+</DL>
+<P>
+
+<A NAME="CMI processing"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_62.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_64.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_61.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_62.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_64.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

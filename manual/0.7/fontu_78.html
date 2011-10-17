@@ -1,0 +1,53 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_78.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_78.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_77.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_79.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 10.1.6 Changing splines to lines </H3>
+<!--docid::SEC78::-->
+<P>
+
+<A NAME="IDX730"></A>
+<A NAME="IDX731"></A>
+</P><P>
+
+Upon accepting a fitted spline (see the previous sections), Limn checks
+if a straight line would fit the curve as well.  If so, that is
+preferable, since it is much faster to render straight lines than cubic
+splines.
+</P><P>
+
+More precisely, after fitting a cubic spline to a particular (segment of
+a) curve, Limn finds the straight line between the spline's endpoints,
+and computes the average distance (see section <A HREF="fontu_75.html">10.1.5.3 Finding the spline</A>) between
+the line and the curve.  If the result is less than some threshold, 1 by
+default, then the spline is provisionally (see the next section) changed
+to a line.
+</P><P>
+
+<A NAME="IDX732"></A>
+<A NAME="IDX733"></A>
+You can change the theshold with the <SAMP>`-line-threshold'</SAMP> option.
+</P><P>
+
+<A NAME="Changing lines to splines"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

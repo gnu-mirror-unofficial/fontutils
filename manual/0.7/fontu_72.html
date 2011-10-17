@@ -1,0 +1,96 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_72.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_72.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_73.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 10.1.5 Fitting the bitmap curve </H3>
+<!--docid::SEC72::-->
+<P>
+
+<A NAME="IDX686"></A>
+</P><P>
+
+The steps in the previous sections are preliminary to the main fitting
+process.  But once we have the final coordinates for each (bitmap)
+curve, we can proceed to fit it with some kind of continuous
+(mathematical) function: Limn uses both straight lines (polynomials of
+degree 1) and Bezier splines (degree 3).
+</P><P>
+
+<A NAME="IDX687"></A>
+<A NAME="IDX688"></A>
+To begin with, to use a spline the curve must have at least four points.
+If it has fewer, we simply use the line going through its first and last
+points.  (There is no point in doing a fancy "best fit" for this case,
+since the original curve is so short.)
+</P><P>
+
+<A NAME="IDX689"></A>
+<A NAME="IDX690"></A>
+<A NAME="IDX691"></A>
+<A NAME="IDX692"></A>
+Otherwise, if the curve has four or more points, we try to fit it with
+a (piece of a) Bezier cubic spline.  This spline is represented as a
+starting point, an ending point, and two "control points".  Limn uses the
+endpoints of the curve as the endpoints of the spline, and adjusts the
+control points to try to match the curve.
+</P><P>
+
+<A NAME="IDX693"></A>
+A complete description of the geometric and mathematical properties of
+Bezier cubics is beyond the scope of this document.  See a computer
+graphics textbook for the details.
+</P><P>
+
+We will use the terms "splines", "cubics", "Bezier splines",
+"cubic splines", and so on interchangeably, as is common practice.
+(Although Bezier splines are not the only kind of cubic splines, they
+are the only kind we use.)
+</P><P>
+
+The sections below describe the spline-fitting process in more detail.
+</P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_73.html">10.1.5.1 Initializing <EM>t</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Initializing the parameter values.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_74.html">10.1.5.2 Finding tangents</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Computing the direction of the curve at
+                                  the endpoints.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_75.html">10.1.5.3 Finding the spline</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Where are the control points?</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_76.html">10.1.5.4 Reparameterization</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Changing the parameter values.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_77.html">10.1.5.5 Subdivision</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Splitting the curve into pieces.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Initializing t"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_73.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

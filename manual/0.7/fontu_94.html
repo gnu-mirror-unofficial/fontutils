@@ -1,0 +1,98 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_94.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_94.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_93.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_95.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_92.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_93.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 11.6.1 BZR format introduction </H3>
+<!--docid::SEC94::-->
+<P>
+
+This section describes some general conventions of the BZR format.
+</P><P>
+
+<A NAME="IDX913"></A>
+<A NAME="IDX914"></A>
+<A NAME="IDX915"></A>
+In the following sections, we use the notation <VAR>name</VAR>[<VAR>n</VAR>] to
+mean that some constituent <VAR>name</VAR> of the BZR file takes up <VAR>n</VAR>
+bytes.  If <VAR>name</VAR> is all capital letters, it is an opcode, i.e., a
+command byte, and therefore we give no [<VAR>n</VAR>] after <VAR>name</VAR>, since
+all opcodes are a single byte.  The numerical value of each opcode is
+given in the source file <TT>`bzr/bzr_opcodes.h'</TT>.
+</P><P>
+
+<A NAME="IDX916"></A>
+Some values in BZR files are "pointers".  These values give the
+location of some other byte in the file.  The first byte is numbered
+0, the next byte numbered 1, and so on.
+</P><P>
+
+<A NAME="IDX917"></A>
+Besides commands which actually define the font, the BZR format has a
+<CODE>NO_OP</CODE> command, which does nothing.  Any number of <CODE>NO_OP</CODE>'s
+can occur between the preamble and the character definitions, between
+character definitions and commands within characters, between the
+character definitions and the postamble, and after the postamble.  But
+they may not occur within the preamble, the postamble, or between a
+command and its parameters.
+</P><P>
+
+<A NAME="IDX918"></A>
+<A NAME="IDX919"></A>
+Besides simple integers, BZR format uses a fixed-point representation of
+real numbers called a <EM>scaled</EM>, which is three bytes: two bytes of
+fraction and one byte of integer.  We can get away with such a small
+range because almost all numbers are scaled by the design size; i.e., in
+a 10-point font, a designsize-scaled value of 1.0 would represent 10
+points (quite a large distance, relatively speaking).
+</P><P>
+
+In fact, designsize-scaled numbers are typically less than 1.0, so the
+BZR format provides for abbreviating such, thus making the font smaller,
+as detailed in the following sections.
+</P><P>
+
+<A NAME="IDX920"></A>
+<A NAME="IDX921"></A>
+<A NAME="IDX922"></A>
+<A NAME="IDX923"></A>
+<A NAME="IDX924"></A>
+Negative numbers are represented in 2's complement notation, and
+multibyte values are stored in BigEndian order, regardless of the
+conventions of the host computer.  This makes a BZR font file
+portable between different architectures.
+</P><P>
+
+<A NAME="BZR preamble"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_93.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_95.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_92.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_93.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

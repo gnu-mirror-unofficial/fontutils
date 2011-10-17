@@ -1,0 +1,77 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_21.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_21.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_20.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_22.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_20.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_20.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 4.1 Bug criteria </H2>
+<!--docid::SEC21::-->
+<P>
+
+<A NAME="IDX200"></A>
+<A NAME="IDX201"></A>
+</P><P>
+
+If you are not sure whether you have found a bug, here are some
+guidelines:
+</P><P>
+
+<UL>
+
+<LI>
+<A NAME="IDX202"></A>
+If a program gets a fatal signal, for any input whatsoever, that
+is a bug.  Reliable programs never crash.
+<P>
+
+<LI>
+<A NAME="IDX203"></A>
+<A NAME="IDX204"></A>
+<A NAME="IDX205"></A>
+<A NAME="IDX206"></A>
+<A NAME="IDX207"></A>
+<A NAME="IDX208"></A>
+If a program produces an invalid font, for any input whatsoever, that is
+a bug--unless the program reported a fatal error that forced it to quit
+prematurely.  For example, if Metafont gives errors reading the output
+of <CODE>bzrto -mf</CODE>, that is a bug.  You can run the TeX utility
+programs GFtype and TFtoPL to check the validity of a GF or TFM file.
+<P>
+
+<LI>
+<A NAME="IDX209"></A>
+<A NAME="IDX210"></A>
+If a program gives an error message for valid input, that is a bug.
+Similarly, if a program gives a fatal error when it could continue
+processing, that is a bug.  It is sometimes hard to tell if these
+conditions obtain; you must use your best judgement.
+<P>
+
+<LI>
+<A NAME="IDX211"></A>
+If a program does not give an error message for invalid input, that is a bug.
+<P>
+
+</UL>
+<P>
+
+<A NAME="Bug reporting"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

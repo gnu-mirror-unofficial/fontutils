@@ -1,0 +1,55 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_15.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_15.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_14.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_16.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_13.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_14.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_17.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.3.3.1 Named character codes </H4>
+<!--docid::SEC15::-->
+<P>
+
+<A NAME="IDX165"></A>
+<A NAME="IDX166"></A>
+</P><P>
+
+If a string being parsed as a character code is more than one character
+long, or starts with a non-digit, it is always looked up as a name in
+an encoding vector before being considered as a numeric code.  We do
+this because you can always specify a particular value in one of the
+numeric formats, if that's what you want.
+</P><P>
+
+The encoding vector used varies with the program; you can always define
+an explicit encoding vector with the <SAMP>`-encoding'</SAMP> option.  If you
+don't specify one explicitly, programs which must have an encoding
+vector use a default; programs which can proceed without one do not.
+See section <A HREF="fontu_29.html">5.3 Encoding files</A>, for more details on encoding vectors.
+</P><P>
+
+As a practical matter, the only character names which have length one
+are the 52 letters, <SAMP>`A'</SAMP>--<SAMP>`Z'</SAMP>, <SAMP>`a'</SAMP>--<SAMP>`z'</SAMP>.  In virtually
+all common cases, the encoding vector and the underlying character set
+both have these in their ASCII positions.  (The exception is machines
+that use the EBCDIC encoding.)
+</P><P>
+
+<A NAME="Numeric character codes"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

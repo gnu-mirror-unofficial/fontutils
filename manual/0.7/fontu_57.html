@@ -1,0 +1,80 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_57.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_57.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_56.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_58.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_54.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_55.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_65.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 9.2.2 <CODE>char</CODE> command </H3>
+<!--docid::SEC57::-->
+<P>
+
+<A NAME="IDX527"></A>
+<A NAME="IDX528"></A>
+</P><P>
+
+The <CODE>char</CODE> command specifies both side bearings for a single
+character.  It has the form:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>char <VAR>charname</VAR> <VAR>expr1</VAR> , <VAR>expr2</VAR>
+</pre></td></tr></table></P><P>
+
+where: 
+</P><P>
+
+<DL COMPACT>
+
+<DT><VAR>charname</VAR>
+<DD>is a character name from the font encoding.  See section <A HREF="fontu_65.html">9.3 Invoking Charspace</A>,
+for how to specify the encoding file.
+<P>
+
+<A NAME="IDX529"></A>
+<A NAME="IDX530"></A>
+<A NAME="IDX531"></A>
+<DT><VAR>expr1</VAR>
+<DD><DT><VAR>expr2</VAR>
+<DD>specify the left and right side bearings, in pixels, respectively: the
+character widths in the output TFM and GF files are <EM><VAR>expr1</VAR> +
+<VAR>expr2</VAR> + <CODE>width</CODE> (<VAR>charname</VAR>)</EM>.  If these
+expressions contain identifiers, the values of those identifiers are not
+resolved until after Charspace has read all the CMI files.
+<P>
+
+</DL>
+<P>
+
+Giving the side bearings symbolically is useful when the character
+definition is intended to be used for more than one typeface.  For
+example, <TT>`common.cmi'</TT> (see section <A HREF="fontu_54.html">9.1 Charspace usage</A>) contains:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>char K H-sb , uc-min-sb
+char L H-sb , uc-min-sb
+</pre></td></tr></table></P><P>
+
+Then the CMI file you write for a particular font can define <CODE>H-sb</CODE>
+and <CODE>uc-min-sb</CODE>, and not have to redefine the side bearings for
+<CODE>K</CODE> and <CODE>L</CODE>.
+</P><P>
+
+<A NAME="char-width command"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

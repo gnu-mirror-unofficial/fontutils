@@ -1,0 +1,117 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_18.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_18.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_17.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_19.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_20.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 3.4 Font searching </H2>
+<!--docid::SEC18::-->
+<P>
+
+<A NAME="IDX181"></A>
+</P><P>
+
+These programs use the same environment variables and algorithms for
+finding font files as does (the Unix port of) TeX and its friends.
+</P><P>
+
+You specify the default paths in the top-level Makefile.  The
+environment variables <CODE>TEXFONTS</CODE>, <CODE>PKFONTS</CODE>, <CODE>TEXPKS</CODE>,
+and <CODE>GFFONTS</CODE> override those paths.  Both the default paths and the
+environment variable values should consist of a colon-separated list of
+directories.
+</P><P>
+
+<A NAME="IDX182"></A>
+<A NAME="IDX183"></A>
+<A NAME="IDX184"></A>
+<A NAME="IDX185"></A>
+Specifically, a TFM file is looked for along the path specified by
+<CODE>TEXFONTS</CODE>; a GF file along <CODE>GFFONTS</CODE>, then <CODE>TEXFONTS</CODE>; a
+PK file along <CODE>PKFONTS</CODE>, then <CODE>TEXPKS</CODE>, then <CODE>TEXFONTS</CODE>.
+</P><P>
+
+A leading or trailing colon in an environment variable value is replaced
+by the default path.
+</P><P>
+
+<A NAME="IDX186"></A>
+A leading <SAMP>`~'</SAMP> or <SAMP>`~<VAR>user</VAR>'</SAMP> in a path component is replaced
+by the current home directory or <VAR>user</VAR>'s home directory, respectively.
+</P><P>
+
+If a directory in a path does not exist, it is simply ignored.
+</P><P>
+
+<A NAME="IDX187"></A>
+In either the default value or the environment variable value, if a
+component directory <VAR>d</VAR> ends with two slashes, all subdirectories of
+<VAR>d</VAR> are searched: first those subdirectories directly under <VAR>d</VAR>,
+then the subsubdirectories under those, and so on.  At each level, the
+order in which the directories are searched is unspecified.
+</P><P>
+
+<A NAME="IDX188"></A>
+<A NAME="IDX189"></A>
+<A NAME="IDX190"></A>
+<A NAME="IDX191"></A>
+The subdirectory searching has one known deficiency, for which we know
+of no good solution.  If a directory <VAR>d</VAR> being searched for
+subdirectories contains plain files and symbolic links to other
+directories, but no real subdirectories, <VAR>d</VAR> will be considered a
+leaf directory, i.e., the symbolic links will not be followed.  The only
+<A NAME="IDX192"></A>
+way we know of to fix this is to invoke <CODE>stat</CODE> (an expensive system
+call) on every directory entry.  Since font directories often contain
+hundreds of files, this would make the startup time unacceptably slow.
+</P><P>
+
+A directory <VAR>d</VAR> explicitly named with two trailing slashes, however,
+is always searched for subdirectories, even if it is a "leaf".  We do
+this since presumably you would not have asked <VAR>d</VAR> to be searched
+for subdirectories if you didn't want it to be, and therefore you don't
+have hundreds of files in <VAR>d</VAR>.
+</P><P>
+
+For example, the following value for an environment variable says to
+search the following: all subdirectories of the current user's <TT>`fonts'</TT>
+directory in his or her home directory, then the directory <TT>`fonts'</TT>
+in the user <SAMP>`karl'</SAMP>s home directory, and finally the system default
+directories specified at compilation time.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>~/fonts//:~karl/fonts:
+</pre></td></tr></table></P><P>
+
+<A NAME="Font naming"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_17.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_19.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_20.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

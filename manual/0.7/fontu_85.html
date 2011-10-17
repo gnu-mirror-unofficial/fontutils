@@ -1,0 +1,78 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_85.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_85.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_84.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_86.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_84.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_87.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 11.1.1 Metafont output at any size </H3>
+<!--docid::SEC85::-->
+<P>
+
+<A NAME="IDX807"></A>
+</P><P>
+
+<A NAME="IDX808"></A>
+<A NAME="IDX809"></A>
+We described above how to get Metafont output at a size of 10pt.
+To generate a GF file for a font <VAR>foo</VAR> at a different size, assign
+to <CODE>designsize</CODE> on the command line, as follows:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>mf '\mode:=localfont; designsize:=<VAR>integer</VAR>; input <VAR>foo</VAR>
+</pre></td></tr></table></P><P>
+
+For example, if <CODE>localfont</CODE> corresponds to a 300dpi
+device, and you specify <SAMP>`designsize:=6'</SAMP>, this command creates
+<TT>`<VAR>foo</VAR>.180gf'</TT>, i.e., a 40% reduction from
+<TT>`<VAR>foo</VAR>.300gf'</TT>.
+</P><P>
+
+<A NAME="IDX810"></A>
+<A NAME="IDX811"></A>
+In some cases, it may be more convenient to specify a magnification
+factor than a new point size.  (For example, this is the case if you are
+enlarging or reducing an entire document by some constant factor, as
+with TeX's <CODE>\magnification</CODE> command.)  You can do this by
+assigning to <CODE>mag</CODE>:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>mf '\mode:=localfont; mag:=<VAR>real</VAR>; input <VAR>foo</VAR>
+</pre></td></tr></table></P><P>
+
+By default, <CODE>mag</CODE> is 1.0.  You can also assign to both <CODE>mag</CODE>
+and <CODE>designsize</CODE>.  For example, if you set <CODE>designsize</CODE> to 5
+and <CODE>mag</CODE> to 4, the output will be a 20pt font.
+</P><P>
+
+<A NAME="IDX812"></A>
+<A NAME="IDX813"></A>
+<A NAME="IDX814"></A>
+Although the Metafont language allows nonlinear scaling of fonts, so
+that the 6pt font would not simply be a reduced version of the
+10pt font, BZRto cannot take advantage of this sophistication.
+The reason is that BZR files specify a single set of outlines, and the
+nonlinear scaling cannot be deduced from that.  Perhaps we will extend
+the programs someday to handle interpolation between outlines of
+different sizes.
+</P><P>
+
+<A NAME="Proofing with Metafont"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

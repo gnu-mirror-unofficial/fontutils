@@ -1,0 +1,134 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_91.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_91.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_90.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_92.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_88.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_89.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_92.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 11.4.2 CCC <CODE>move</CODE> statements </H3>
+<!--docid::SEC91::-->
+<P>
+
+<A NAME="IDX861"></A>
+</P><P>
+
+To change the current position in a CCC file, you can use the
+<CODE>hmove</CODE> or <CODE>vmove</CODE> command; as you might expect, the former
+moves horizontally and the latter vertically.
+</P><P>
+
+<A NAME="IDX862"></A>
+Both take a single argument: a <EM>dimension</EM>, which is an optional
+real number followed by a unit of measure.  The real number is a
+multiplying factor.  For example, one of the units is <CODE>pt</CODE>
+(signifying printer's points, as usual), so the command <SAMP>`hmove 3pt'</SAMP>
+moves three points to the right (a pretty small distance).
+</P><P>
+
+Here are the possible units of measure:
+</P><P>
+
+<DL COMPACT>
+
+<DT><SAMP>`bbheight ( <VAR>name</VAR> )'</SAMP>
+<DD><A NAME="IDX863"></A>
+The height exclusive of blank space above or below the shape of the
+character <VAR>name</VAR> if it exists.
+<P>
+
+<DT><SAMP>`bbwidth ( <VAR>name</VAR> )'</SAMP>
+<DD><A NAME="IDX864"></A>
+The width exclusive of side bearings of the character <VAR>name</VAR> if it
+exists.
+<P>
+
+<DT><SAMP>`capheight'</SAMP>
+<DD><A NAME="IDX865"></A>
+The height of the capital letters, e.g., <SAMP>`H'</SAMP>.  See <SAMP>`xheight'</SAMP>
+for how this is determined.
+<P>
+
+<DT><SAMP>`depth ( <VAR>name</VAR> )'</SAMP>
+<DD><A NAME="IDX866"></A>
+The depth of the character <VAR>name</VAR>.
+           
+<DT><SAMP>`designsize'</SAMP>
+<DD><A NAME="IDX867"></A>
+The design size of the main input BZR font.
+<P>
+
+<DT><SAMP>`em'</SAMP>
+<DD><A NAME="IDX868"></A>
+The quad width of the font.  This value is determined analogously to
+<SAMP>`xheight'</SAMP>, below.
+           
+<DT><SAMP>`fontdepth'</SAMP>
+<DD><A NAME="IDX869"></A>
+The maximum depth any character in the font descends below the baseline.
+Again, this is determined analogously to <SAMP>`xheight'</SAMP>.
+<P>
+
+<DT><SAMP>`height ( <VAR>name</VAR> )'</SAMP>
+<DD><A NAME="IDX870"></A>
+The height of the character <VAR>name</VAR>.
+<P>
+
+<DT><SAMP>`pt'</SAMP>
+<DD><A NAME="IDX871"></A>
+Printer's points; 72.27pt = 1in.  Since dimensions specified
+in points are absolute distances, they do not scale when the font size
+changes.
+<P>
+
+<DT><SAMP>`width ( <VAR>name</VAR> )'</SAMP>
+<DD><A NAME="IDX872"></A>
+The set width of the character <VAR>name</VAR>.
+<P>
+
+<DT><SAMP>`xheight'</SAMP>
+<DD><A NAME="IDX873"></A>
+The x-height of the main input font.  If a TFM file corresponding to the
+main BZR file exists and defines this, that value is used; otherwise, the
+height of a suitable character (e.g., <SAMP>`x'</SAMP>) is used if one exists;
+otherwise, it's zero.  BZRto treats the other font-related units of
+measure in the same way.
+<P>
+
+</DL>
+<P>
+
+If the character <VAR>name</VAR> does not exist, an error is given, and the
+command ignored.
+</P><P>
+
+<A NAME="Invoking BZRto"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_90.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_92.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_88.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_89.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_92.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

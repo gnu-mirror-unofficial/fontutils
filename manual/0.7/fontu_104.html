@@ -1,0 +1,83 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_104.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_104.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_103.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_105.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_102.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_103.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_105.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 12.1.2.1 BPL outlines </H4>
+<!--docid::SEC104::-->
+<P>
+
+<A NAME="IDX1000"></A>
+<A NAME="IDX1001"></A>
+<A NAME="IDX1002"></A>
+</P><P>
+
+You specify an <EM>outline</EM> in a BPL file as a sequence of straight
+lines and cubic splines, in any order:
+</P><P>
+
+<A NAME="IDX1003"></A>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(outline <VAR>start-x</VAR> <VAR>start-y</VAR>
+  <VAR>piece1</VAR> <VAR>piece2</VAR> <small>...</small>
+)
+</pre></td></tr></table></P><P>
+
+<VAR>start-x</VAR> and <VAR>start-y</VAR> are realstrs which specify the initial
+position for drawing this outline.  Each successive piece of the outline
+is relative to a current point, and also updates the current point.
+</P><P>
+
+At least one <VAR>piece</VAR> must be present.  Each <VAR>piece</VAR> can be one of the
+following two properties:
+</P><P>
+
+<OL>
+
+<A NAME="IDX1004"></A>
+<A NAME="IDX1005"></A>
+<LI>
+<CODE>line <EM>x</EM> <EM>y</EM></CODE>.  Draw a straight line from the current
+point to <EM>(x,y)</EM>.  Then set the current point to <EM>(x,y)</EM>.
+<EM>x</EM> and <EM>y</EM> are realstrs.
+<P>
+
+<A NAME="IDX1006"></A>
+<A NAME="IDX1007"></A>
+<A NAME="IDX1008"></A>
+<A NAME="IDX1009"></A>
+<LI>
+<CODE>spline <VAR>c1x</VAR> <VAR>c1y</VAR> <VAR>c2x</VAR> <VAR>c2y</VAR> <VAR>ex</VAR> <VAR>ey</VAR></CODE>.
+Draw the Bezier cubic using the current point as the starting point,
+<EM>(<VAR>c1x</VAR>,<VAR>c1y</VAR>)</EM> and <EM>(<VAR>c2x</VAR>,<VAR>c2y</VAR>)</EM> as the control
+points, and <EM>(<VAR>ex</VAR>,<VAR>ey</VAR>)</EM> as the endpoint.  Then set the
+current point to the endpoint.  All coordinates are realstrs.
+<P>
+
+</OL>
+<P>
+
+If the last point the last piece of the <CODE>outline</CODE> is not the same
+as the starting point, the result is undefined.
+</P><P>
+
+<A NAME="BPL postamble"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,161 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_10.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_10.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_9.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_8.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_9.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 3.2.1 Font creation example </H3>
+<!--docid::SEC10::-->
+<P>
+
+<A NAME="IDX129"></A>
+<A NAME="IDX130"></A>
+<A NAME="IDX131"></A>
+<A NAME="IDX132"></A>
+</P><P>
+
+<A NAME="IDX133"></A>
+This section gives a real-life example of font creation for the Garamond
+roman typeface, which we worked on concomitantly with developing the
+programs.  We started from a scanned type specimen of 30 point Monotype
+Garamond, scanned using a Xerox 9700 scanner loaned to us from
+Interleaf, Inc.  (Thanks to Paul English and others at Interleaf for
+this loan.)
+</P><P>
+
+<OL>
+
+To begin, we used Imageto as follows to look at the image file we had
+scanned (see section <A HREF="fontu_36.html">6.1.1 Viewing an image</A>).  Each line is a separate command.
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>imageto -strips ggmr.img
+fontconvert -tfm ggmrsp.1200
+echo ggmrsp | tex strips.tex
+xdvi -p 1200 -s 10 strips.dvi
+</pre></td></tr></table>
+<LI>
+<A NAME="IDX134"></A>
+Next, we created the file <TT>`ggmr.ifi'</TT> (distributed in the
+<TT>`data'</TT> directory), listing the characters in the order they
+appeared in the image, guessing at baseline offsets and (if necessary)
+including bounding box counts.  Then we ran Imageto again, this time to
+get information about the baselines and spurious blotches in the image.
+We use the <SAMP>`-encoding'</SAMP> option since some of the characters in the
+image are not in the default <CODE>ASCII</CODE> encoding.
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>imageto -print-guidelines -print-clean-info -encoding=gnulatin ggmr.img
+</pre></td></tr></table><P>
+
+<LI>
+Based on the information gleaned from that run, we decided on the final
+baselines, adjusted the bounding box counts for broken-up characters,
+and extracted the font (see section <A HREF="fontu_37.html">6.1.2 Image to font conversion</A>).  (In truth,
+this took several iterations.)  The design size of the original image
+was stated in the book to be 30pt.  We noticed several
+blotches in the image we needed to ignore, and so we added
+<CODE>.notdef</CODE> lines to <TT>`ggmr.ifi'</TT> as appropriate.
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>imageto -verbose -baselines=121,130,120 \
+  -designsize=30 -encoding=gnulatin ggmr.img
+</pre></td></tr></table><P>
+
+<LI>
+To smooth some of the rough edges caused by the scanner's rasterization
+errors, we filtered the bitmaps with Fontconvert (see section <A HREF="fontu_46.html">8. Fontconvert</A>).
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>fontconvert -verbose -gf -tfm -filter-passes=3 -filter-size=3 \
+  ggmr30.1200 -output=ggmr30a
+</pre></td></tr></table><P>
+
+<LI>
+For a first attempt at intercharacter and interword spacing, we created
+<TT>`ggmr.1200cmi'</TT> (also distributed in the <TT>`data'</TT> directory) and
+ran Charspace (see section <A HREF="fontu_53.html">9. Charspace</A>), producing <TT>`ggmr30b.1200gf'</TT> and
+<TT>`ggmr30b.tfm'</TT>.  To see the results, we ran <TT>`ggmr30b'</TT> through
+<TT>`testfont.tex'</TT>, modified the CMI file, reran Charspace, etc., until
+the output was somewhat reasonable.  We didn't try to fine-tune the
+spacing here, since we knew the following steps would affect the
+character shapes, which in turn would affect the spacing.
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>charspace -verbose -cmi=ggmr.1200cmi ggmr30a.1200 -output=ggmr30b
+</pre></td></tr></table><P>
+
+<LI>
+Next we ran <TT>`ggmr30b.1200gf'</TT>, created by Charspace, through Limn to
+produce the outline font in BZR form, <TT>`ggmr30b.bzr'</TT>.  We couldn't
+know what the best values of all the fitting parameters were the first
+time, so we just increased the ones which are relative to the
+resolution.
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>limn -verbose -corner-surround=4 -filter-surround=6 \
+  -filter-alternative-surround=3 -subdivide-surround=6 \
+  -tangent-surround=6 ggmr30b.1200
+</pre></td></tr></table><P>
+
+<LI>
+Then we converted <TT>`ggmr30b.bzr'</TT> to a Metafont program using BZRto
+(see section <A HREF="fontu_83.html">11. BZRto</A>), and then ran Metafont to create TFM and GF files we
+could typeset with (see section <A HREF="fontu_84.html">11.1 Metafont and BZRto</A>).  In order to keep the
+Metafont-generated files distinct from the original TFM and GF files, we
+use the output stem <TT>`ggmr30B'</TT>.  To see the results at the usual
+10pt, we then ran the Metafont output through <TT>`sample.tex'</TT> (a
+one-line wrapper for <TT>`testfont.tex'</TT>: <SAMP>`\input testfont \sample
+\end'</SAMP>).
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>bzrto -verbose -metafont ggmr30b -output=ggmr30B
+mf '\mode:=localfont; input ggmr30B'
+echo ggmr30B | tex sample
+dvips sample
+</pre></td></tr></table><P>
+
+<LI>
+This 10pt output looked too small to us.  So we changed the design
+size to 26pt (finding the value took several iterations) with
+Fontconvert (see section <A HREF="fontu_46.html">8. Fontconvert</A>), then reran Charspace, Limn, BZRto,
+Metafont, etc., as above.  We only show the Fontconvert step here; the
+others have only the filenames changed from the invocations above.
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>fontconvert -verbose -gf -tfm -designsize=26 ggmr30b.1200 -output=ggmr26c
+</pre></td></tr></table><P>
+
+<LI>
+After this, the real work begins.  We ran the Metafont program
+<TT>`ggmr26D.mf'</TT> in <CODE>proof</CODE> mode, followed by GFtoDVI, so we could
+see how well Limn did at choosing the control points for the outlines.
+See section <A HREF="fontu_86.html">11.1.2 Proofing with Metafont</A>.  (The <CODE>nodisplays</CODE> tells Metafont
+not to bother displaying each character in a window online.)
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>mf '\mode:=proof; nodisplays; input ggmr26D'
+gftodvi ggmr26D.3656gf
+</pre></td></tr></table><P>
+
+<LI>
+From this, we went and hand-edited the font <TT>`ggmr26d.1200gf'</TT> with
+XBfe (see section <A HREF="fontu_107.html">13. XBfe</A>), and/or tinkered with the options to Limn, trying to
+make the outlines reasonable.  We still haven't finished <small>...</small>
+</OL>
+<P>
+
+<A NAME="Command-line options"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_9.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_8.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_9.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_11.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

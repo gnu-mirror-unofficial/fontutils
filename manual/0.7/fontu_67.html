@@ -1,0 +1,100 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_67.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_67.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_68.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 10.1 Limn algorithm </H2>
+<!--docid::SEC67::-->
+<P>
+
+<A NAME="IDX649"></A>
+<A NAME="IDX650"></A>
+<A NAME="IDX651"></A>
+</P><P>
+
+Limn can always (barring bugs, of course) fit some sort of outline to
+the bitmap input.  But its default fit is likely to be far from the
+ideal: character features may disappear, curves distorted, straight
+lines turned into curves and curves into straight lines, and on and on.
+</P><P>
+
+To control the fitting process, you must specify options to override
+Limn's defaults.  To describe those options, we must describe the
+algorithm Limn uses to do the fitting, which we do in this section.  We
+mention the options at the appropriate point.
+</P><P>
+
+The next section summarizes all the options, in alphabetical order.
+</P><P>
+
+<A NAME="IDX652"></A>
+Here is a schematic of the algorithm.  The subsections below go into
+detail for each step.  Except for the very first step, this is
+implemented in <TT>`limn/fit.c'</TT>.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>find pixel outlines
+for each pixel outline:
+  find corners, yielding curve lists
+  for each curve list:
+    remove knees
+    filter
+    if too small:
+      fit with straight line
+    otherwise fit with spline:
+      set initial t values
+      find tangents
+      fit with one spline
+      while error &#62; reparameterize-threshold, reparameterize
+      if error &#62; error-threshold, subdivide and recurse
+      if linearity &#60; line-threshold, change to straight line
+    revert bad lines
+    align endpoints
+</pre></td></tr></table></P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_68.html">10.1.1 Finding pixel outlines</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Extracting the edges from the bitmap.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_69.html">10.1.2 Finding corners</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Finding subsections of each outline.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_70.html">10.1.3 Removing knees</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Removing extraneous points.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_71.html">10.1.4 Filtering curves</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Smoothing the outlines.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_72.html">10.1.5 Fitting the bitmap curve</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Doing the fitting.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_78.html">10.1.6 Changing splines to lines</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Use straight lines where possible.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_79.html">10.1.7 Changing lines to splines</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Sometimes it isn't possible.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_80.html">10.1.8 Aligning endpoints</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">If points are close enough, line them out.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_81.html">10.1.9 Displaying fitting online</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Seeing the results as Limn runs.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Finding pixel outlines"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_68.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

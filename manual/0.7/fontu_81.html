@@ -1,0 +1,128 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_81.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_81.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_80.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 10.1.9 Displaying fitting online </H3>
+<!--docid::SEC81::-->
+<P>
+
+<A NAME="IDX742"></A>
+<A NAME="IDX743"></A>
+<A NAME="IDX744"></A>
+</P><P>
+
+<A NAME="IDX745"></A>
+While experimenting with the various fitting options listed in the
+preceding sections, you may find it useful to see the results of the
+fitting online.  Limn can display the filtered (see section <A HREF="fontu_71.html">10.1.4 Filtering curves</A>) bitmap and the fitted outline online if it is run under the X
+window system and you specify <SAMP>`-do-display'</SAMP>.
+</P><P>
+
+<A NAME="IDX746"></A>
+Ordinarily, Limn stops at the end of fitting every character for you to
+hit return, so you have a chance to examine the result.  If you just
+want to get a brief glimpse or something, you can specify
+<SAMP>`-display-continue'</SAMP>.  Then Limn won't stop.
+</P><P>
+
+<A NAME="IDX747"></A>
+<A NAME="IDX748"></A>
+If you specify <SAMP>`-do-display'</SAMP>, you must set the environment variable
+<CODE>DISPLAY</CODE> to the X server you want Limn to use.  For example, in
+Bourne-compatible shells, you might do:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>DISPLAY=:0 ; export DISPLAY
+</pre></td></tr></table></P><P>
+
+The output is shown on a grid, in which each square represents several
+pixels in the input.  Corners are shown as filled squares; other pixels
+are shown as hollow squares.
+</P><P>
+
+Limn has several options that change the appearance of the online
+output:
+</P><P>
+
+<UL>
+
+<A NAME="IDX749"></A>
+<A NAME="IDX750"></A>
+<LI><SAMP>`-display-grid-size <VAR>unsigned</VAR>'</SAMP>
+The number of expanded pixels shown between the grid lines; default is 10.
+<P>
+
+<A NAME="IDX751"></A>
+<A NAME="IDX752"></A>
+<A NAME="IDX753"></A>
+<LI><SAMP>`-display-pixel-size <VAR>unsigned</VAR>'</SAMP>
+The expansion factor; i.e., each input pixel is expanded to a square
+this many pixels on a side; default is 9.
+<P>
+
+<A NAME="IDX754"></A>
+<LI><SAMP>`-display-rectangle-size <VAR>unsigned</VAR>'</SAMP>
+The pixel size; i.e., each pixel shown is a square this many pixels on a
+side; default is 6.  This must be less than the
+<SAMP>`display-pixel-size'</SAMP>, so that black pixels don't merge into each
+other.
+<P>
+
+</UL>
+<P>
+
+<A NAME="IDX755"></A>
+<A NAME="IDX756"></A>
+<A NAME="IDX757"></A>
+<A NAME="IDX758"></A>
+<A NAME="IDX759"></A>
+<A NAME="IDX760"></A>
+You can change the size of the window Limn creates with the
+<CODE>geometry</CODE> resource in your <TT>`.Xdefaults'</TT> file (see the
+documentation in the file <TT>`mit/doc/tutorials/resources.txt'</TT> in the
+X distribution if you aren't
+familiar with X resources).  The class name is <CODE>Limn</CODE>.  For
+example:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>Limn*geometry: 300x400-0-0
+</pre></td></tr></table></P><P>
+
+makes the window 300 pixels wide, 400 pixels high, and located
+in the lower right corner of the screen.
+</P><P>
+
+<A NAME="Invoking Limn"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_80.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

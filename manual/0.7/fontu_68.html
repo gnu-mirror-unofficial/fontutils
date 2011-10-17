@@ -1,0 +1,108 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_68.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_68.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_69.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 10.1.1 Finding pixel outlines </H3>
+<!--docid::SEC68::-->
+<P>
+
+<A NAME="IDX653"></A>
+<A NAME="IDX654"></A>
+</P><P>
+
+The first step in the conversion from a character shape represented as a
+bitmap to a list of mathematical curves is to find all the cyclical
+outlines (i.e., closed curves) in the bitmap image.  The resulting list
+is called a <EM>pixel outline list</EM>.  Each <EM>pixel outline</EM> in the
+list consists of the pixel coordinates of each edge on the outline.
+</P><P>
+
+For example, the pixel outline list for an <SAMP>`i'</SAMP> has two elements:
+one for the dot, and one for the stem.  The pixel outline list for an
+<SAMP>`o'</SAMP> also has two elements: one for the outside of the shape, and
+one for the inside.
+</P><P>
+
+<A NAME="IDX655"></A>
+<A NAME="IDX656"></A>
+<A NAME="IDX657"></A>
+<A NAME="IDX658"></A>
+But we must differentiate between an <EM>outside outline</EM> (whose
+interior is to be filled with black to render the character) and an
+<EM>inside outline</EM> (whose interior is to be filled with white).
+Limn's convention is to write the pixel coordinates for outside outlines
+in counterclockwise order, and those for inside outlines in clockwise
+order.
+</P><P>
+
+<A NAME="IDX659"></A>
+This counterclockwise movement of outside outlines is required by the
+Type 1 format used for PostScript fonts, which is why we adopted that
+convention for Limn.
+</P><P>
+
+For example, consider a pixel outline consisting of a single black pixel
+at the origin.  The pixel has four corners, and hence the outline will
+have four coordinates.  Limn looks for starting pixels from top to
+bottom, left to right, within a bitmap image.  Thus, the list of pixel
+coordinates will start at (0,1) and proceed counterclockwise: (0,0)
+(1,0) (1,1).  Here is a picture:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>start =&#62; (0,1)&#60;-(1,1)
+           |      ^
+           v      |
+         (0,0)-&#62;(0,1)
+</pre></td></tr></table></P><P>
+
+Because finding pixel outlines does not involve approximation or
+estimation, there are no options to control the process.  Put another
+way, Limn will always find the correct pixel coordinates for each
+outline.
+</P><P>
+
+Once these pixel outlines have been found, each is then processed
+independently; i.e., all the remaining steps, described in the following
+sections, operate on each pixel outline individually.
+</P><P>
+
+<A NAME="IDX660"></A>
+<A NAME="IDX661"></A>
+The source code for this is in <TT>`limn/pxl-outline.c'</TT> and
+<TT>`lib/edge.c'</TT>.
+</P><P>
+
+<A NAME="Finding corners"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_69.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_66.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_67.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_82.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

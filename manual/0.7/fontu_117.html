@@ -1,0 +1,60 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_117.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_117.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_116.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_118.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_115.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_116.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_121.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 14.1.1 BZRedit installation </H3>
+<!--docid::SEC117::-->
+<P>
+
+<A NAME="IDX1123"></A>
+<A NAME="IDX1124"></A>
+<A NAME="IDX1125"></A>
+BZRedit is contained in the file <TT>`bzrto/bzredit.el'</TT>.  Installation
+of the font utilities (see section <A HREF="fontu_2.html">2. Installation</A>) copies this file into a
+directory where Emacs can find it.  But you still need to tell Emacs
+what functions <TT>`bzredit.el'</TT> defines.  To do this, put the following
+definitions into either your own <TT>`.emacs'</TT> file (see section `The Init File: <TT>`.emacs'</TT>' in <CITE>GNU Emacs Lisp Manual</CITE>), if you are
+the only person planning to use BZRedit, or into the system
+initialization file <TT>`default.el'</TT> (see section `Summary: Sequence of Actions at Start Up' in <CITE>GNU Emacs Lisp Manual</CITE>), for a public installation:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(autoload 'bpl-mode "bzredit" "Mode for editing BPL files." t)
+(autoload 'bzredit "bzredit" "Set up to editing a BZR file." t)
+</pre></td></tr></table></P><P>
+
+If you want the first function to be called automatically when you visit a
+file with extension <TT>`.bpl'</TT>, you can add the
+following code to (presumably) the same file:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq auto-mode-alist
+  (append auto-mode-alist (list '("\\.bpl\\'" . bpl-mode))))
+</pre></td></tr></table></P><P>
+
+If you do not do this, then to make the editing commands
+(described in the following sections) available you must type <KBD>M-x
+bpl-mode</KBD> after visiting a BPL file.
+</P><P>
+
+<A NAME="Editing BZR files"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

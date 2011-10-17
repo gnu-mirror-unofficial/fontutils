@@ -1,0 +1,127 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_50.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_50.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_49.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_51.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 8.1.3 Character manipulation options </H3>
+<!--docid::SEC50::-->
+<P>
+
+The following options affect individual characters.  
+</P><P>
+
+When any of them are specified, the dimensions of the output character
+are likely to be quite different than those of the input characters;
+therefore, Fontconvert does not copy the TFM information (when writing a
+TFM file) from an existing TFM file.
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX465"></A>
+<A NAME="IDX466"></A>
+<A NAME="IDX467"></A>
+<DT><SAMP>`-baseline-adjust <VAR>code1</VAR>:<VAR>delta1</VAR>,<VAR>code2</VAR>:<VAR>delta2</VAR>,<small>...</small>'</SAMP>
+<DD>Adjust the baseline of the output (i.e., after remapping) character
+<VAR>code</VAR> by the corresponding <VAR>delta</VAR>.  A negative <VAR>delta</VAR>
+moves the baseline down, a positive one up.  Multiple
+<SAMP>`-baseline-adjust'</SAMP> options combine.
+<P>
+
+<A NAME="IDX468"></A>
+<A NAME="IDX469"></A>
+<A NAME="IDX470"></A>
+<A NAME="IDX471"></A>
+<A NAME="IDX472"></A>
+<A NAME="IDX473"></A>
+<A NAME="IDX474"></A>
+<DT><SAMP>`-filter-passes <VAR>passes</VAR>'</SAMP>
+<DD><DT><SAMP>`-filter-size <VAR>half-cell-size</VAR>'</SAMP>
+<DD><DT><SAMP>`-filter-threshold <VAR>intensity</VAR>'</SAMP>
+<DD>Run each character through an "averaging filter" <VAR>passes</VAR> times.
+This tends to smooth rough edges on characters or irregular curves.  By
+the same token, it tends to shrink or eliminate small features, such as
+features.  Experimentation is necessary to determine the best values for
+any particular font.
+<P>
+
+For the pixel at coordinate <EM>(x,y)</EM>, Fontconvert looks at its
+neighbors in rows <EM>y</EM> - <VAR>half-cell-size</VAR>, <small>...</small>,
+<EM>y-1</EM>, <EM>y+1</EM>, <small>...</small>, <EM>y</EM> + <VAR>half-cell-size</VAR>, and
+similarly for the columns.
+</P><P>
+
+Fontconvert computes the average intensity of this square; if the result
+is greater than <VAR>intensity</VAR>, it outputs a black pixel at
+<EM>(x,y)</EM>; a white one, otherwise. 
+</P><P>
+
+This process is repeated for every pixel in every character, and every
+character is filtered <VAR>passes</VAR> times.  
+</P><P>
+
+The default is to do no filtering, i.e., <VAR>passes</VAR> is zero.  The
+default for <VAR>half-cell-size</VAR> is one; the default for <VAR>intensity</VAR>
+is <EM>.5</EM>.
+</P><P>
+
+<A NAME="IDX475"></A>
+<A NAME="IDX476"></A>
+<A NAME="IDX477"></A>
+<A NAME="IDX478"></A>
+<A NAME="IDX479"></A>
+<DT><SAMP>`-random <VAR>distance</VAR>'</SAMP>
+<DD><DT><SAMP>`-random-threshold <VAR>probability</VAR>'</SAMP>
+<DD>In every character, randomly move each black pixel.  We implemented this
+as part of our research (to see how much characters could be distorted
+before they became noticeably harder to read--the answer is a lot), but
+left it in the program for its amusement value.
+<P>
+
+For each black pixel, a first random number between zero and one is
+compared to <VAR>probability</VAR>.  If it is greater, nothing happens.
+Otherwise, a second random number is chosen, this one between
+<EM>-<VAR>distance</VAR></EM> and <VAR>distance</VAR>.  The pixel is "moved" that
+far horizontally.  Then repeat for the vertical axis.
+</P><P>
+
+The default is to do no randomization, i.e., <VAR>distance</VAR> is zero.
+The default for <VAR>probability</VAR> is <EM>.2</EM>.
+</P><P>
+
+</DL>
+<P>
+
+<A NAME="Fontwide information options"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_49.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_51.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

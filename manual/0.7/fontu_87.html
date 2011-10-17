@@ -1,0 +1,70 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_87.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_87.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_86.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_88.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_84.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_83.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_100.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 11.2 Type 1 PostScript fonts and BZRto </H2>
+<!--docid::SEC87::-->
+<P>
+
+<A NAME="IDX835"></A>
+<A NAME="IDX836"></A>
+<A NAME="IDX837"></A>
+<A NAME="IDX838"></A>
+</P><P>
+
+The Type 1 font format, invented by Adobe Systems, Inc., is the most
+common representation for PostScript fonts.  Adobe first published its
+specification in the book <CITE>Adobe Type 1 Font Format</CITE> in 1990.  It
+defines a limited set of operations; general PostScript programs cannot
+be represented as Type 1 fonts.  It also defines hints--ways of
+improving characters' appearances at low resolution and/or small small
+sizes--which cannot be represented in PostScript proper.
+</P><P>
+
+<A NAME="IDX839"></A>
+BZRto generates a Type 1 font <TT>`<VAR>foo</VAR>.gsf'</TT> from the input file
+<TT>`<VAR>foo</VAR>10.bzr'</TT> (the <SAMP>`10'</SAMP> being the design size of the
+input) if you specify the <SAMP>`-pstype1'</SAMP> option, as in:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>bzrto -pstype1 <VAR>foo</VAR>
+</pre></td></tr></table></P><P>
+
+The file <TT>`<VAR>foo</VAR>.gsf'</TT> consists only of plain text (it's not
+really "human-readable", since Type 1 format requires encryption
+of the character outlines).
+</P><P>
+
+<A NAME="IDX840"></A>
+<A NAME="IDX841"></A>
+<A NAME="IDX842"></A>
+Although Type 1 format also allows for encryption of the entire font,
+this is not required, and BZRto does not do it.  Some deficient
+PostScript interpreters do not recognize unencrypted fonts; but
+Ghostscript, the GNU quasi-PostScript interpreter, has no trouble.  We
+do not know of any utilities for encrypting an unencrypted Type 1 font,
+but presumably such a program would not be hard to write.
+</P><P>
+
+<A NAME="Type 3 and BZRto"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

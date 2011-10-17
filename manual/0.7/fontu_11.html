@@ -1,0 +1,77 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_11.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_11.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_10.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_12.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_9.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_7.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_18.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 3.3 Command-line options </H2>
+<!--docid::SEC11::-->
+<P>
+
+<A NAME="IDX135"></A>
+<A NAME="IDX136"></A>
+<A NAME="IDX137"></A>
+<A NAME="IDX138"></A>
+<A NAME="IDX139"></A>
+</P><P>
+
+<A NAME="IDX140"></A>
+Since these programs do not have counterparts on historical Unix
+systems, they need not conform to an existing interface.  We chose to
+have all the programs use the GNU function <CODE>getopt_long_only</CODE> to
+parse command lines.
+</P><P>
+
+As a result, you can give the options in any order, interspersed as you
+wish with non-option arguments; you can use <SAMP>`-'</SAMP> or <SAMP>`--'</SAMP> to
+start an option; you can use any unambiguous abbreviation for an option
+name; you can separate option names and values with either <SAMP>`='</SAMP> or
+one or more spaces; and you can use filenames that would otherwise look
+like options by putting them after an option <SAMP>`--'</SAMP>.
+</P><P>
+
+By convention, all the programs accept only one non-option argument,
+which is taken to be the name of the main input file.
+</P><P>
+
+If a particular option with a value is given more than once, it is the
+last value which is used.
+</P><P>
+
+For example, the following command line specifies the options
+<SAMP>`foo'</SAMP>, <SAMP>`bar'</SAMP>, and <SAMP>`verbose'</SAMP>; gives the value <SAMP>`abc'</SAMP>
+to the <SAMP>`baz'</SAMP> option, and the value <SAMP>`xyz'</SAMP> to the <SAMP>`quux'</SAMP>
+option; and specifies the filename <TT>`-myfile-'</TT>.
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>-foo --bar -verb -abc=baz -quux karl -quux xyz -- -myfile-
+</pre></td></tr></table></P><P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_12.html">3.3.1 The main input file</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Each program operates on a "main" font.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_13.html">3.3.2 Common options</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Some options are accepted by all programs.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_14.html">3.3.3 Specifying character codes</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Ways of specifying single characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="fontu_17.html">3.3.4 Common option values</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Some options need more information.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Main input file"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

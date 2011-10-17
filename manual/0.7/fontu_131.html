@@ -1,0 +1,72 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_131.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_131.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_130.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_132.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_127.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_127.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_133.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H2> 16.3 Portability </H2>
+<!--docid::SEC131::-->
+<P>
+
+<A NAME="IDX1269"></A>
+<A NAME="IDX1270"></A>
+</P><P>
+
+We didn't worry about making the programs work with any C compiler;
+instead, we used GNU C extensions where they were useful.  Likewise for
+GNU make.
+</P><P>
+
+<A NAME="IDX1271"></A>
+We allowed ourselves this luxury because these programs are not
+historical utilities which people would expect to find on any Unix
+system.  Rather, they are application programs.  Perhaps having them
+work only with other GNU programs will encourage people to switch to
+GNU programs, or at least become aware of them.
+</P><P>
+
+It probably would not be too hard to change the programs to work with
+other ANSI C compilers.  Changing them to work with old C compilers
+would be more painful.  Thus far, the dependency on GCC hasn't proved a
+serious problem, because GCC runs on so many machines.
+</P><P>
+
+<A NAME="IDX1272"></A>
+It would be dull but straightforward to write Makefiles for the
+programs which didn't use any of GNU make's special features.  As with
+GCC, though, GNU make is so widely available that we haven't felt it
+necessary to do so.
+</P><P>
+
+<A NAME="IDX1273"></A>
+The one exception is to this are the dozen or so files in the <TT>`lib'</TT>
+and <TT>`include'</TT> directories which implement the path searching
+algorithm.  Because these files are shared with the TeX, Dvips, and
+XDvi distributions, they are written to work with old C compilers.
+</P><P>
+
+See section <A HREF="fontu_5.html">2.2.1 Archives</A>, for information on how to obtain GCC and the other
+programs mentioned.  See section `Portability as it applies to GNU' in <CITE>GNU Coding Standards</CITE>, for more discussion of the
+portability of GNU programs in general.
+</P><P>
+
+<A NAME="Implementation"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

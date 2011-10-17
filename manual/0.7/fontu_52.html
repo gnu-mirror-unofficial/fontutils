@@ -1,0 +1,88 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_52.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_52.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_51.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 8.1.5 Miscellaneous options </H3>
+<!--docid::SEC52::-->
+<P>
+
+These options are the generic ones accepted by most (in some cases, all)
+programs.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX490"></A>
+<DT><SAMP>`-dpi <VAR>unsigned</VAR>'</SAMP>
+<DD>The resolution of the main input font, in pixels per inch.
+<P>
+
+<A NAME="IDX491"></A>
+<A NAME="IDX492"></A>
+<DT><SAMP>`-encoding <VAR>enc-file</VAR>'</SAMP>
+<DD>The encoding file to read for the mapping between character names and
+character codes.  See section <A HREF="fontu_29.html">5.3 Encoding files</A>.  If <VAR>enc-file</VAR> has no
+suffix, <SAMP>`.enc'</SAMP> is appended.  There is no default.  Without an
+encoding file, the options listed in <A HREF="fontu_49.html">8.1.2 Character selection options</A>
+which take character specs will just complain if you supply character
+names, instead of character codes.
+<P>
+
+<A NAME="IDX493"></A>
+<DT><SAMP>`-help'</SAMP>
+<DD>Print a usage message.  See section <A HREF="fontu_13.html">3.3.2 Common options</A>.
+<P>
+
+<DT><SAMP>`-output-file <VAR>filename</VAR>'</SAMP>
+<DD><A NAME="IDX494"></A>
+<A NAME="IDX495"></A>
+If <VAR>filename</VAR> has a suffix and if only one output file is to be
+written, write to <VAR>filename</VAR>.  If <VAR>filename</VAR> has a suffix and
+you've specified options which imply more than one output file,
+Fontconvert complains and gives up.
+<P>
+
+If <VAR>filename</VAR> does not have a suffix, extend <VAR>filename</VAR> with
+whatever is appropriate for the output format(s).  In the case of GF and
+TFM output, if this would overwrite the input, prepend an <SAMP>`x'</SAMP> to
+the output name.
+</P><P>
+
+By default, use the name of the main input font for <VAR>filename</VAR>.
+</P><P>
+
+<DT><SAMP>`-verbose'</SAMP>
+<DD><A NAME="IDX496"></A>
+Output progress reports.
+<P>
+
+<DT><SAMP>`-version'</SAMP>
+<DD><A NAME="IDX497"></A>
+Print the version number.
+<P>
+
+</DL>
+<P>
+
+<A NAME="Charspace"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

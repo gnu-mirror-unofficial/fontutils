@@ -1,0 +1,65 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_32.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_32.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_31.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_33.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_28.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_29.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_33.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 5.3.3 GNU encodings </H3>
+<!--docid::SEC32::-->
+<P>
+
+<A NAME="IDX296"></A>
+<A NAME="IDX297"></A>
+</P><P>
+
+<A NAME="IDX298"></A>
+<A NAME="IDX299"></A>
+<A NAME="IDX300"></A>
+<A NAME="IDX301"></A>
+When we started making fonts for the GNU project, we had to decide on
+some font encoding.  We hoped to use an existing one, but none that we
+found seemed suitable: the TeX font encodings, including the "Cork
+encoding" described in TUGboat 11#4, lacked many standard PostScript
+characters; conversely, the standard PostScript encodings lacked useful
+TeX characters.  Since we knew that Ghostscript and TeX would be
+the two main applications using the fonts, we thought it unacceptable to
+favor one at the expense of the other.
+</P><P>
+
+<A NAME="IDX302"></A>
+Therefore, we invented two new encodings.  The first one, "GNU Latin
+text" (distributed in <TT>`data/gnulatin.enc'</TT>), is based on ISO Latin
+1, and is close to a superset of both the basic TeX text encoding and
+the Adobe standard text encoding.  We felt it was best to use ISO Latin
+1 as the foundation, since some existing systems actually use ISO Latin
+1 instead of ASCII.  We also left the first eight positions open, so
+particular fonts could add more ligatures or other unusual characters.
+</P><P>
+
+<A NAME="IDX303"></A>
+The second, "GNU Latin text complement" (distributed in
+<TT>`data/gnulcomp.enc'</TT>), includes the remaining pre-accented
+characters from the Cork encoding, the PostScript expert encoding, swash
+characters, small caps, etc.
+</P><P>
+
+<A NAME="Coding scheme map file"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

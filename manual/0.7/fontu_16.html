@@ -1,0 +1,86 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_16.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_16.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_15.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_17.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_13.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_14.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_17.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 3.3.3.2 Numeric character codes </H4>
+<!--docid::SEC16::-->
+<P>
+
+<A NAME="IDX167"></A>
+</P><P>
+
+The following variations for numeric character codes are allowed.  The
+examples all assume the character set is ASCII.
+</P><P>
+
+<UL>
+
+<LI>
+<A NAME="IDX168"></A>
+Octal numerals preceded by a zero are taken to be an octal number.  For
+example, <KBD>0113</KBD> also means decimal 75.  If a would-be character code
+starts with a zero but contains any characters other than the digits
+<SAMP>`0'</SAMP> through <SAMP>`7'</SAMP>, it is invalid.
+<P>
+
+<LI>
+<A NAME="IDX169"></A>
+Hexadecimal "digits" preceded by <SAMP>`0x'</SAMP> or <SAMP>`0X'</SAMP> are taken to
+be a hexadecimal number.  Case is irrelevant.  For example, <KBD>0x4b</KBD>,
+<KBD>0X4b</KBD>, <KBD>0x4B</KBD>, and <KBD>0X4B</KBD> all mean decimal 75.  As with
+octal, a would-be character code starting with <SAMP>`0x'</SAMP> and containing
+any characters other than <SAMP>`0'</SAMP>--<SAMP>`9'</SAMP>, <SAMP>`a'</SAMP>--<SAMP>`f'</SAMP>, and
+<SAMP>`A'</SAMP>--<SAMP>`F'</SAMP> is invalid.
+<P>
+
+<LI>
+<A NAME="IDX170"></A>
+A decimal number (consisting of more than one numeral) is itself.  For
+example, <KBD>75</KBD> means the character code decimal 75.  As before, a
+would-be character code starting with <SAMP>`1'</SAMP>--<SAMP>`9'</SAMP> and containing
+any characters other than <SAMP>`0'</SAMP>--<SAMP>`9'</SAMP> is invalid.
+<P>
+
+<LI>
+A single digit, or a single character not in the encoding vector as a
+name, is taken to represent its value in the underlying character set.
+For example, <KBD>K</KBD> means the character code decimal 75, and <KBD>0</KBD>
+(the numeral zero) means the character code decimal 48 (if the machine
+uses ASCII).
+<P>
+
+<LI>
+If the string being parsed as a character code starts with a digit, the
+appropriate one of the previous cases is applied.  If it starts with any
+other character, the string is first looked up as a name.
+<P>
+
+</UL>
+<P>
+
+<A NAME="IDX171"></A>
+Character codes must be between zero and 255 (decimal), inclusive.
+</P><P>
+
+<A NAME="Common option values"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,74 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_76.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_76.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_75.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_77.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_71.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_72.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_78.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H4> 10.1.5.4 Reparameterization </H4>
+<!--docid::SEC76::-->
+<P>
+
+<A NAME="IDX715"></A>
+</P><P>
+
+<EM>Reparameterization</EM> changes the <EM>t</EM> value for each point
+<EM>p</EM> on the bitmap curve, thus changing the place on the spline
+which corresponds to <EM>p</EM>.  Given these new <EM>t</EM> values, Limn
+will then fit a new spline (see the previous section) to the bitmap, one
+which presumably matches it more closely.
+</P><P>
+
+Reparameterization is almost always a win.  Only if the initial fit
+(see section <A HREF="fontu_73.html">10.1.5.1 Initializing <EM>t</EM></A>) was truly terrible will reparameterization be a
+waste of time, and be omitted in favor of immediate subdivision (see the
+next section).
+</P><P>
+
+<A NAME="IDX716"></A>
+<A NAME="IDX717"></A>
+Limn sets the default threshold for not reparameterizing to be 30
+"square pixels" (this number is compared to the least-squares error;
+see the previous section).  This is usually only exceeded in cases such
+as that of an outline of <SAMP>`o'</SAMP>, where one spline cannot possibly fit
+the entire more-or-less oval outline.  You can change the threshold with
+the option <SAMP>`-reparameterize-threshold'</SAMP>.
+</P><P>
+
+<A NAME="IDX718"></A>
+<A NAME="IDX719"></A>
+If the error is less than <SAMP>`reparameterize-threshold'</SAMP>, Limn
+reparameterizes and refits the curve until the difference in the error
+from the last iteration is less than some percentage (10 by default; you
+can change this with the option <SAMP>`-reparameterize-improve'</SAMP>).
+</P><P>
+
+After Limn has given up reparameterization (either because the initial
+fit was worse than <SAMP>`reparameterize-threshold'</SAMP>, or because the error
+did not change by more than <SAMP>`reparameterize-improve'</SAMP>), the final
+error is compared to another threshold, 2.0 by default.  (You can
+specify this with the option <SAMP>`-error-threshold'</SAMP>.)  If the error is
+larger, Limn subdivides the bitmap curve (see the next section) and fits
+each piece separately.  Otherwise, Limn saves the fitted spline and goes
+on to the next piece of the pixel outline.
+</P><P>
+
+<A NAME="Subdivision"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,142 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_49.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_49.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_48.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_50.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 8.1.2 Character selection options </H3>
+<!--docid::SEC49::-->
+<P>
+
+<A NAME="IDX440"></A>
+<A NAME="IDX441"></A>
+</P><P>
+
+The following table describes the options which affect the set of
+characters Fontconvert writes.
+</P><P>
+
+<DL COMPACT>
+
+<A NAME="IDX442"></A>
+<A NAME="IDX443"></A>
+<A NAME="IDX444"></A>
+<A NAME="IDX445"></A>
+<DT><SAMP>`-concat <VAR>font1</VAR>,<VAR>font2</VAR>,<small>...</small>'</SAMP>
+<DD>After processing the main input file (see section <A HREF="fontu_12.html">3.3.1 The main input file</A>), process
+the additional fonts <VAR>font1</VAR>, <VAR>font2</VAR>, etc.  Multiple
+<SAMP>`-concat'</SAMP> options do combine, e.g., <SAMP>`-concat <VAR>font1</VAR>
+-concat <VAR>font2</VAR>'</SAMP> is the same as <SAMP>`-concat
+<VAR>font1</VAR>,<VAR>font2</VAR>'</SAMP>.
+<P>
+
+<A NAME="IDX446"></A>
+<A NAME="IDX447"></A>
+<A NAME="IDX448"></A>
+<A NAME="IDX449"></A>
+If a character appears in more than one font, its first appearance is
+the one that counts.  Fontconvert issues a warning about such repeated
+characters.
+</P><P>
+
+The design size, resolution, and other global information in the output
+font is always taken from the main input font, not from the concatenated
+fonts.
+</P><P>
+
+<A NAME="IDX450"></A>
+<A NAME="IDX451"></A>
+<A NAME="IDX452"></A>
+<A NAME="IDX453"></A>
+<DT><SAMP>`-column-split <VAR>charspec</VAR>@<VAR>col_1</VAR>,<small>...</small>,<VAR>col_n</VAR>'</SAMP>
+<DD>Split the input character at position <VAR>charspec</VAR> before each of the
+<VAR>N</VAR> <VAR>column</VAR>s, thus producing <VAR>n</VAR> new characters.  
+<P>
+
+The new characters have codes <VAR>charspec</VAR>, <EM><VAR>charspec</VAR>+1</EM>,
+<small>...</small>, <EM><VAR>charspec</VAR>+<VAR>n</VAR></EM>.  (These character codes are
+subject to the remapping specified by <SAMP>`-remap'</SAMP>; see below.  Any
+previous characters at those codes are overwritten.)
+</P><P>
+
+The bitmaps of the new characters are slices from the original
+character: 0 to column <EM><VAR>col_1</VAR>-1</EM>, <small>...</small>, <VAR>col_n</VAR> to the
+bitmap width.  You specify the column numbers in bitmap coordinates,
+i.e., the first column is numbered zero.
+</P><P>
+
+To split more than one character, simply specify <SAMP>`-column-split'</SAMP>
+for each.
+</P><P>
+
+This option is useful when two different characters in a scanned image
+of a font were printed so closely together that their images overlap.
+In this case, Imageto cannot break the characters apart, because they
+are a single bounding box.  But you can split them with this option; you
+have to use your best judgement for the exact column at which to split.
+(Probably judicious hand-editing with XBfe (see section <A HREF="fontu_107.html">13. XBfe</A>) will be
+necessary after you do this.)
+</P><P>
+
+<A NAME="IDX454"></A>
+<DT><SAMP>`-range <VAR>char1</VAR>-<VAR>char2</VAR>'</SAMP>
+<DD>Only output characters with codes between <VAR>char1</VAR> and <VAR>char2</VAR>,
+inclusive.  (See section <A HREF="fontu_13.html">3.3.2 Common options</A>, and <A HREF="fontu_14.html">3.3.3 Specifying character codes</A>.)
+<P>
+
+<A NAME="IDX455"></A>
+<A NAME="IDX456"></A>
+<A NAME="IDX457"></A>
+<A NAME="IDX458"></A>
+<A NAME="IDX459"></A>
+<DT><SAMP>`-omit <VAR>charspec1</VAR>,<VAR>charspec2</VAR>,<small>...</small>'</SAMP>
+<DD>Omit the characters with the specified codes (before remapping) from the
+output.  Multiple <SAMP>`-omit'</SAMP> options combine.
+<P>
+
+<A NAME="IDX460"></A>
+<A NAME="IDX461"></A>
+<A NAME="IDX462"></A>
+<A NAME="IDX463"></A>
+<A NAME="IDX464"></A>
+<DT><SAMP>`-remap <VAR>src1</VAR>:<VAR>dest1</VAR>,<VAR>src2</VAR>:<VAR>dest2</VAR>,<small>...</small>'</SAMP>
+<DD>For each pair of character specifications <VAR>src</VAR>/<VAR>dest</VAR>, change
+the character with code <VAR>src</VAR> in the input font to have code
+<VAR>dest</VAR> in the output.
+<P>
+
+</DL>
+<P>
+
+<A NAME="Character manipulation options"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_48.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_50.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_46.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_47.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_53.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+

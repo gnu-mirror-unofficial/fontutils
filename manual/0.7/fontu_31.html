@@ -1,0 +1,68 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_31.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_31.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_30.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_32.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_28.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_29.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_33.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 5.3.2 Ligature definitions </H3>
+<!--docid::SEC31::-->
+<P>
+
+<A NAME="IDX292"></A>
+<A NAME="IDX293"></A>
+<A NAME="IDX294"></A>
+</P><P>
+
+The ligature information for a character in an encoding file is
+optional.  More than one ligature specification may be given.  Each
+specification looks like:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>lig <VAR>second-char</VAR> =: <VAR>lig-char</VAR>
+</pre></td></tr></table></P><P>
+
+This means that a ligature character <VAR>lig-char</VAR> should be present in
+the font for the current character (the one being defined on this line
+of the encoding file) followed by <VAR>second-char</VAR>.  You give
+<VAR>second-char</VAR> and <VAR>lig-char</VAR> as character codes
+(see section <A HREF="fontu_14.html">3.3.3 Specifying character codes</A>).  For example, in most text
+encodings (which involve Latin characters), some variation on the
+following line will be present:
+</P><P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>f       lig f =: 013  lig i =: 014  lig l =: 015
+</pre></td></tr></table></P><P>
+
+This will produce a ligature in the font such that when a typesetting
+program sees the two character sequence <SAMP>`ff'</SAMP> in the input, it
+replaces those two characters in the output with the single character at
+position octal 13 (presumably the `fi' ligature) of the font; when it
+sees <SAMP>`fi'</SAMP>, the character at position octal 14 is output; when
+it sees <SAMP>`fl'</SAMP>, the character at position octal 15 is output.
+</P><P>
+
+<A NAME="IDX295"></A>
+Metafont version 2 allows a more general ligature scheme; if there is a
+demand for it, it wouldn't be hard to add.
+</P><P>
+
+<A NAME="GNU encodings"></A>
+
+
+
+<br clear=all></p>
+</body></html>
+

@@ -1,0 +1,105 @@
+<html><head><title>Font utilities</title>
+<base href="fontu_23.html">
+</head><body>
+
+<big><big><b>Font utilities</b></big></big></p></center>
+
+<A NAME="fontu_23.html"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_22.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_24.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_21.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_22.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<HR SIZE=1>
+<H3> 4.2.1 Necessary information </H3>
+<!--docid::SEC23::-->
+<P>
+
+To enable us to fix a bug, please include all the information below.  If
+the bug was in compilation or installation, as opposed to in actually
+running one of the programs, the last two items are irrelevant.  But in
+that case, please also make sure it is not a known problem before
+reporting it.  See section <A HREF="fontu_6.html">2.3 Problems</A>.
+</P><P>
+
+You should include all of the following in your bug report:
+</P><P>
+
+<UL>
+
+<LI>
+The version number of the program.  You can get this from the top-level
+files <TT>`ChangeLog'</TT> or <TT>`GNUmakefile.in'</TT>, or from the
+<SAMP>`-version'</SAMP> option which all the programs have.
+<P>
+
+<LI>
+The type of machine you are using, and the operating system name
+and version number.
+<P>
+
+<LI>
+A description of the bug.  For example, "The program gets a fatal
+signal," or "The baselines in the generated font are too high."
+<P>
+
+<LI>
+All the command-line arguments you gave the program.
+<P>
+
+<LI>
+The relevant input files.  Since fonts and images are typically binary
+files, be sure to use <TT>`uuencode'</TT> or <TT>`btoa'</TT> before mailing
+them.  Be sure to include the TFM file as well as the bitmap (GF or
+PK) or BZR file, if the program needs both as input.
+<P>
+
+Bugs typically apply to a single character in a font; you can find out
+what character is being processed with the <SAMP>`-verbose'</SAMP> option.  It
+should then be straightforward to cut that single character out of the
+font with either the <SAMP>`-range'</SAMP> option and/or the <SAMP>`fontconvert'</SAMP>
+program, to make a new (very small) font.  It is easier for us to deal
+with small files.
+  
+But if you don't want to take the time to break up the font, please send
+in the bug report anyway (with the entire font).  We much prefer that to
+you not reporting the bug at all!
+</P><P>
+
+</UL>
+<P>
+
+In other words, we need enough information so that we can run the
+offending program under the debugger, so we can find out what's
+happening.  Without all the command-line arguments, or the input file in
+question, we cannot do this.  Since you must have found the bug by
+running the program with a particular set of options and on a particular
+input file, you already have this information; all you need to do is
+send it!
+</P><P>
+
+<A NAME="Unnecessary information"></A>
+<HR SIZE=1>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_22.html"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_24.html"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_21.html"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_22.html"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_26.html"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_toc.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_140.html">Index</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="fontu_abt.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+
+
+
+<br clear=all></p>
+</body></html>
+
