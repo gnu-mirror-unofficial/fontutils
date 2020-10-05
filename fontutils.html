@@ -1,63 +1,56 @@
 <!--#include virtual="/server/header.html" -->
-<!-- Parent-Version: 1.79 -->
+<!-- Parent-Version: 1.92 -->
+<!-- This page is derived from /server/standards/boilerplate.html -->
 <title>Fontutils - GNU Project - Free Software Foundation</title>
 <!--#include virtual="/server/gnun/initial-translations-list.html" -->
 <!--#include virtual="/server/banner.html" -->
+<div class="reduced-width">
 <h2>GNU Fontutils</h2>
+<hr class="thin" />
 
-<h3 id="download">Downloading 
-  Fontutils</h3>
+<p>Fontutils is a set of utilities to create and manipulate bitmap fonts.</p>
 
-<p>Fontutils can be found on the main GNU ftp server:
-<a href="http://ftp.gnu.org/pub/gnu/fontutils/">
-http://ftp.gnu.org/pub/gnu/fontutils/</a> (via HTTP) and
-<a href="ftp://ftp.gnu.org/pub/gnu/fontutils/">
-ftp://ftp.gnu.org/pub/gnu/fontutils/</a> (via FTP).
- It can also be found on the <a href="/prep/ftp.html">GNU mirrors</a>; please
-<a href="http://ftpmirror.gnu.org/fontutils/">use a mirror</a> if possible.</p>
+<h3 id="download">Downloading</h3>
+
+<p>Fontutils is found on the main GNU server
+(<a href="https://ftp.gnu.org/pub/gnu/fontutils/">HTTPS</a>,&nbsp;
+<a href="http://ftp.gnu.org/pub/gnu/fontutils/">HTTP</a>,&nbsp;
+<a href="ftp://ftp.gnu.org/pub/gnu/fontutils/">FTP</a>) and its
+<a href="/prep/ftp.html">mirrors</a>; please
+<a href="https://ftpmirror.gnu.org/fontutils/">use a mirror</a> if possible.</p>
 
 <h3 id="doc">Documentation</h3>
 
-<p>Documentation for Fontutils is available <a href="manual">online</a>. You may
-also find more information about Fontutils by running <em>info&nbsp;fontutils
-</em> or <em>man&nbsp;fontutils</em>, or by looking at <em>/usr/doc/fontutils
-</em>, or similar directories on your system. A brief summary is available by 
-running <tt>fontutils&nbsp;--help</tt>.</p>
+<p>Documentation for Fontutils is available <a
+href="manual/0.7/fontu_toc.html">online</a>. You may also find information
+about Fontutils by running <kbd>info&nbsp;fontutils</kbd> or
+<kbd>man&nbsp;fontutils</kbd>, or by looking at
+<code>/usr/share/doc/fontutils</code>, or similar directories on your system.
+A brief summary is available by running <kbd>fontutils&nbsp;--help</kbd>.</p>
 
 <h3 id="mail">Mailing lists</h3>
 
-<p>Fontutils has several mailing lists:
-</p>
+<p>Fontutils has two mailing lists:</p>
 <ul>
 <li>
-   <a href="mailto:fontutils-bugs@gnu.org">&lt;fontutils-bugs@gnu.org&gt;</a>.
+ &lt;<a href="mailto:fontutils-bugs@gnu.org">fontutils-bugs@gnu.org</a>&gt;
+ (<a href="https://lists.gnu.org/mailman/listinfo/fontutils-bugs">web interface</a>,&nbsp;
+ <a href="https://lists.gnu.org/archive/html/fontutils-bugs/">archives</a>)
+ for bug reports, enhancement requests, and general discussion;
 </li>
 <li>
-   <a href="mailto:fontutils-commits@gnu.org">&lt;fontutils-commits@gnu.org&gt;</a>
+ <a href="https://lists.gnu.org/mailman/listinfo/fontutils-commits">fontutils-commits</a>
+ (<a href="https://lists.gnu.org/archive/html/fontutils-bugs/">archives</a>)
+ for viewing recent commit activity.
 </li>
 </ul>
 
-<p>You can find the Fontutils bug list 
-<a href="http://lists.gnu.org/archive/html/fontutils-bugs/">archives</a> online.
-</p>
-
-<p>You can find the Fontutils commit list 
-<a href="http://lists.gnu.org/archive/html/fontutils-commits/">archives</a> 
-online.</p>
-
-<p>Please use the bugs mailing list for bug reports, requesting enhancements, 
- and general discussion. The commit list provides a view of recent commit 
-activity. 
-</p>
-
-<p>To subscribe to these lists, please send an empty mail with a <strong>Subject
-: </strong> of <tt>subscribe</tt> to the relevant request list. To subscribe
-to the Fontutils-bugs list, send an e-mail to fontutils-bugs-request@gnu.org. To
-subscribe to the Fontutils-commits list, send an e-mail to
-fontutils-commits-request@gnu.org. If you wish to unsubscribe simply change the
-<strong>Subject: </strong> to <tt>unsubscribe</tt> instead of <tt>subscribe</tt>
-. Alternatively, you can also use the corresponding mailing list web interface 
-by clicking on the proper link above this paragraph.
+<p>To subscribe to the fontutils-bugs list, send an e-mail with a <i>Subject:</i> header
+of &ldquo;subscribe&rdquo; to &lt;fontutils-bugs-request@gnu.org&gt;. To
+subscribe to the fontutils-commits list, send a similar e-mail to
+&lt;fontutils-commits-request@gnu.org&gt;. If you wish to unsubscribe, simply change the
+Subject to &ldquo;unsubscribe.&rdquo;
+Alternatively, you can use the web interface.
 </p>
 
 <h3 id="contribute">Getting involved</h3>
@@ -70,57 +63,25 @@ but also your area of interest.
 </p>
 
 
-<dl>
-<dt id="test">Test releases (COMING SOON)</dt>
-
-<dd>Trying the latest release (when available) is always appreciated. Test 
-release of Fontutils can be found at 
-<a href="#test">http://alpha.gnu.org/gnu/fontutils/</a>
-(via HTTP) and
-<a href="#test">ftp://alpha.gnu.org/gnu/fontutils/</a>
-(via FTP).</dd>
-
-
-<dt>Development</dt>
-<dd>For development sources, bug and patch trackers, and other information, 
-please see the
-<a href="http://savannah.gnu.org/projects/fontutils/">Fontutils
-project page</a>
-at <a href="http://savannah.gnu.org">savannah.gnu.org</a>.
-Please feel free to look at the <a href="oldtasks.txt">old task list</a>.</dd>
-
-
-<dt id="trans">Translating
-  Fontutils (COMING SOON)</dt>
-
-<dd>To translate Fontutil messages into other languages, please see the 
-<a href="#trans">Translation Project page for Fontutils</a>.
-If you have a new translation of the message strings, or updates to the existing
-strings, please have the changes made in this repository. Only translations 
-from this site will be incorporated into Fontutils. For more information, see 
-the <a href="http://translationproject.org/html/welcome.html">Translation
-Project</a>.</dd>
-
-
-<dt>Maintainer</dt>
-
-<dd>Fontutils is currently maintained by Adam M Dutko. Please use the mailing 
-list to contact the maintainer.</dd>
-
-</dl>
-
+<p>
+For development sources, bug and patch trackers, and other information, 
+please see the <a href="https://savannah.gnu.org/projects/fontutils/">Fontutils
+project page</a> at <a href="https://savannah.gnu.org">savannah.gnu.org</a>.
+Please feel free to look at the <a href="oldtasks.txt">old task list</a>.
+</p>
+ 
+<p>Fontutils is currently maintained by Adam M. Dutko. Please use the mailing 
+list for contact.</p>
 
 <h3 id="license">Licensing</h3>
 
-<p>Fontutils
-is free software; you can redistribute it and/or modify it under the
-terms of the <a href="http://www.gnu.org/licenses/gpl.html"
-rel="license">GNU General Public License</a> as published by the Free
-Software Foundation; either version&nbsp;3 of the License, or (at your
-option) any later version.</p>
-
+<p>Fontutils is free software; you can redistribute it and/or modify it under the
+terms of the <a href="/licenses/gpl.html" rel="license">GNU General Public 
+License</a> as published by the Free Software Foundation; either 
+version&nbsp;3 of the License, or (at your option) any later version.</p>
 
 </div>
+
 <!--#include virtual="/server/footer.html" -->
 <div id="footer">
 <div class="unprintable">
@@ -131,10 +92,9 @@ There are also <a href="/contact/">other ways to contact</a>
 the FSF.  Broken links and other corrections or suggestions can be sent
 to <a href="mailto:fontutils-bugs@gnu.org">&lt;fontutils-bugs@gnu.org&gt;</a>.</p>
 
-<p>Please see the <a
-href="/server/standards/README.translations.html">Translations
-README</a> for information on coordinating and submitting translations
-of this article.</p>
+<p>Please see the <a href="/server/standards/README.translations.html">
+Translations README</a> for information on coordinating and contributing
+translations of this article.</p>
 </div>
 
 <!-- Regarding copyright, in general, standalone pages (as opposed to
@@ -153,7 +113,6 @@ of this article.</p>
      
      There is more detail about copyright years in the GNU Maintainers
      Information document, www.gnu.org/prep/maintain. -->
-
 <p>Copyright &copy; 2010 Free Software Foundation, Inc.</p>
 
 <p>This page is licensed under a <a rel="license"
@@ -164,10 +123,9 @@ Commons Attribution-NoDerivatives 4.0 International License</a>.</p>
 
 <p class="unprintable">Updated:
 <!-- timestamp start -->
-$Date: 2016/05/09 22:52:06 $
+$Date: 2020/10/05 17:46:30 $
 <!-- timestamp end -->
 </p>
-</div>
-</div>
+</div><!-- for class="inner", starts in the banner include -->
 </body>
 </html>
