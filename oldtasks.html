@@ -6,7 +6,7 @@
 <!--#include virtual="/server/banner.html" -->
 <div class="reduced-width">
 <h2>GNU Fontutils Task List</h2>
-<hr class="thin" />
+<div class="thin"></div>
 
 <p>Fontutils is a set of utilities to create and manipulate bitmap fonts.</p>
 
@@ -17,6 +17,7 @@ to allow conversion of a scanned type specimen image into an outline
 (PostScript or Metafont) font.  These fonts can be used with
 <a href="/software/ghostscript/ghostscript.html">Ghostscript</a> or
 <a href="http://tug.org">TeX</a>.
+</p>
 
 <p>The fontutils has a new maintainer.  Please be patient as the new maintainer
 acclimates to the project.</p> 
@@ -36,50 +37,65 @@ acclimates to the project.</p>
 other programs have been developed which do a better job of some parts
 of this task.  Here is a list of the fontutils programs with indications
 of their current status:
+</p>
 
 <ul>
 <li>imgrotate: rotates images 90 degrees, an inefficiently-implemented
 subset of pnmrotate (from <a href="http://netpbm.sourceforge.net">netpbm</a>).
+</li>
 
 <li>imageto: extracts individual characters from a large image; still useful.
+</li>
 
 <li>fontconvert: some features may still be useful, such as creating a
 tfm file from a bitmap.
+</li>
 
 <li>charspace: allows non-interactive side bearing specification, so
 possibly still useful.  On the other hand, <a
 href="http://fontforge.sourceforge.net">fontforge</a> allows interactive
 specification, and has a very nice preview window for testing side
 bearings.
+</li>
 
 <li>gsrenderfont: a shell script that converts outline fonts to bitmaps
 at a given size.  This is called from TeX programs under certain
 circumstances.  The version here has long been replaced by the scripts
 in the TeX distributions.
+</li>
 
 <li>limn: does the actual conversion from bitmaps to splines. These
 days, you're much better off using
 <a href="http://autotrace.sourceforge.net">autotrace</a> or
 <a href="http://potrace.sourceforge.net">potrace</a>.
+</li>
 
 <li>bzrto: conversion from the generic homegrown `bzr' (Bezier) format
 output by limn to PostScript Type&nbsp;1, PostScript Type&nbsp;3, or
 Metafont.  Obsolete.
+</li>
 
 <li>bpltobzr: translate the binary bzr format into an equivalent text
 format `bpl' (bezier property list), for editing.  Fortunately, a
 full-featured free outline font editor, <a
 href="http://fontforge.sourceforge.net">fontforge</a>, has been written
 (by George Williams).  Obsolete.
+</li>
 
 <li>xbfe: bitmap font editor for shapes and metrics; astonishingly, it
 seems there are still no bitmap editors for any format except BDF, so
 still useful.  Or can fontforge handle other bitmaps?
+</li>
 
 </ul>
 
 <p>The obsolete programs should probably be removed from the
 distribution, but left in the source tree.</p>
+
+</div>
+</div>
+<div id="footer">
+<div style="max-width: 53.7em; margin: auto;">
 
 <!-- Regarding copyright, in general, standalone pages (as opposed to
      files generated as part of manuals) on the GNU web server should
@@ -108,9 +124,11 @@ Commons Attribution-NoDerivatives 4.0 International License</a>.
 
 <p class="unprintable">Updated:
 <!-- timestamp start -->
-$Date: 2020/10/05 18:01:28 $
+$Date: 2020/12/23 15:08:53 $
 <!-- timestamp end -->
 </p>
+</div>
+</div>
 </div><!-- for class="inner", starts in the banner include -->
 </body>
 </html>
